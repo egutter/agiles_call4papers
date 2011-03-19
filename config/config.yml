@@ -1,0 +1,8 @@
+:smtp_settings:
+  :address: smtp.domain.com
+  :domain: domain.com
+  :port: 587
+  :authentication: :login
+  :user_name: no-reply@domain.com
+  :password: password
+:host: agiles-call4papers.heroku.com

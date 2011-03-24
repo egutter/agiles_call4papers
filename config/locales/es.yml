@@ -224,7 +224,7 @@ es:
         email: "Email"
         phone: "Teléfono de contacto"
         country: "País"
-        state: "Estado"
+        state: "Estado/Provincia"
         city: "Ciudad"
         organization: "Organización"
         website_url: "Website"
@@ -316,7 +316,7 @@ es:
         city: "Ciudad de residencia, para fines estadísticos."
         organization: "Nombre de empresa u organización que representa, para fines estadísticos."
         website_url: "Personal o de la empresa para referencia de la comisión del programa. En caso de que usted presente una propuesta, este website puede ser consultado para evaluarla."
-        bio: "Escriba un poco sobre su formación acadêmica, experiencia profesional y actuación en la comunidad, con foco en su experiencia con metodologías ágiles. Este campo será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada es permitida. Vea detalles en la <a href='/syntax_help?locale=pt' target='_blank'>guia de referencia</a>."
+        bio: "Escriba un poco sobre su formación acadêmica, experiencia profesional y actuación en la comunidad, con foco en su experiencia con metodologías ágiles. Este campo será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada es permitida. Vea detalles en la <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
         wants_to_submit: "Deje este campo desmarcado en caso de que usted quiera solamente votar o dejar comentários en las sesiones propuestas por otros usuarios. Usted puede cambiar de idea más tarde, editando su perfil."
       session:
         track_id: "La descripción de cada track puede ser consultada <a href='/tracks?locale=pt' target='_blank'>aquí</a>. Para Relatos de Experiencia, solo serán aceptadas sesiones de 45 minutos de duración."

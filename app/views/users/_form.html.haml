@@ -9,31 +9,18 @@
 - form.inputs :user_personal do
   = form.input :wants_to_submit, :as => :boolean, :input_html => {:tabindex => autotab, :disabled => (!@user.new_record? && !@user.roles_mask_changed? && @user.author?)}
   = form.input :phone, :required => true, :input_html => {:tabindex => autotab}
-  = form.input :country, :required => true, :as => :country, :priority_countries => [:BR], :input_html => {:tabindex => autotab}
-  = form.input :state, :required => true, :collection => ActionView::Helpers::FormOptionsHelper::ESTADOS_BRASILEIROS, :input_html => {:tabindex => autotab}
+  = form.input :country, :required => true, :as => :country, :input_html => {:tabindex => autotab}
+  = form.input :state, :required => true, :input_html => {:tabindex => autotab}
   = form.input :city, :required => true, :input_html => {:tabindex => autotab}
   = form.input :organization, :input_html => {:tabindex => autotab}
   = form.input :website_url, :input_html => {:tabindex => autotab}
   = form.input :bio, :required => true, :input_html => {:tabindex => autotab}
 
 :javascript
-  $(document).ready(function() {
-    $("#user_country").bind('updated', countryTriggered);  
-    $("#user_country").bindSelectUpdated();
-    
+  $(document).ready(function() {    
     $("#user_wants_to_submit").change(wantsToSubmitTriggered).trigger('change');
   })
-  
-  function countryTriggered() {
-    if ($(this).val() != "BR") {
-      $('#user_state').val('').attr('disabled', 'disabled');
-      $('#user_state_input').find('label abbr').hide();
-    } else {
-      $('#user_state').removeAttr('disabled');
-      $('#user_state_input').find('label abbr').show();
-    }
-  }
-  
+    
   function wantsToSubmitTriggered() {
     if ($(this).is(":checked")) {
       $("#user_country").removeAttr('disabled').trigger('updated');

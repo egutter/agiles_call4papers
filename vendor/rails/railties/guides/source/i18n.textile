@@ -121,7 +121,7 @@ I18n.load_path << Dir[ File.join(RAILS_ROOT, 'lib', 'locale',
   '*.{rb,yml}') ]
 
 # set default locale to something other than :en
-I18n.default_locale = :pt
+I18n.default_locale = :es
 </ruby>
 
 h4. Setting and Passing the Locale

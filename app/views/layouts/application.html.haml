@@ -3,7 +3,7 @@
   
   %head
     %title
-      Agile Brazil 2010 -
+      Agiles 2011 -
       = (yield(:title) || t('title.untitled'))
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %link{"rel" => "shortcut icon", "href" => "/favicon.ico"}/
@@ -17,9 +17,10 @@
       #header
         = link_to image_tag('logo.png'), root_path
         .logo
-          %h1 Agile Brazil 2010
-          %strong Porto Alegre RS, 22-25 Jun/2010
+          %h1 Agiles 2011
+          %strong Buenos Aires, 11-13 Oct/2011
         %ul#languages
+          %li= link_to "Español", "?locale=es"
           %li= link_to "Português", "?locale=pt"
           %li= link_to "English", "?locale=en"
         
@@ -38,7 +39,7 @@
       
         = yield
 
-      #footer Copyleft - Agile Brazil 2010 - #{t('footer.help')}
+      #footer Copyleft - Agiles 2011 - #{t('footer.help')}
 
     - unless AppConfig[:tracker_id].nil?
       :javascript

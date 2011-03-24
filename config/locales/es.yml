@@ -1,0 +1,620 @@
+es:
+  # formatos de data y hora
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d de %B"
+      long: "%d de %B de %Y"
+    
+    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
+    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sáb]
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+    order: [:day, :month, :year]
+  
+  time:
+    formats:
+      default: "%A, %d de %B de %Y, %H:%M h"
+      short: "%d/%m, %H:%M h"
+      long: "%A, %d de %B de %Y, %H:%M h"
+    am: ''
+    pm: ''
+  
+  # distancia do tempo en palavras
+  datetime:
+    distance_in_words:
+      half_a_minute: 'medio minuto'
+      less_than_x_seconds:
+        one: 'menos de 1 segundo'
+        other: 'menos de {{count}} segundos'
+      
+      x_seconds:
+        one: '1 segundo'
+        other: '{{count}} segundos'
+      
+      less_than_x_minutes:
+        one: 'menos de un minuto'
+        other: 'menos de {{count}} minutos'
+      
+      x_minutes:
+        one: '1 minuto'
+        other: '{{count}} minutos'
+      
+      about_x_hours:
+        one: 'aproximadamente 1 hora'
+        other: 'aproximadamente {{count}} horas'
+      
+      x_days:
+        one: '1 día'
+        other: '{{count}} dias'
+      
+      about_x_months:
+        one: 'aproximadamente 1 mes'
+        other: 'aproximadamente {{count}} meses'
+      
+      x_months:
+        one: '1 mes'
+        other: '{{count}} meses'
+      
+      about_x_years:
+        one: 'aproximadamente 1 año'
+        other: 'aproximadamente {{count}} años'
+      
+      over_x_years:
+        one: 'más de 1 año'
+        other: 'más de {{count}} años'
+    
+    prompts:
+      year: "Año"
+      month: "Mes"
+      day: "Día"
+      hour: "Hora"
+      minute: "Minuto"
+      second: "Segundos"
+ 
+  # numeros
+  number:
+    format:
+      precision: 3
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: 'AR$'
+        precision: 2
+        format: '%u %n'
+        separator: ','
+        delimiter: '.'
+    percentage:
+      format:
+        delimiter: '.'
+    precision:
+      format:
+        delimiter: '.'
+    human:
+      format:
+        precision: 1
+        delimiter: '.'
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+ 
+  # Usado no Array.to_sentence
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " y "
+      last_word_connector: " y "
+    
+  # ActiveRecord
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "No fue posible guardar {{model}}: 1 error"
+          other: "No fue posible guardar {{model}}: {{count}} errores."
+        body: "Por favor, verifique el/lo(s) siguente(s) campo(s):"
+      messages:
+        inclusion: "no está incluido en la lista"
+        exclusion: "no está disponible"
+        invalid: "no es válido"
+        confirmation: "no está de acuerdo con la confirmación"
+        accepted: "debe ser aceptado"
+        empty: "no puede estar vacio"
+        blank: "no puede estar en blanco"
+        too_long: "es muy largo (máximo: {{count}} caracteres)"
+        too_short: "es muy corto (mínimo: {{count}} caracteres)"
+        wrong_length: "no posee el tamaño esperado ({{count}} caracteres)"
+        taken: "ya está en uso"
+        not_a_number: "no es un número"
+        greater_than: "debe ser mayor a {{count}}"
+        greater_than_or_equal_to: "debe ser mayor o igual a {{count}}"
+        equal_to: "debe ser igual a {{count}}"
+        less_than: "debe ser menor do que {{count}}"
+        less_than_or_equal_to: "debe ser menor o igual a {{count}}"
+        odd: "debe ser impar"
+        even: "debe ser par"
+        record_invalid: "La validación falló: {{errors}}"
+        existence: "no existe"
+        same_author: "no puede ser o mismo autor"
+        incomplete: "perfil de autor incompleto"
+        experience_report_duration: "solo puede ser 45 minutos"
+        experience_report_session_type: "solo puede ser una Sesión"
+        email_format: "debe tener un formato de e-mail válido"
+        username_format: "debe utilizar únicamente letras, números, espacios y .-_@"
+        constant: "no puede cambiar"
+      models:
+        user:
+          attributes:
+            phone:
+              invalid: "debe utilizar únicamente números, espacios y .-+()"
+            email:
+              taken: "otro usuario ya utilizó el mismo e-mail. Por favor ingrese otro e-mail"
+        session:
+          attributes:
+            keyword_list:
+              too_long: "no puede tener más que {{count}} palavras-chave"
+        vote:
+          attributes:
+            logo_id:
+              blank: "por favor seleccione un logo para votar"
+        organizer:
+          attributes:
+            track_id:
+              taken: "usuario ya organiza ese track"
+        reviewer:
+          preferences: "por lo menos un track debe ser aceptado"
+        preference:
+          organizer_track: "no puede evaluar track que está organizando"
+        review:
+          inclusion: "no puede estar en blanco"
+        review_decision:
+          cant_accept: "no puede ser aceptada"
+          cant_reject: "no puede ser rechazada"
+
+  authlogic:
+    error_messages:
+      login_blank: "no puede estar en blanco"
+      login_not_found: "no es válido"
+      login_invalid: "debe usar únicamente letras, números, espaços y .-_@"
+      consecutive_failed_logins_limit_exceeded: "Limite de intentos de logins excedido, cuenta suspendida"
+      email_invalid: "debe tener un formato de e-mail válido"
+      password_blank: "no puede estar en blanco"
+      password_invalid: "no es válido"
+      not_active: "Su cuenta no está activa"
+      not_confirmed: "Su cuenta no está confirmada"
+      not_approved: "Su cuenta no está aprobada"
+      no_authentication_details: "Usted no pasó detalles para autenticación"
+    # models:
+    #   user_session: UserSession (or whatever name you are using)
+    # attributes:
+    #   user_session: (or whatever name you are using)
+    #     login: login
+    #     email: email
+    #     password: password
+    #     remember_me: remember me
+
+  # Formtastic
+  formtastic:
+    :yes: "Si"
+    :no: "No"
+    titles:
+      user_login: "Información de Login"
+      user_personal: "Información Personal"
+      author: "Sobre el/lo(s) autor(es)"
+      proposal: "Sobre la propuesta"
+      work: "Sobre el trabajo"
+      conclusion: "Conclusión de los evaluadores"
+      to_organizers: "Información para los organizadores"
+      to_authors: "Información para los autores"
+      details: "Detalles"
+      review_decision: "Decisión final"
+    labels:
+      user:
+        first_name: "Nombre"
+        last_name: "Apellido"
+        username: "Nombre de usuario"
+        email: "Email"
+        phone: "Teléfono de contacto"
+        country: "País"
+        state: "Estado"
+        city: "Ciudad"
+        organization: "Organización"
+        website_url: "Website"
+        bio: "Mini-currículumn"
+        roles: "Permisos"
+        wants_to_submit: "Pretendo enviar sesiones para la conferencia"
+        new:
+          password: "Contraseña"
+          password_confirmation: "Confirmación de contraseña"
+        edit:
+          password: "Cambiar contraseña"
+          password_confirmation: "Confirmación de nueva contraseña"
+      user_session:
+        username: "Nombre de usuario"
+        password: "Contraseña"
+      session:
+        title: "Título de sesión"
+        track_id: "track de interes"
+        session_type_id: "Tipo de sesión"
+        duration_mins: "Duración de la sesión"
+        target_audience: "Público al que está dirigido"
+        audience_level_id: "Nivel de la sesión"
+        audience_limit: "Límite de participantes"
+        summary: "Resumen"
+        description: "Descripción completa"
+        mechanics: "Mecânica/Proceso"
+        benefits: "Beneficios"
+        experience: "Experiencia con el tema"
+        author_id: "Autor"
+        second_author_id: "Segundo autor"
+        second_author_username: "Segundo autor (username)"
+        keyword_list: "Palabras-clave"
+        created_at: "Creado"
+        updated_at: "Última atualización"
+        state: "Status"
+        reviews: "Evaluaciones"
+        confirm:
+          author_agreement: "Leí y declaro estar al tanto de mis responsabilidades como autor ahora que asumo este compromiso."
+        withdraw:
+          author_agreement: "Declaro desistir de presentar mi sesión en la conferencia y reconozco que no tengo derecho de dar marcha atrás en esta decisión."
+        image_agreement_description: "En adición a estos términos, usted puede opcionalmente dar su consentimiento con el siguiente termino. Autoriza a la organización a grabar el contenido de su sesión, por ejemplo en vídeo, para su divulgación posterior en Internet u otros medios sin fines comerciales."
+        image_agreement: "Al aceptar este termino, concedo a la organización de Agiles 2011 el derecho de grabación y reproducción total o parcial del contenido presentado por mi durante la conferencia para fines no comerciales, en cualquier formato y medio de comunicación, sin cualquier tipo de costo para la organización del evento."
+        author_confirmed: "Confirmación del autor"
+        author_image_agreement: "Derecho de imagen"
+      comment:
+        comment: "Su comentario"
+      organizer:
+        user_id: "Organizador"
+        user_username: "Organizador (username)"
+        track_id: "track de interes"
+      reviewer:
+        user_id: "Evaluador"
+        user_username: "Evaluador (username)"
+        state: "Status"
+        reviewer_agreement: "Leí y declaro conocer mis responsabilidades ahora que asumo este compromiso."
+      preference:
+        audience_level_id: "Nível de conocimiento"
+      review:
+        author_agile_xp_rating_id: "Como evalúa la experiencia del autor principal en metodologías ágiles?"
+        author_proposal_xp_rating_id: "Como você evalúa la experiencia del autor en el tema de la propuesta?"
+        proposal_track: "Es el track adecuado?"
+        proposal_level: "Es el nivel de la audiencia adecuado?"
+        proposal_type: "Es el tipo de sesión adecuado?"
+        proposal_duration: "Es la duración adecuada?"
+        proposal_limit: "Es el límite de participantes adecuado?"
+        proposal_abstract: "El resumen de la sesión es coherente con la descripción completa?"
+        proposal_quality_rating_id: "Como evalúa la claridad, objetividad y escritura del trabajo?"
+        proposal_relevance_rating_id: "Como evalúa la relevancia del trabajo para el evento?"
+        recommendation_id: "Basado en los items anteriores, como evaluador, que recomienda?"
+        justification: "Porque seleccionó esta recomendación?"
+        reviewer_confidence_rating_id: "Como evalúa su propio conocimiento sobre el tema de esta propuesta?"
+        comments_to_organizers: "Por favor ingrese cualquier comentario relevante para el comitê de programa."
+        comments_to_authors: "Por favor ingrese cualquier comentario relevante para los autores."
+        authors: "Autores"
+        session: "Sesión"
+        recommendation: "Recomendación"
+        confidence: "Confianza del evaluador"
+        reviewer: "Evaluador"
+      review_decision:
+        outcome_id: "Decisión del organizador"
+        note_to_authors: "Comentarios para los autores"
+    hints:
+      user:
+        email: "Email principal de contacto."
+        password: "Por lo menos 4 caracteres."
+        phone: "De preferencia un celular."
+        country: "País de residencia, para fines estadísticos."
+        state: "Estado de residencia, para fines estadísticos."
+        city: "Ciudad de residencia, para fines estadísticos."
+        organization: "Nombre de empresa u organización que representa, para fines estadísticos."
+        website_url: "Personal o de la empresa para referencia de la comisión del programa. En caso de que usted presente una propuesta, este website puede ser consultado para evaluarla."
+        bio: "Escriba un poco sobre su formación acadêmica, experiencia profesional y actuación en la comunidad, con foco en su experiencia con metodologías ágiles. Este campo será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada es permitida. Vea detalles en la <a href='/syntax_help?locale=pt' target='_blank'>guia de referencia</a>."
+        wants_to_submit: "Deje este campo desmarcado en caso de que usted quiera solamente votar o dejar comentários en las sesiones propuestas por otros usuarios. Usted puede cambiar de idea más tarde, editando su perfil."
+      session:
+        track_id: "La descripción de cada track puede ser consultada <a href='/tracks?locale=pt' target='_blank'>aquí</a>. Para Relatos de Experiencia, solo serán aceptadas sesiones de 45 minutos de duración."
+        session_type_id: "una descripción de los tipos de sesión puede ser consultada <a href='/session_types?locale=pt' target='_blank'>aquí</a>."
+        duration_mins: "Si su sesión es un Tutorial o Workshop, indique la duración adequada para la misma."
+        audience_level_id: "Indique el nivel de experiencia esperado de su público. Lea una descripción de los niveles <a href='/audience_levels?locale=pt' target='_blank'>aquí</a>."
+        audience_limit: "Si su sesión es un Tutorial o Workshop, indique si tiene un número máximo de participantes."
+        target_audience: "Describa el público al que está dirigida la sesión, por ejemplo: programadores, principiantes en Metodologías Ágiles, analistas, arquitectos, QAs, gerentes de projecto, ejecutivos, etc."
+        summary: "Resumen de la sesión para ser incluido en el programa. Debe estar en relación con la descripción completa de la actividad. Este campo no será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        description: "Describa el contenido completo de su sesión. Este campo será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        mechanics: "Obligatorio para Workshops. Describa como pretende realizar la sesión junto al público. Este campo será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        benefits: "Escriba aquí quales serán los beneficios para el público de su sesión. Que podrán utilizar, o que aprenderán, o que experimentarán, cual será la relevancia para la comunidad, etc. Este campo será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        experience: "Describa su experiencia con el tema sobre o cual pretende disertar. Este campo será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        second_author_username: "Ingrese el nombre de usuario del segundo presentador en este campo. El segundo presentador también requiere ser un usuario registrado. Si no conoce el nombre de usuario del segundo presentador o el/ella aún no se registró, deje este campo en blanco y edite su propuesta antes del final del plazo de envío de propuestas."
+        keyword_list: "Ingrese las palabras-clave separadas por coma."
+      comment:
+        comment: "En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+      new_vote: "Para ver los logotipos en color, basta pasar el mouse por encima del logotipo, o clickear en la lupa para visualizar una imagem ampliada. Para modificar su voto, haga click en el logotipo deseado para selecionarlo y dejelo colorido siempre."
+      edit_vote: "Para ver os logotipos en color, basta pasar el mouse por encima del logotipo, o clickear en la lupa para visualizar una imagem ampliada. Para modificar su voto, haga click en el logotipo deseado para selecionarlo y dejelo colorido siempre."
+      reviewer:
+        user_username: "Ingrese el nombre de usuario del evaluador en este campo."
+      review:
+        comments_to_authors: "Procure escribir feedback útil a los autores en este campo."
+    actions:
+      signup: "Crear nuevo usuario"
+      reset_password: "Recuperar mis datos de acceso"
+      change_password: "Actualizar contraseña"
+      submit_session: "Enviar sesión"
+      edit_profile: "Actualizar perfil"
+      edit_session: "Actualizar sesión"
+      add_comment: "Enviar comentario"
+      edit_comment: "Actualizar comentario"
+      add_vote: "Votar"
+      change_vote: "Cambiar voto"
+      create_organizer: "Agregar organizador"
+      update_organizer: "Actualizar organizador"
+      create_reviewer: "Invitar evaluador"
+      reject_reviewer: "Rechazar invitación"
+      accept_reviewer: "Aceptar invitación"
+      submit_review: "Enviar evaluación"
+      submit_review_decision: "Enviar decisión de la organización"
+      confirm_session: "Confirmar participación"
+      withdraw_session: "Retirar sesión"
+  
+  # Mensagens customizadas
+  title:
+    home: "Página inicial"
+    guidelines: "Reglas de Presentación"
+    signup: "Nuevo usuario"
+    lost_password: "Olvidó su nombre de usuario o contraseña?"
+    change_password: "Seleccione una nueva contraseña"
+    untitled: "Sin título"
+    sessions: "Sesiones recibidas"
+    new_session: "Propuesta de sesión"
+    tracks: "Tracks de interes"
+    session_types: "Tipos de sesión"
+    audience_levels: "Perfiles del público"
+    edit_profile: "Actualizar perfil de {{user}}"
+    edit_session: "Editar sesión"
+    comments: "Comentarios"
+    edit_comment: "Editar comentario"
+    vote: "Vote las propuestas de logo"
+    edit_organizer: "Actualizar organizador"
+    new_review: "nueva evaluación de sesión '{{session}}'"
+    review_decision: "Revisar decisión para la sesión '{{session}}'"
+    accepted_sessions: "Sesiones aceptadas"
+  
+  actions:
+    submission_date: "Plazo para enviar presentaciones"
+    review_date: "Plazo para evaluaciones"
+    review_goal: "Objetivo"
+    submit_session: "Envie una propuesta"
+    browse_sessions: "Propuestas de sesión enviadas"
+    profile: "Mi perfil"
+    edit_profile: "Editar mi perfil"
+    signup: "Crear un nuevo usuario"
+    my_sessions: "Mis propuestas"
+    edit: "Editar"
+    destroy: "Remover"
+    destroy_comment: "remover comentario"
+    cancel: "Cancelar"
+    vote: "Vea las propuestas"
+    manage_organizers: "Organizadores"
+    create_organizer: "Crear nuevo organizador"
+    manage_reviewers: "Evaluadores"
+    create_reviewer: "Invitar nuevo evaluador"
+    organizer_sessions: "Organizar Sesiones"
+    reviewer_sessions: "Evaluar Sesiones"
+    review_session: "Evaluar"
+    reviewer_reviews: "Mis evaluaciones"
+    section:
+      session: "Sesiones"
+      review: "Proceso de evaluación"
+      vote: "Concurso de logo"
+      user: "Perfil"
+    review_decision: "Decisión"
+    create_review_decision: "Nueva Decisión"
+    edit_review_decision: "Editar Decisión"
+  
+  text:
+    for_user: "Mostrando Sesiones del usuario: <strong>{{name}}</strong>"
+    tagged_with: "Mostrando Sesiones con palabra-clave: <strong>{{tag}}</strong>"
+    lost_password:
+      instructions: "Ingrese el e-mail que utilizó para registrarse y su nombre de usuario. Las instrucciones para modificar su contraseña serán enviados por email:"
+    
+  footer:
+    help: "Si tiene dudas, críticas o sugerencias entre en contacto a través del email <a href='mailto:agiles2011-program@googlegroups.con'>agiles2011-program@googlegroups.con</a>"
+  
+  flash:
+    user:
+      create:
+        success: "usuario creado con éxito! Login realizado con éxito."
+      update:
+        success: "Perfil actualizado con éxito!"
+      login:
+        required: "Debe estar logueado para acceder a esta página."
+      logout:
+        required: "Página solo disponible para usuarios logueados."
+    password_reset:
+      create:
+        success: "Instrucciones para recuperar sus datos de acceso fueron enviadas. Por favor verifique su e-mail."
+        failure: "Ningún usuario fue encontrado con ese dirección de email."
+      update:
+        success: "Contraseña modificada con éxito!"
+        failure: "Por favor seleccione una nueva contraseña"
+      invalid_token: "Disculpenos pero no conseguimos localizar su usuario. Si usted está teniendo problemas para recuperar sus datos de acceso intente copiar y pegar la URL provista por email en el navegador o reinicie el proceso de recuperación de contraseña."
+    user_session:
+      create:
+        success: "Login realizado con éxito."
+      destroy:
+        success: "Logout realizado."
+    session:
+      update:
+        success: "Sessión actualizado con éxito!"
+      create:
+        success: "Sessión enviada con éxito."
+      confirm:
+        success: "Participación confirmada con éxito."
+      withdraw:
+        success: "Retirada de sesión confirmada con éxito."
+      cancel:
+        failure: "Sessión ya está cancelada."
+    vote:
+      create:
+        success: "Gracias por votar en el concurso para seleccionar nuestro logotipo!"
+    organizer:
+      create:
+        success: "Organizador creado con éxito."
+      update:
+        success: "Organizador actualizado con éxito!"
+    reviewer:
+      create:
+        success: "Evaluador invitado."
+      reject:
+        success: "Su invitación fue rechazado. Gracias por responder oportunamente."
+        failure: "Su invitación ya está {{status}}."
+      accept:
+        success: "Su invitación fue aceptada. Gracias por responder oportunamente."
+    review_decision:
+      create:
+        success: "Decisión enviada con éxito."
+      update:
+        success: "Decisión actualizada con éxito."
+    failure: "Por favor verifique los campos en destacados"
+    unauthorised: "Usted no está autorizado a acceder a esta página"
+    news:
+      vote: "Novedades: Participe del <a href='#news_contest'>concurso del logo</a> y de su feedback a las propuestas enviadas!"
+    review:
+      create:
+        success: "evaluación guardada con éxito."
+  
+  session_types:
+    tutorial:
+      title: "Tutorial"
+      description: "Este tipo de sesión contempla actividades dirigidas especialmente a personas que están comenzando o buscando un apoyo en Metodologías Ágiles. Tutoriales son clases guiadas por el/los instrutor(es) con el objetivo de proveer a los participantes conocimiento práctico que pueda ser usado de inmediato en projectos Ágiles. Tutoriales tienen objetivos claros de aprendizaje que se enfocan en enseñar habilidades o técnicas específicas."
+    workshop:
+      title: "Workshop"
+      description: "Sesiones altamente interactivas y participativas que permitem que los participantes adquieran conocimiento de una manera práctica. Este tipo de sesión es ideal para tópicos relacionados a innovación, resolución de conflitos, liderazgo, etc. un workshop es una oportunidad para que los participantes aprendan unos con los otros sobre un tópico relevante, para que compartan ideas para expandir una nueva técnica o práctica o para realizar un brainstorming de la idea para la próxima \"novedad\"."
+    talk:
+      title: "Charla"
+      description: "Sesiones dirigidas a quienes buscan tópicos para aumentar sus conocimientos sobre metodologías Ágiles y las mejores prácticas usadas por la comunidad Ágil."
+
+  tracks:
+    general_interest:
+      title: "Interes General"
+      description: "Este track incluirá Sesiones dedicada a quienes quieren entender los principios y prácticas de las metodologías ágiles. Encontrará tutoriales, workshops y charlas seleccionadas para guiar sus primeros pasos en dirección a la cultura ágil."
+    management:
+      title: "Gestión"
+      description: "Sesiones orientadas a profesionales que trabajan con metodologías ágiles dirigidas a discutir nuevos conceptos y prácticas relacionadas a cambios organizacionales y gestión de productos, procesos o projectos."
+    engineering:
+      title: "Ingeniería"
+      description: "Dedicada a profesionales que trabajan con metodologías ágiles o están interesados en la calidad técnica de los productos de software. Encontrará tutoriales, workshops y lecturas sobre tópicos como programación, integración continua, automatización de tests y el uso de herramientas electrônicas para apoyar el desarrollo ágil."
+    experience_reports:
+      title: "Relatos de Experiencia"
+      description: "un relato de experiencia capta la historia de un projecto ágil real, sumarizando los acontecimentos del projecto y aprendizajes más importantes. Estos relatos permiten que practicantes compartan su experiencia práctica que pueda inspirar a otros equipos."
+
+  audience_levels:
+    beginner:
+      title: "Principiante"
+      description: "Alguien que está comezando o terminó de aprender sobre Metodologías Ágiles; un aprendiz!"
+    practitioner:
+      title: "Praticante"
+      description: "Alguien que practica Metodologías Ágiles, concuerda con sus valores y ya se benefició de ellos."
+    experienced:
+      title: "Experto"
+      description: "Alguien que comprende los valores y princípios del Manifesto Ágil y domina alguna metodologia ágil al punto de liderar un equipo o capacitarlo en sus prácticas."
+  
+  email:
+    welcome:
+      subject: "Registración realizada con éxito"
+    password_reset:
+      subject: "Recuperación de contraseña"
+    session_submitted:
+      subject: "Propuesta de sesión enviada para Agiles 2011"
+    reviewer_invitation:
+      subject: "Invitación para equipo de evaluación de Agiles 2011"
+    session_accepted:
+      subject: "Comunicado del Comite de Programa de Agiles 2011"
+    session_rejected:
+      subject: "Comunicado del Comite de Programa de Agiles 2011"
+  
+  vote:
+    description: "La votación para el logotipo de Agiles 2011 terminó."
+    confirmation: "Usted está seguro que quiere votar el logo $LOGO?"
+    change:
+      confirmation: "Usted está seguro que quiere modificar su voto para el logo $LOGO?"
+    current_vote: "Gracias por votar en el concurso para seleccionar nuestro logotipo! Su voto actual es para el logotipo {{logo}}."
+  
+  reviewer:
+    state:
+      created: "Creado"
+      invited: "Invitación enviada"
+      accepted: "Activo"
+      rejected: "Invitación rechazada"
+    doesnot_review: "No evalua"
+  
+  session:
+    state:
+      created: "Creada"
+      in_review: "En evaluación"
+      cancelled: "Cancelada"
+      pending_confirmation: "Aguardando confirmación"
+      accepted: "Aceptada"
+      rejected: "Rechazada"
+    parameters: "Sobre esta sesión"
+    audience_limit: "Limite: {{limit}} participantes"
+    no_audience_limit: "No hay límite de participantes"
+    reviews: "Evaluaciones de '{{session}}'"
+  
+  review:
+    view_session: "Ver propuesta original (con comentarios)"
+    justification: "Justificatición"
+    agile_xp_rating: "Experiencia con metodologías ágiles"
+    proposal_xp_rating: "Experiencia con el tema"
+    proposal_quality_rating: "Claridad, objetivos y escritura"
+    proposal_relevance_rating: "Relevancia para el evento"
+    comments_to_organizers: "Comentarios para los organizadores"
+    comments_to_authors: "Comentarios para los autores"
+    
+  rating:
+    high:
+      title: "Alta"
+    medium:
+      title: "Media"
+    low:
+      title: "Baja"
+    none:
+      title: "Ninguna"
+  
+  recommendation:
+    strong_accept:
+      title: "Aceitación fuerte (sin restricciones)"
+    weak_accept:
+      title: "Aceitación débil (con restricciones)"
+    weak_reject:
+      title: "Rechazo débil (puedo cambiar de opinión)"
+    strong_reject:
+      title: "Rechazo fuerte (no cambiaré de opinión)"
+      
+  outcomes:
+    accept:
+      title: "Aceptada"
+    reject:
+      title: "Rechazada"
+  
+  generic:
+    or: "o"
+    and: "y"
+    ago: "atrás"
+    confirmed: "Si"
+    minutes: "minutos"
+    previous: "&laquo; Anterior"
+    next: "Próxima &raquo;"
+    says: "dice"
+    are_you_sure: "Usted está seguro que quiere {{action}}?"
+    reviewed_by: "Evaluado por"
+    sort_by: "Ordernar {{direction}}"
+    sort_up: "ascendente"
+    sort_down: "descendente"
+    show: "Mostrar {{target}}"
+    hide: "Ocultar {{target}}"

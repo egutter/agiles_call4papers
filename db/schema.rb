@@ -124,7 +124,6 @@ ActiveRecord::Schema.define(:version => 20100501033554) do
     t.text     "mechanics"
     t.text     "benefits"
     t.string   "target_audience"
-    t.integer  "audience_limit",    :limit => 255
     t.integer  "author_id"
     t.text     "experience"
     t.datetime "created_at"
@@ -134,8 +133,9 @@ ActiveRecord::Schema.define(:version => 20100501033554) do
     t.integer  "duration_mins"
     t.integer  "audience_level_id"
     t.integer  "second_author_id"
+    t.integer  "audience_limit"
     t.string   "state"
-    t.integer  "reviews_count",                    :default => 0
+    t.integer  "reviews_count",     :default => 0
     t.boolean  "author_agreement"
     t.boolean  "image_agreement"
   end

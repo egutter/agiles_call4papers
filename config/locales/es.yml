@@ -423,7 +423,7 @@ es:
       instructions: "Ingrese el e-mail que utilizó para registrarse y su nombre de usuario. Las instrucciones para modificar su contraseña serán enviados por email:"
     
   footer:
-    help: "Si tiene dudas, críticas o sugerencias entre en contacto a través del email <a href='mailto:agiles2011-program@googlegroups.con'>agiles2011-program@googlegroups.con</a>"
+    help: "Si tiene dudas, críticas o sugerencias entre en contacto a través del email <a href='mailto:agiles2011-program@agiles.org'>agiles2011-program@agiles.org</a>"
   
   flash:
     user:

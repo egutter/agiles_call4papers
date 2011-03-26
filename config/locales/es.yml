@@ -70,7 +70,7 @@ es:
       day: "Día"
       hour: "Hora"
       minute: "Minuto"
-      second: "Segundos"
+      second: "Segundo"
  
   # numeros
   number:
@@ -127,8 +127,8 @@ es:
         invalid: "no es válido"
         confirmation: "no está de acuerdo con la confirmación"
         accepted: "debe ser aceptado"
-        empty: "no puede estar vacio"
-        blank: "no puede estar en blanco"
+        empty: "no puede ser dejado vacío"
+        blank: "no puede ser dejado en blanco"
         too_long: "es muy largo (máximo: {{count}} caracteres)"
         too_short: "es muy corto (mínimo: {{count}} caracteres)"
         wrong_length: "no posee el tamaño esperado ({{count}} caracteres)"
@@ -137,19 +137,19 @@ es:
         greater_than: "debe ser mayor a {{count}}"
         greater_than_or_equal_to: "debe ser mayor o igual a {{count}}"
         equal_to: "debe ser igual a {{count}}"
-        less_than: "debe ser menor do que {{count}}"
+        less_than: "debe ser menor que {{count}}"
         less_than_or_equal_to: "debe ser menor o igual a {{count}}"
         odd: "debe ser impar"
         even: "debe ser par"
         record_invalid: "La validación falló: {{errors}}"
         existence: "no existe"
-        same_author: "no puede ser o mismo autor"
+        same_author: "no puede ser el mismo autor"
         incomplete: "perfil de autor incompleto"
         experience_report_duration: "solo puede ser 45 minutos"
-        experience_report_session_type: "solo puede ser una Sesión"
+        experience_report_session_type: "solo puede ser una sesión"
         email_format: "debe tener un formato de e-mail válido"
         username_format: "debe utilizar únicamente letras, números, espacios y .-_@"
-        constant: "no puede cambiar"
+        constant: "no se puede cambiar"
       models:
         user:
           attributes:
@@ -160,7 +160,7 @@ es:
         session:
           attributes:
             keyword_list:
-              too_long: "no puede tener más que {{count}} palavras-chave"
+              too_long: "no puede tener más que {{count}} palabras clave"
         vote:
           attributes:
             logo_id:
@@ -168,11 +168,11 @@ es:
         organizer:
           attributes:
             track_id:
-              taken: "usuario ya organiza ese track"
+              taken: "el usuario ya organiza ese track"
         reviewer:
           preferences: "por lo menos un track debe ser aceptado"
         preference:
-          organizer_track: "no puede evaluar track que está organizando"
+          organizer_track: "no puede evaluar el track que está organizando"
         review:
           inclusion: "no puede estar en blanco"
         review_decision:
@@ -181,16 +181,16 @@ es:
 
   authlogic:
     error_messages:
-      login_blank: "no puede estar en blanco"
-      login_not_found: "no es válido"
+      login_blank: "no debe ser dejado en blanco"
+      login_not_found: "no encontrado"
       login_invalid: "debe usar únicamente letras, números, espaços y .-_@"
-      consecutive_failed_logins_limit_exceeded: "Limite de intentos de logins excedido, cuenta suspendida"
+      consecutive_failed_logins_limit_exceeded: "Limite de intentos de login excedido, cuenta suspendida"
       email_invalid: "debe tener un formato de e-mail válido"
       password_blank: "no puede estar en blanco"
       password_invalid: "no es válido"
       not_active: "Su cuenta no está activa"
-      not_confirmed: "Su cuenta no está confirmada"
-      not_approved: "Su cuenta no está aprobada"
+      not_confirmed: "Su cuenta no ha sido confirmada"
+      not_approved: "Su cuenta no ha sido aprobada"
       no_authentication_details: "Usted no pasó detalles para autenticación"
     # models:
     #   user_session: UserSession (or whatever name you are using)
@@ -203,7 +203,7 @@ es:
 
   # Formtastic
   formtastic:
-    :yes: "Si"
+    :yes: "Sí"
     :no: "No"
     titles:
       user_login: "Información de Login"
@@ -242,7 +242,7 @@ es:
         password: "Contraseña"
       session:
         title: "Título de sesión"
-        track_id: "track de interes"
+        track_id: "Track de interés"
         session_type_id: "Tipo de sesión"
         duration_mins: "Duración de la sesión"
         target_audience: "Público al que está dirigido"
@@ -250,7 +250,7 @@ es:
         audience_limit: "Límite de participantes"
         summary: "Resumen"
         description: "Descripción completa"
-        mechanics: "Mecânica/Proceso"
+        mechanics: "Mecánica/Proceso"
         benefits: "Beneficios"
         experience: "Experiencia con el tema"
         author_id: "Autor"
@@ -265,8 +265,8 @@ es:
           author_agreement: "Leí y declaro estar al tanto de mis responsabilidades como autor ahora que asumo este compromiso."
         withdraw:
           author_agreement: "Declaro desistir de presentar mi sesión en la conferencia y reconozco que no tengo derecho de dar marcha atrás en esta decisión."
-        image_agreement_description: "En adición a estos términos, usted puede opcionalmente dar su consentimiento con el siguiente termino. Autoriza a la organización a grabar el contenido de su sesión, por ejemplo en vídeo, para su divulgación posterior en Internet u otros medios sin fines comerciales."
-        image_agreement: "Al aceptar este termino, concedo a la organización de Agiles 2011 el derecho de grabación y reproducción total o parcial del contenido presentado por mi durante la conferencia para fines no comerciales, en cualquier formato y medio de comunicación, sin cualquier tipo de costo para la organización del evento."
+        image_agreement_description: "Además de estos términos, usted puede opcionalmente dar su consentimiento con el siguiente término: Autoriza a la organización a grabar el contenido de su sesión, por ejemplo en vídeo, para su divulgación posterior en Internet u otros medios sin fines comerciales."
+        image_agreement: "Al aceptar este término, concedo a la organización de Ágiles 2011 el derecho de grabación y reproducción total o parcial del contenido presentado por mí durante la conferencia para fines no comerciales, en cualquier formato y medio de comunicación, sin cualquier tipo de costo para la organización del evento."
         author_confirmed: "Confirmación del autor"
         author_image_agreement: "Derecho de imagen"
       comment:
@@ -274,29 +274,29 @@ es:
       organizer:
         user_id: "Organizador"
         user_username: "Organizador (username)"
-        track_id: "track de interes"
+        track_id: "Track de interés"
       reviewer:
         user_id: "Evaluador"
         user_username: "Evaluador (username)"
         state: "Status"
         reviewer_agreement: "Leí y declaro conocer mis responsabilidades ahora que asumo este compromiso."
       preference:
-        audience_level_id: "Nível de conocimiento"
+        audience_level_id: "Nivel de conocimiento"
       review:
-        author_agile_xp_rating_id: "Como evalúa la experiencia del autor principal en metodologías ágiles?"
-        author_proposal_xp_rating_id: "Como você evalúa la experiencia del autor en el tema de la propuesta?"
-        proposal_track: "Es el track adecuado?"
-        proposal_level: "Es el nivel de la audiencia adecuado?"
-        proposal_type: "Es el tipo de sesión adecuado?"
-        proposal_duration: "Es la duración adecuada?"
-        proposal_limit: "Es el límite de participantes adecuado?"
-        proposal_abstract: "El resumen de la sesión es coherente con la descripción completa?"
-        proposal_quality_rating_id: "Como evalúa la claridad, objetividad y escritura del trabajo?"
-        proposal_relevance_rating_id: "Como evalúa la relevancia del trabajo para el evento?"
-        recommendation_id: "Basado en los items anteriores, como evaluador, que recomienda?"
-        justification: "Porque seleccionó esta recomendación?"
-        reviewer_confidence_rating_id: "Como evalúa su propio conocimiento sobre el tema de esta propuesta?"
-        comments_to_organizers: "Por favor ingrese cualquier comentario relevante para el comitê de programa."
+        author_agile_xp_rating_id: "¿Cómo evalúa la experiencia del autor principal en metodologías ágiles?"
+        author_proposal_xp_rating_id: "¿Cómo evalúa la experiencia del autor en el tema de la propuesta?"
+        proposal_track: "¿Es el track adecuado?"
+        proposal_level: "¿Es el nivel de la audiencia adecuado?"
+        proposal_type: "¿Es el tipo de sesión adecuado?"
+        proposal_duration: "¿Es la duración adecuada?"
+        proposal_limit: "¿Es el límite de participantes adecuado?"
+        proposal_abstract: "¿El resumen de la sesión es coherente con la descripción completa?"
+        proposal_quality_rating_id: "¿Cómo evalúa la claridad, objetividad y escritura del trabajo?"
+        proposal_relevance_rating_id: "¿Cómo evalúa la relevancia del trabajo para el evento?"
+        recommendation_id: "Basado en los items anteriores, como evaluador, ¿qué recomienda?"
+        justification: "¿Por qué seleccionó esta recomendación?"
+        reviewer_confidence_rating_id: "¿Cémo evalúa su propio conocimiento sobre el tema de esta propuesta?"
+        comments_to_organizers: "Por favor ingrese cualquier comentario relevante para el comité de programa."
         comments_to_authors: "Por favor ingrese cualquier comentario relevante para los autores."
         authors: "Autores"
         session: "Sesión"
@@ -308,11 +308,11 @@ es:
         note_to_authors: "Comentarios para los autores"
     hints:
       user:
-        email: "Email principal de contacto."
+        email: "E-mail principal de contacto."
         password: "Por lo menos 4 caracteres."
         phone: "De preferencia un celular."
         country: "País de residencia, para fines estadísticos."
-        state: "Estado de residencia, para fines estadísticos."
+        state: "Estado/región/provincia de residencia, para fines estadísticos."
         city: "Ciudad de residencia, para fines estadísticos."
         organization: "Nombre de empresa u organización que representa, para fines estadísticos."
         website_url: "Personal o de la empresa para referencia de la comisión del programa. En caso de que usted presente una propuesta, este website puede ser consultado para evaluarla."
@@ -325,15 +325,15 @@ es:
         audience_level_id: "Indique el nivel de experiencia esperado de su público. Lea una descripción de los niveles <a href='/audience_levels?locale=pt' target='_blank'>aquí</a>."
         audience_limit: "Si su sesión es un Tutorial o Workshop, indique si tiene un número máximo de participantes."
         target_audience: "Describa el público al que está dirigida la sesión, por ejemplo: programadores, principiantes en Metodologías Ágiles, analistas, arquitectos, QAs, gerentes de projecto, ejecutivos, etc."
-        summary: "Resumen de la sesión para ser incluido en el programa. Debe estar en relación con la descripción completa de la actividad. Este campo no será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
-        description: "Describa el contenido completo de su sesión. Este campo será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
-        mechanics: "Obligatorio para Workshops. Describa como pretende realizar la sesión junto al público. Este campo será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
-        benefits: "Escriba aquí quales serán los beneficios para el público de su sesión. Que podrán utilizar, o que aprenderán, o que experimentarán, cual será la relevancia para la comunidad, etc. Este campo será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
-        experience: "Describa su experiencia con el tema sobre o cual pretende disertar. Este campo será usado para evaluar su propuesta.<br/>En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        summary: "Resumen de la sesión para ser incluido en el programa. Debe estar en relación con la descripción completa de la actividad. Este campo no será usado para evaluar su propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        description: "Describa el contenido completo de su sesión. Este campo será usado para evaluar su propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        mechanics: "Obligatorio para Workshops. Describa como pretende realizar la sesión junto al público. Este campo será usado para evaluar su propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        benefits: "Escriba aquí quales serán los beneficios para el público de su sesión. Que podrán utilizar, o que aprenderán, o que experimentarán, cual será la relevancia para la comunidad, etc. Este campo será usado para evaluar su propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        experience: "Describa su experiencia con el tema sobre o cual pretende disertar. Este campo será usado para evaluar su propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
         second_author_username: "Ingrese el nombre de usuario del segundo presentador en este campo. El segundo presentador también requiere ser un usuario registrado. Si no conoce el nombre de usuario del segundo presentador o el/ella aún no se registró, deje este campo en blanco y edite su propuesta antes del final del plazo de envío de propuestas."
         keyword_list: "Ingrese las palabras-clave separadas por coma."
       comment:
-        comment: "En este campo, una sintaxis de hipertexto limitada está permitida. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        comment: "En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
       new_vote: "Para ver los logotipos en color, basta pasar el mouse por encima del logotipo, o clickear en la lupa para visualizar una imagem ampliada. Para modificar su voto, haga click en el logotipo deseado para selecionarlo y dejelo colorido siempre."
       edit_vote: "Para ver os logotipos en color, basta pasar el mouse por encima del logotipo, o clickear en la lupa para visualizar una imagem ampliada. Para modificar su voto, haga click en el logotipo deseado para selecionarlo y dejelo colorido siempre."
       reviewer:
@@ -396,7 +396,7 @@ es:
     my_sessions: "Mis propuestas"
     edit: "Editar"
     destroy: "Remover"
-    destroy_comment: "remover comentario"
+    destroy_comment: "Remover comentario"
     cancel: "Cancelar"
     vote: "Vea las propuestas"
     manage_organizers: "Organizadores"
@@ -434,7 +434,7 @@ es:
       login:
         required: "Debe estar logueado para acceder a esta página."
       logout:
-        required: "Página solo disponible para usuarios logueados."
+        required: "Página sólo disponible para usuarios logueados."
     password_reset:
       create:
         success: "Instrucciones para recuperar sus datos de acceso fueron enviadas. Por favor verifique su e-mail."
@@ -442,7 +442,7 @@ es:
       update:
         success: "Contraseña modificada con éxito!"
         failure: "Por favor seleccione una nueva contraseña"
-      invalid_token: "Disculpenos pero no conseguimos localizar su usuario. Si usted está teniendo problemas para recuperar sus datos de acceso intente copiar y pegar la URL provista por email en el navegador o reinicie el proceso de recuperación de contraseña."
+      invalid_token: "Los sentimos pero nos ha sido posible localizar su usuario. Si usted tiene problemas para recuperar sus datos de acceso intente copiar y pegar la URL provista por email en el navegador o reinicie el proceso de recuperación de contraseña."
     user_session:
       create:
         success: "Login realizado con éxito."
@@ -450,18 +450,18 @@ es:
         success: "Logout realizado."
     session:
       update:
-        success: "Sessión actualizado con éxito!"
+        success: "Sesión actualizado con éxito!"
       create:
-        success: "Sessión enviada con éxito."
+        success: "Sesión enviada con éxito."
       confirm:
         success: "Participación confirmada con éxito."
       withdraw:
         success: "Retirada de sesión confirmada con éxito."
       cancel:
-        failure: "Sessión ya está cancelada."
+        failure: "Sesión ya fue cancelada."
     vote:
       create:
-        success: "Gracias por votar en el concurso para seleccionar nuestro logotipo!"
+        success: "¡Gracias por votar en el concurso para seleccionar nuestro logotipo!"
     organizer:
       create:
         success: "Organizador creado con éxito."
@@ -486,7 +486,7 @@ es:
       vote: "Novedades: Participe del <a href='#news_contest'>concurso del logo</a> y de su feedback a las propuestas enviadas!"
     review:
       create:
-        success: "evaluación guardada con éxito."
+        success: "Evaluación guardada con éxito."
   
   session_types:
     tutorial:
@@ -494,29 +494,29 @@ es:
       description: "Este tipo de sesión contempla actividades dirigidas especialmente a personas que están comenzando o buscando un apoyo en Metodologías Ágiles. Tutoriales son clases guiadas por el/los instrutor(es) con el objetivo de proveer a los participantes conocimiento práctico que pueda ser usado de inmediato en projectos Ágiles. Tutoriales tienen objetivos claros de aprendizaje que se enfocan en enseñar habilidades o técnicas específicas."
     workshop:
       title: "Workshop"
-      description: "Sesiones altamente interactivas y participativas que permitem que los participantes adquieran conocimiento de una manera práctica. Este tipo de sesión es ideal para tópicos relacionados a innovación, resolución de conflitos, liderazgo, etc. un workshop es una oportunidad para que los participantes aprendan unos con los otros sobre un tópico relevante, para que compartan ideas para expandir una nueva técnica o práctica o para realizar un brainstorming de la idea para la próxima \"novedad\"."
+      description: "Sesiones altamente interactivas y participativas que permitem que los participantes adquieran conocimiento de una manera práctica. Este tipo de sesión es ideal para tópicos relacionados a innovación, resolución de conflictos, liderazgo, etc. Un workshop es una oportunidad para que los participantes aprendan unos con los otros sobre un tópico relevante, para que compartan ideas para expandir una nueva técnica o práctica o para realizar un brainstorming de la idea para la próxima \"novedad\"."
     talk:
       title: "Charla"
       description: "Sesiones dirigidas a quienes buscan tópicos para aumentar sus conocimientos sobre metodologías Ágiles y las mejores prácticas usadas por la comunidad Ágil."
 
   tracks:
     general_interest:
-      title: "Interes General"
+      title: "Interés General"
       description: "Este track incluirá Sesiones dedicada a quienes quieren entender los principios y prácticas de las metodologías ágiles. Encontrará tutoriales, workshops y charlas seleccionadas para guiar sus primeros pasos en dirección a la cultura ágil."
     management:
       title: "Gestión"
-      description: "Sesiones orientadas a profesionales que trabajan con metodologías ágiles dirigidas a discutir nuevos conceptos y prácticas relacionadas a cambios organizacionales y gestión de productos, procesos o projectos."
+      description: "Sesiones orientadas a profesionales que trabajan con metodologías ágiles dirigidas a discutir nuevos conceptos y prácticas relacionadas a cambios organizacionales y gestión de productos, procesos o proyectos."
     engineering:
       title: "Ingeniería"
       description: "Dedicada a profesionales que trabajan con metodologías ágiles o están interesados en la calidad técnica de los productos de software. Encontrará tutoriales, workshops y lecturas sobre tópicos como programación, integración continua, automatización de tests y el uso de herramientas electrônicas para apoyar el desarrollo ágil."
     experience_reports:
       title: "Relatos de Experiencia"
-      description: "un relato de experiencia capta la historia de un projecto ágil real, sumarizando los acontecimentos del projecto y aprendizajes más importantes. Estos relatos permiten que practicantes compartan su experiencia práctica que pueda inspirar a otros equipos."
+      description: "un relato de experiencia capta la historia de un projecto ágil real, resumiendo los acontecimentos del projecto y aprendizajes más importantes. Estos relatos permiten que practicantes compartan su experiencia práctica que pueda inspirar a otros equipos."
 
   audience_levels:
     beginner:
       title: "Principiante"
-      description: "Alguien que está comezando o terminó de aprender sobre Metodologías Ágiles; un aprendiz!"
+      description: "Alguien que está comezando o terminó de aprender sobre Metodologías Ágiles; ¡un aprendiz!"
     practitioner:
       title: "Praticante"
       description: "Alguien que practica Metodologías Ágiles, concuerda con sus valores y ya se benefició de ellos."
@@ -526,24 +526,24 @@ es:
   
   email:
     welcome:
-      subject: "Registración realizada con éxito"
+      subject: "Registro realizado con éxito"
     password_reset:
       subject: "Recuperación de contraseña"
     session_submitted:
-      subject: "Propuesta de sesión enviada para Agiles 2011"
+      subject: "Propuesta de sesión enviada para Ágiles 2011"
     reviewer_invitation:
-      subject: "Invitación para equipo de evaluación de Agiles 2011"
+      subject: "Invitación para equipo de evaluación de Ágiles 2011"
     session_accepted:
-      subject: "Comunicado del Comite de Programa de Agiles 2011"
+      subject: "Comunicado del Comite de Programa de Ágiles 2011"
     session_rejected:
-      subject: "Comunicado del Comite de Programa de Agiles 2011"
+      subject: "Comunicado del Comite de Programa de Ágiles 2011"
   
   vote:
-    description: "La votación para el logotipo de Agiles 2011 terminó."
-    confirmation: "Usted está seguro que quiere votar el logo $LOGO?"
+    description: "La votación para el logotipo de Ágiles 2011 terminó."
+    confirmation: "¿Está seguro de votar por el logo $LOGO?"
     change:
-      confirmation: "Usted está seguro que quiere modificar su voto para el logo $LOGO?"
-    current_vote: "Gracias por votar en el concurso para seleccionar nuestro logotipo! Su voto actual es para el logotipo {{logo}}."
+      confirmation: "¿Está seguro de modificar su voto para el logo $LOGO?"
+    current_vote: "¡Gracias por votar en el concurso para seleccionar nuestro logotipo! Su voto actual es para el logotipo {{logo}}."
   
   reviewer:
     state:
@@ -551,7 +551,7 @@ es:
       invited: "Invitación enviada"
       accepted: "Activo"
       rejected: "Invitación rechazada"
-    doesnot_review: "No evalua"
+    doesnot_review: "No evalúa"
   
   session:
     state:
@@ -588,9 +588,9 @@ es:
   
   recommendation:
     strong_accept:
-      title: "Aceitación fuerte (sin restricciones)"
+      title: "Aceptación fuerte (sin restricciones)"
     weak_accept:
-      title: "Aceitación débil (con restricciones)"
+      title: "Aceptación débil (con restricciones)"
     weak_reject:
       title: "Rechazo débil (puedo cambiar de opinión)"
     strong_reject:
@@ -606,14 +606,14 @@ es:
     or: "o"
     and: "y"
     ago: "atrás"
-    confirmed: "Si"
+    confirmed: "Sí"
     minutes: "minutos"
     previous: "&laquo; Anterior"
     next: "Próxima &raquo;"
     says: "dice"
-    are_you_sure: "Usted está seguro que quiere {{action}}?"
+    are_you_sure: "¿Está seguro que quiere {{action}}?"
     reviewed_by: "Evaluado por"
-    sort_by: "Ordernar {{direction}}"
+    sort_by: "Ordenar {{direction}}"
     sort_up: "ascendente"
     sort_down: "descendente"
     show: "Mostrar {{target}}"

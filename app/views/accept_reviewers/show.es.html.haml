@@ -1,0 +1,57 @@
+- title "Invitación para ser parte del comité de evaluación de Ágiles 2011"
+.auto_focus
+
+%p Estimado #{@reviewer.user.full_name},
+
+%p Gracias por considerar ser parte del comité de evaluación de Ágiles 2011. Para confirmar su participación, por favor escoja los tracks en los que Ud. se sentría cómodo de evaluar, como también indicar su nivel de conocimiento en cada track seleccionado:
+
+- content_for :agreement do
+  %h3 TÉRMINOS DE ACUERDO COMO REVISOR DE ÁGILES 2011
+
+  %p
+    Para confirmar su participación y compromios como REVISOR de las propuestas enviadas 
+	al track TODO_INDUSTRIAL de Ágile 2011, Ud. debe estar de acuerdo con los siguientes términos:
+  %ol
+    %li
+	  Como miembro del Comité Revisor, continuiré a la selección de un programa de alto nivel técnico
+      con el objetivo de transformar Ágiles 2011 en un evento de referencia	internacional sobre
+      metodologías ágiles;	  
+    %li
+	  Como revisor, analizaré críticamente e imparcialmente las propuestas enviadas al
+	  track TODO_INDUSTRIAL, siguiendo los lineamientos definidos por el Comité de Prorama del evento;
+    %li
+	  Como revisor, seguiré las orientaciones del Comité de Programa durante la ejecución
+	  de esta actividad, tratando de lograr las metas y objetivos (calendarización y calidad 
+	  de revisiones) presentadas por el sistema de revisiones;
+    %li
+	  Como revisor, no anunciaré los resultados de las revisiones hasta que sean publicados por
+	  el Comité de Programa;
+    %li
+	  Como revisor, me compromito a recahzar la revisión de trabajos que calcen con intereses
+	  personales, tales como mis propios envíos o aquellos de mis clientes, cercanos, amigos y
+	  socios personales; o incluso aquellos trabajos muy similares a aquellos que yo he enviado;
+    %li
+	  Como revisor, cumpliré con los requerimientos de ls Organizadores del Track con el objetivo
+	  de aseguirar una buena distribución de trabajos y el flujo del procesos de revisión de propuestas;
+    %li
+	  Como revisor, solicitaré información adicional y aclaraciones a los respectivos autores
+	  de cada propuesta con el objetivo de evitar injusticias y contribuir al aseguramiento de calidad
+	  del programa;
+    %li
+	  Como miembro de Comité Revisor, estoy consciente que la selección final de las propuestas 
+	  que compondrán Ágile 2011 serán realizada por el Comité Revisor basado en los criterios y
+	  revisiones provistas por los revisores;
+    %li
+	  Como miembro del Comité Revisor, estoy consciente	de que este trabajo es vluntario y no
+	  trabajo remunerado, no estando permitido cargar algún costo a la organización de Ágiles 2011.
+    %li
+	  Si hubiese algún impedimento para lograr mis metas, comunicaré de inmediato a 
+      los Coordinadores de Programa la necesidad de mi reemplazo y de transferir mis responsabilidades 	  
+  %p
+    Y, reconociendo que el Equipo Organizador de Ágiles 2011 me provee de completa confianza
+    en una comportamiento ético y profesional en el proceso de selección de las propuestas
+    enviadas a la conferencia, estoy consciente de las consecuencias posibles de actitudes	que
+	puedan entrar en conflicto con las responsabilidades que estoy asumiendo al aceptar los términos
+	de este documento.
+    
+= render 'accept_reviewers/form'

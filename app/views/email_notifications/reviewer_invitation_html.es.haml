@@ -1,0 +1,19 @@
+%p Estimado #{h(@reviewer.user.full_name)},
+
+%p Nos gustaría invitarte a que formes parte del equipo de evaluación del programa de Ágiles 2011. Si aceptas esta invitación, por favor, has click en el siguiente link:
+
+%p= link_to reviewer_accept_url(@reviewer, :locale => 'es'), reviewer_accept_url(@reviewer, :locale => 'es')
+
+%p En el caso de no aceptar, por favor, has click en el siguiente link:
+
+%p= link_to reviewer_reject_url(@reviewer, :locale => 'es'), reviewer_reject_url(@reviewer, :locale => 'es')
+
+%p Si alguna de las URLs anteriores no funcionan, prueba copiándola y pegándola en tu navegador.
+
+%p Contamos con tu colaboración para crear una programación excelente para Ágies 2011. Si tienes cualquier pregunta, puedes contactarnos en #{link_to "agiles2011-program@agiles.org", "mailto:agiles2011-program@agiles.org"}.
+
+%p Gracias,
+
+%p Comité de Programa de Ágies 2011
+
+%small [Por favor no responder a este e-mail. Fue enviado desde una casilla no monitoreada]

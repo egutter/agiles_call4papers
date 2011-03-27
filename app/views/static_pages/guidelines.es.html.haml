@@ -1,25 +1,25 @@
 - title "Reglas de Presentación"
 - show_actions!
 
-%p To submit your proposal, create an account in the submission system and fill out the submission form with the details of your proposal. Until the submission deadline, you will be able to edit your profile, create session proposals and edit existing proposals of which you are one of the authors. You may submit as many proposals as you wish, but <strong>no more than one session per main author will be accepted</strong> in the final program. It is not possible to remove a proposal.
+%p Para enviar tu propuesta, crea una cuenta en el sistema de propuestas y completa el formulario con la información sobre tu propuesta. Hasta la fecha límite para el envío de las mismas, podrás editar tu perfil, crear sesiones y editar las propuestas existentes de las cuales eres uno de los autores. Puedes enviar tantas propuestas como desées, pero <strong>solo una propuesta por autor será aceptada</strong> en el programa final. No es posible eliminar las propuestas enviadas.
 
-%p Note that you will also be able to read proposals submitted by other users, as they will be able to read yours, even after the submission deadline.
+%p Recuerda que también podrás leer aquellas propuestas que han enviado otros usuarios, así como ellos podrán leer las enviadas por tí, aun después de la fecha límite para el envío de propuestas.
 
-%p The submissions will be reviewed and evaluated by at least 3 members of the reviewing committee. For that, they will consider:
-
-%ul
-  %li The authors' experience - both the mini biography presented in #{logged_in? ? link_to("your user profile", user_path(current_user)) : "your user profile"} and the field about experience with the subject in the submission form;
-  %li Adequacy of your proposal in what concerns the chosen #{link_to "track", tracks_path}, #{link_to "session type", session_types_path}, #{link_to "audience level", audience_levels_path}, and target audience;
-  %li Relevance to event;
-  %li Clarity and quality of the written material.
-
-%p Authors of the sessions selected to be in the program will be notified by email after the revision period. After the notification, the main author will have a deadline to register in the conference. In case the main author does not register before the deadline, his session will be removed from the program.
-
-%p See below the important dates:
+%p La propuesta será revisada y evaluada por al menos 3 miembros del comité de revisión. Para esto, ellos considerarán:
 
 %ul
-  %li #{l(Date.new(2010, 1, 31))}: Release of proposal submission form
-  %li #{l(Date.new(2010, 3, 7))}: Submission deadline
+  %li La experiencia del autor - considerando tanto la mini biografía presentada en #{logged_in? ? link_to("tu perfil", user_path(current_user)) : "tu perfil"} como también el campo sobre la experiencia respecto del tema de tu propuesta;
+  %li Adecuación de la propuesta con respecto al #{link_to "track de interés", tracks_path}, #{link_to "tipo de sesión", session_types_path}, #{link_to "perfil y tipo de público", audience_levels_path} seleccionados;
+  %li Relevancia para con el evento;
+  %li Claridad y calidad del material escrito.
+
+%p Los autores de las sesiones seleccionadas para formar parte del programa serán notificados por email luego del periodo de revisión. Luego de la notificación, el autor principal tendrá una fecha límite para registrarse a la conferencia. En el caso de que el autor principal no se registre antes de dicha fecha, su sesión será removida del programa.
+
+%p Fechas importantes:
+
+%ul
+  %li #{l(Date.new(2010, 1, 31))}: Apertura del formulario de envío de propuestas
+  %li #{l(Date.new(2010, 3, 7))}: Fecha límite para proponer sesiones
   %li
-    %strong #{l(Date.new(2010, 4, 16))}: Acceptance notification
-  %li #{l(Date.new(2010, 4, 30))}: Inscription deadline to selected authors
+    %strong #{l(Date.new(2010, 4, 16))}: Notificación de aceptación a autores seleccionados
+  %li #{l(Date.new(2010, 4, 30))}: Fecha límite para la inscripción de los autores seleccionados

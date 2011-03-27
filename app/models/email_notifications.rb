@@ -6,8 +6,8 @@ class EmailNotifications < ActionMailer::Base
     I18n.locale = user.default_locale
     subject       "[#{host}] #{I18n.t('email.welcome.subject')}"
     recipients    "\"#{user.full_name}\" <#{user.email}>"
-    from          "\"Agile Brazil 2010\" <no-reply@#{host}>"
-    reply_to      "\"Agile Brazil 2010\" <no-reply@#{host}>"
+    from          "\"Ágiles 2011\" <no-reply@#{host}>"
+    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
     sent_on       sent_at
     
     multipart_content_for(:welcome, :user => user)
@@ -17,8 +17,8 @@ class EmailNotifications < ActionMailer::Base
     I18n.locale = user.default_locale
     subject       "[#{host}] #{I18n.t('email.password_reset.subject')}"
     recipients    "\"#{user.full_name}\" <#{user.email}>"
-    from          "\"Agile Brazil 2010\" <no-reply@#{host}>"
-    reply_to      "\"Agile Brazil 2010\" <no-reply@#{host}>"
+    from          "\"Ágiles 2011\" <no-reply@#{host}>"
+    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
     sent_on       sent_at
     
     multipart_content_for(:password_reset_instructions, :user => user)
@@ -28,8 +28,8 @@ class EmailNotifications < ActionMailer::Base
     I18n.locale = session.author.try(:default_locale)
     subject       "[#{host}] #{I18n.t('email.session_submitted.subject')}"
     recipients    session.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" }
-    from          "\"Agile Brazil 2010\" <no-reply@#{host}>"
-    reply_to      "\"Agile Brazil 2010\" <no-reply@#{host}>"
+    from          "\"Ágiles 2011\" <no-reply@#{host}>"
+    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
     sent_on       sent_at
     
     multipart_content_for(:session_submitted, :session => session)
@@ -39,8 +39,8 @@ class EmailNotifications < ActionMailer::Base
     I18n.locale = reviewer.user.try(:default_locale)
     subject       "[#{host}] #{I18n.t('email.reviewer_invitation.subject')}"
     recipients    "\"#{reviewer.user.full_name}\" <#{reviewer.user.email}>"
-    from          "\"Agile Brazil 2010\" <no-reply@#{host}>"
-    reply_to      "\"Agile Brazil 2010\" <no-reply@#{host}>"
+    from          "\"Ágiles 2011\" <no-reply@#{host}>"
+    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
     sent_on       sent_at
     
     multipart_content_for(:reviewer_invitation, :reviewer => reviewer)
@@ -52,8 +52,8 @@ class EmailNotifications < ActionMailer::Base
     I18n.locale = session.author.try(:default_locale)
     subject       "[#{host}] #{I18n.t('email.session_accepted.subject')}"
     recipients    session.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" }
-    from          "\"Agile Brazil 2010\" <no-reply@#{host}>"
-    reply_to      "\"Agile Brazil 2010\" <no-reply@#{host}>"
+    from          "\"Ágiles 2011\" <no-reply@#{host}>"
+    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
     sent_on       sent_at
     
     returning multipart_content_for(:session_accepted, :session => session) do
@@ -67,8 +67,8 @@ class EmailNotifications < ActionMailer::Base
     I18n.locale = session.author.try(:default_locale)
     subject       "[#{host}] #{I18n.t('email.session_rejected.subject')}"
     recipients    session.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" }
-    from          "\"Agile Brazil 2010\" <no-reply@#{host}>"
-    reply_to      "\"Agile Brazil 2010\" <no-reply@#{host}>"
+    from          "\"Ágiles 2011\" <no-reply@#{host}>"
+    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
     sent_on       sent_at
     
     returning multipart_content_for(:session_rejected, :session => session) do

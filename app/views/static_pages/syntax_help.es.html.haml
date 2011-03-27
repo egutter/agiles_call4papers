@@ -1,0 +1,38 @@
+- title "Ayuda para Sintaxis Wiki"
+- show_actions!
+
+%p Algunos campos del formulario de envío soportan un formateo básico del texto. Mira abajo los formatos que puedes utilizar:
+
+- sample_stiles = "_italica_\n*negrita*\n@ancho-fijo@\n-tachado-\n+subrayado+"
+
+- sample_lists = "# Ordenada 1\n## Sub-item 1\n# Ordenada 2\n# Ordenada 3\n\n* Sin Orden\n* Sin Orden\n** Sub-item"
+
+- sample_others = "Link a \"Google\":http://google.com\nY una imagen\n!/images/logo.png!"
+
+#textile_help
+  %h5 Estilos
+
+  .example
+    .raw
+      %pre~ sample_stiles
+    .preview
+      :textile
+        #{sample_stiles}
+    
+  %h5 Listas
+
+  .example
+    .raw
+      %pre~ sample_lists
+    .preview
+      :textile
+        #{sample_lists}
+
+  %h5 Links
+  .example
+    .raw
+      %pre~ sample_others
+    .preview
+      :textile
+        #{sample_others}
+

@@ -471,7 +471,7 @@ es:
       create:
         success: "Evaluador invitado."
       reject:
-        success: "Su invitación fue rechazado. Gracias por responder oportunamente."
+        success: "Su invitación fue rechazada. Gracias por responder oportunamente."
         failure: "Su invitación ya está {{status}}."
       accept:
         success: "Su invitación fue aceptada. Gracias por responder oportunamente."

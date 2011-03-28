@@ -327,7 +327,7 @@ es:
         target_audience: "Describa el público al que está dirigida la sesión, por ejemplo: programadores, principiantes en Metodologías Ágiles, analistas, arquitectos, QAs, gerentes de projecto, ejecutivos, etc."
         summary: "Resumen de la sesión para ser incluido en el programa. Debe estar en relación con la descripción completa de la actividad. Este campo no será usado para evaluar su propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
         description: "Describa el contenido completo de su sesión. Este campo será usado para evaluar su propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
-        mechanics: "Obligatorio para Workshops. Describa como pretende realizar la sesión junto al público. Este campo será usado para evaluar su propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
+        mechanics: "Obligatorio para Workshops. Describa cómo pretende realizar la sesión junto al público. Este campo será usado para evaluar su propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
         benefits: "Escriba aquí quales serán los beneficios para el público de su sesión. Que podrán utilizar, o que aprenderán, o que experimentarán, cual será la relevancia para la comunidad, etc. Este campo será usado para evaluar su propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
         experience: "Describa su experiencia con el tema sobre o cual pretende disertar. Este campo será usado para evaluar su propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Vea detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>."
         second_author_username: "Ingrese el nombre de usuario del segundo presentador en este campo. El segundo presentador también requiere ser un usuario registrado. Si no conoce el nombre de usuario del segundo presentador o el/ella aún no se registró, deje este campo en blanco y edite su propuesta antes del final del plazo de envío de propuestas."
@@ -423,26 +423,26 @@ es:
       instructions: "Ingrese el e-mail que utilizó para registrarse y su nombre de usuario. Las instrucciones para modificar su contraseña serán enviados por email:"
     
   footer:
-    help: "Si tiene dudas, críticas o sugerencias entre en contacto a través del email <a href='mailto:agiles2011-program@agiles.org'>agiles2011-program@agiles.org</a>"
+    help: "Si tiene dudas, críticas o sugerencias contáctenos a través del email <a href='mailto:agiles2011-program@agiles.org'>agiles2011-program@agiles.org</a>"
   
   flash:
     user:
       create:
-        success: "usuario creado con éxito! Login realizado con éxito."
+        success: "¡Usuario creado con éxito! Login realizado con éxito."
       update:
-        success: "Perfil actualizado con éxito!"
+        success: "¡Perfil actualizado con éxito!"
       login:
         required: "Debe estar logueado para acceder a esta página."
       logout:
         required: "Página sólo disponible para usuarios logueados."
     password_reset:
       create:
-        success: "Instrucciones para recuperar sus datos de acceso fueron enviadas. Por favor verifique su e-mail."
-        failure: "Ningún usuario fue encontrado con ese dirección de email."
+        success: "Las instrucciones para recuperar sus datos de acceso fueron enviadas. Por favor verifique su e-mail."
+        failure: "Ningún usuario fue encontrado con esa dirección de email."
       update:
         success: "Contraseña modificada con éxito!"
         failure: "Por favor seleccione una nueva contraseña"
-      invalid_token: "Los sentimos pero nos ha sido posible localizar su usuario. Si usted tiene problemas para recuperar sus datos de acceso intente copiar y pegar la URL provista por email en el navegador o reinicie el proceso de recuperación de contraseña."
+      invalid_token: "Los sentimos pero nos ha sido imposible localizar su usuario. Si usted tiene problemas para recuperar sus datos de acceso intente copiar y pegar la URL provista por email en el navegador o reinicie el proceso de recuperación de contraseña."
     user_session:
       create:
         success: "Login realizado con éxito."
@@ -466,7 +466,7 @@ es:
       create:
         success: "Organizador creado con éxito."
       update:
-        success: "Organizador actualizado con éxito!"
+        success: "¡Organizador actualizado con éxito!"
     reviewer:
       create:
         success: "Evaluador invitado."
@@ -480,10 +480,10 @@ es:
         success: "Decisión enviada con éxito."
       update:
         success: "Decisión actualizada con éxito."
-    failure: "Por favor verifique los campos en destacados"
+    failure: "Por favor verifique los campos destacados"
     unauthorised: "Usted no está autorizado a acceder a esta página"
     news:
-      vote: "Novedades: Participe del <a href='#news_contest'>concurso del logo</a> y de su feedback a las propuestas enviadas!"
+      vote: "Novedades: ¡Participe del <a href='#news_contest'>concurso del logo</a> y dé su feedback a las propuestas enviadas!"
     review:
       create:
         success: "Evaluación guardada con éxito."
@@ -491,10 +491,10 @@ es:
   session_types:
     tutorial:
       title: "Tutorial"
-      description: "Este tipo de sesión contempla actividades dirigidas especialmente a personas que están comenzando o buscando un apoyo en Metodologías Ágiles. Tutoriales son clases guiadas por el/los instrutor(es) con el objetivo de proveer a los participantes conocimiento práctico que pueda ser usado de inmediato en projectos Ágiles. Tutoriales tienen objetivos claros de aprendizaje que se enfocan en enseñar habilidades o técnicas específicas."
+      description: "Este tipo de sesión contempla actividades dirigidas especialmente a personas que están comenzando o buscando un apoyo en Metodologías Ágiles. Los tutoriales son clases guiadas por el/los instrutor(es) con el objetivo de proveer a los participantes conocimiento práctico que pueda ser usado de inmediato en proyectos Ágiles. Los totorales tienen objetivos claros de aprendizaje que se enfocan en enseñar habilidades o técnicas específicas."
     workshop:
       title: "Workshop"
-      description: "Sesiones altamente interactivas y participativas que permitem que los participantes adquieran conocimiento de una manera práctica. Este tipo de sesión es ideal para tópicos relacionados a innovación, resolución de conflictos, liderazgo, etc. Un workshop es una oportunidad para que los participantes aprendan unos con los otros sobre un tópico relevante, para que compartan ideas para expandir una nueva técnica o práctica o para realizar un brainstorming de la idea para la próxima \"novedad\"."
+      description: "Sesiones altamente interactivas y participativas que permitem que los participantes adquieran conocimiento de una manera práctica. Este tipo de sesión es ideal para tópicos relacionados con la innovación, resolución de conflictos, liderazgo, etc. Un workshop es una oportunidad para que los participantes aprendan los unos con los otros sobre un tópico relevante, para que compartan ideas para expandir una nueva técnica o práctica o para realizar un brainstorming de la idea para la próxima \"novedad\"."
     talk:
       title: "Charla"
       description: "Sesiones dirigidas a quienes buscan tópicos para aumentar sus conocimientos sobre metodologías Ágiles y las mejores prácticas usadas por la comunidad Ágil."
@@ -502,27 +502,27 @@ es:
   tracks:
     general_interest:
       title: "Interés General"
-      description: "Este track incluirá Sesiones dedicada a quienes quieren entender los principios y prácticas de las metodologías ágiles. Encontrará tutoriales, workshops y charlas seleccionadas para guiar sus primeros pasos en dirección a la cultura ágil."
+      description: "Este track incluirá sesiones dedicadas a quienes quieren entender los principios y prácticas de las metodologías ágiles. Encontrará tutoriales, workshops y charlas seleccionadas para guiar sus primeros pasos en dirección a la cultura ágil."
     management:
       title: "Gestión"
-      description: "Sesiones orientadas a profesionales que trabajan con metodologías ágiles dirigidas a discutir nuevos conceptos y prácticas relacionadas a cambios organizacionales y gestión de productos, procesos o proyectos."
+      description: "Sesiones orientadas a profesionales que trabajan con metodologías ágiles dirigidas a discutir nuevos conceptos y prácticas relacionadas a cambios organizacionales y gestión de productos, equipos, procesos o proyectos."
     engineering:
       title: "Ingeniería"
-      description: "Dedicada a profesionales que trabajan con metodologías ágiles o están interesados en la calidad técnica de los productos de software. Encontrará tutoriales, workshops y lecturas sobre tópicos como programación, integración continua, automatización de tests y el uso de herramientas electrônicas para apoyar el desarrollo ágil."
+      description: "Dedicada a profesionales que trabajan con metodologías ágiles o están interesados en la calidad técnica de los productos de software. Encontrará tutoriales, workshops y charlas sobre tópicos como programación, integración continua, automatización de tests y el uso de herramientas para apoyar el desarrollo ágil."
     experience_reports:
       title: "Relatos de Experiencia"
-      description: "un relato de experiencia capta la historia de un projecto ágil real, resumiendo los acontecimentos del projecto y aprendizajes más importantes. Estos relatos permiten que practicantes compartan su experiencia práctica que pueda inspirar a otros equipos."
+      description: "Un relato de experiencia capta la historia de un proyecto ágil real, resumiendo la historia del proyecto y los aprendizajes más importantes. Estos relatos permiten que los practicantes compartan su experiencia práctica que pueda inspirar a otros equipos."
 
   audience_levels:
     beginner:
       title: "Principiante"
-      description: "Alguien que está comezando o terminó de aprender sobre Metodologías Ágiles; ¡un aprendiz!"
+      description: "Alguien que está comenzando o terminó de aprender sobre Metodologías Ágiles; ¡Un aprendiz!"
     practitioner:
-      title: "Praticante"
+      title: "Practicante"
       description: "Alguien que practica Metodologías Ágiles, concuerda con sus valores y ya se benefició de ellos."
     experienced:
       title: "Experto"
-      description: "Alguien que comprende los valores y princípios del Manifesto Ágil y domina alguna metodologia ágil al punto de liderar un equipo o capacitarlo en sus prácticas."
+      description: "Alguien que comprende los valores y principios del Manifiesto Ágil y domina alguna metodología ágil al punto de liderar un equipo o capacitarlo en sus prácticas."
   
   email:
     welcome:
@@ -532,18 +532,18 @@ es:
     session_submitted:
       subject: "Propuesta de sesión enviada para Ágiles 2011"
     reviewer_invitation:
-      subject: "Invitación para equipo de evaluación de Ágiles 2011"
+      subject: "Invitación al equipo de evaluación de Ágiles 2011"
     session_accepted:
       subject: "Comunicado del Comite de Programa de Ágiles 2011"
     session_rejected:
       subject: "Comunicado del Comite de Programa de Ágiles 2011"
   
   vote:
-    description: "La votación para el logotipo de Ágiles 2011 terminó."
+    description: "La votación para el logo de Ágiles 2011 terminó."
     confirmation: "¿Está seguro de votar por el logo $LOGO?"
     change:
       confirmation: "¿Está seguro de modificar su voto para el logo $LOGO?"
-    current_vote: "¡Gracias por votar en el concurso para seleccionar nuestro logotipo! Su voto actual es para el logotipo {{logo}}."
+    current_vote: "¡Gracias por votar en el concurso para seleccionar nuestro logo! Su voto actual es para el logo {{logo}}."
   
   reviewer:
     state:
@@ -568,7 +568,7 @@ es:
   
   review:
     view_session: "Ver propuesta original (con comentarios)"
-    justification: "Justificatición"
+    justification: "Justificación"
     agile_xp_rating: "Experiencia con metodologías ágiles"
     proposal_xp_rating: "Experiencia con el tema"
     proposal_quality_rating: "Claridad, objetivos y escritura"

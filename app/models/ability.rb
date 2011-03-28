@@ -37,7 +37,7 @@ class Ability
     end
     if user.author?
       can(:create, Session) do
-        Time.zone.now <= Time.zone.local(2010, 3, 7, 23, 59, 59)
+        Time.zone.now <= Time.zone.local(2011, 7, 1, 23, 59, 59)
       end
       can(:update, Session) do |session|
         session.try(:is_author?, user) && Time.zone.now <= Time.zone.local(2010, 3, 7, 23, 59, 59)

@@ -266,7 +266,7 @@ pt:
         withdraw:
           author_agreement: "Declaro desistir de apresentar minha sessão na conferência e reconheço que não tenho direito de voltar atrás nessa decisão."
         image_agreement_description: "Além deste termo, você pode opcionalmente concordar com o termo a seguir. Ele autoriza a organização a gravar o conteúdo de sua sessão, por exemplo em vídeo, para divulgação posterior na Internet ou outras mídias sem fins comerciais."
-        image_agreement: "Ao aceitar este termo, concedo à organização do Ágiles 2011 o direito de gravação e reprodução total ou parcial do conteúdo técnico apresentado por mim durante a conferência para fins não comerciais, em qualquer formato e veículo de comunicação, sem qualquer tipo de ônus para a organização do evento."
+        image_agreement: "Ao aceitar este termo, concedo à organização do evento o direito de gravação e reprodução total ou parcial do conteúdo técnico apresentado por mim durante a conferência para fins não comerciais, em qualquer formato e veículo de comunicação, sem qualquer tipo de ônus para a organização do evento."
         author_confirmed: "Confirmação do autor"
         author_image_agreement: "Direito de imagem"
       comment:
@@ -530,16 +530,16 @@ pt:
     password_reset:
       subject: "Recuperação de senha"
     session_submitted:
-      subject: "Proposta de sessão submetida para Ágiles 2011"
+      subject: "Proposta de sessão submetida para %{conference_name}"
     reviewer_invitation:
-      subject: "Convite para equipe de avaliação da Ágiles 2011"
+      subject: "Convite para equipe de avaliação da %{conference_name}"
     session_accepted:
-      subject: "Comunicado do Comitê de Programa da Ágiles 2011"
+      subject: "Comunicado do Comitê de Programa da %{conference_name}"
     session_rejected:
-      subject: "Comunicado do Comitê de Programa da Ágiles 2011"
+      subject: "Comunicado do Comitê de Programa da %{conference_name}"
   
   vote:
-    description: "A votação para o logotipo da Ágiles 2011 terminou. Lembre-se que o logotipo será apresentado nos materiais de divulgação do evento: impresso, projetado ou usado em vídeos (tanto em formato colorido como em preto e branco)."
+    description: "A votação para o logotipo do evento terminou. Lembre-se que o logotipo será apresentado nos materiais de divulgação do evento: impresso, projetado ou usado em vídeos (tanto em formato colorido como em preto e branco)."
     confirmation: "Você tem certeza que quer votar no logo $LOGO? Apenas o seu voto mais recente será contado."
     change:
       confirmation: "Você tem certeza que quer mudar seu voto para o logo $LOGO?"

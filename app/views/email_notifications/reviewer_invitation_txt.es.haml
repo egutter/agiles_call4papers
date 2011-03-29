@@ -1,7 +1,7 @@
 Estimado #{h(@reviewer.user.full_name)},
 
 
-Nos gustaría invitarlo a que forme parte del equipo de evaluación del programa de Ágiles 2011. Si acepta esta invitación, por favor, visite el siguiente link:
+Nos gustaría invitarlo a que forme parte del equipo de evaluación del programa de #{AppConfig[:conference_name]}. Si acepta esta invitación, por favor, visite el siguiente link:
 
 
 = link_to reviewer_accept_url(@reviewer, :locale => 'es'), reviewer_accept_url(@reviewer, :locale => 'es')

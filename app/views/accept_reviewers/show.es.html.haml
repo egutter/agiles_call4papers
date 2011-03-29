@@ -1,9 +1,9 @@
-- title "Invitación para ser parte del comité de evaluación de Ágiles 2011"
+- title "Invitación para ser parte del comité de evaluación de #{AppConfig[:conference_name]}"
 .auto_focus
 
 %p Estimado #{@reviewer.user.full_name},
 
-%p Gracias por considerar ser parte del comité de evaluación de Ágiles 2011. Para confirmar su participación, por favor escoja los tracks en los que Ud. se sentría cómodo evaluando, como también indicar su nivel de conocimiento en cada track seleccionado:
+%p Gracias por considerar ser parte del comité de evaluación de #{AppConfig[:conference_name]}. Para confirmar su participación, por favor escoja los tracks en los que Ud. se sentría cómodo evaluando, como también indicar su nivel de conocimiento en cada track seleccionado:
 
 - content_for :agreement do
   %h3 TÉRMINOS DEL ACUERDO COMO REVISOR DE ÁGILES 2011
@@ -14,7 +14,7 @@
   %ol
     %li 
     Como miembro del Comité Revisor, contribuiré a la selección de un programa de alto nivel 
-    técnico con el objetivo de transformar Ágiles 2011 en un evento de referencia internacional 
+    técnico con el objetivo de transformar #{AppConfig[:conference_name]} en un evento de referencia internacional 
     sobre metodologías ágiles;	  
     %li 
     Como revisor, analizaré críticamente e imparcialmente las propuestas enviadas al track Industrial, 
@@ -37,15 +37,15 @@
     con el objetivo de evitar injusticias y contribuir al aseguramiento de la calidad del programa;
     %li 
     Como miembro de Comité Revisor, estoy consciente que la selección final de las propuestas que formarán el programa de 
-    Ágiles 2011 serán realizada por el Comité Revisor basado en los criterios y revisiones provistas por los revisores;
+    #{AppConfig[:conference_name]} serán realizada por el Comité Revisor basado en los criterios y revisiones provistas por los revisores;
     %li 
     Como miembro del Comité Revisor, estoy consciente de que este trabajo es voluntario y no trabajo remunerado, 
-    no estando permitido cargar algún costo a la organización de Ágiles 2011.
+    no estando permitido cargar algún costo a la organización de #{AppConfig[:conference_name]}.
     %li 
     Si hubiese algún impedimento para lograr mis metas, comunicaré de inmediato a los Coordinadores de Programa 
     la necesidad de mi reemplazo y de transferir mis responsabilidades.
   %p 
-    Y, reconociendo que el Equipo Organizador de Ágiles 2011 me provee de completa confianza en un comportamiento 
+    Y, reconociendo que el Equipo Organizador de #{AppConfig[:conference_name]} me provee de completa confianza en un comportamiento 
     ético y profesional en el proceso de selección de las propuestas enviadas a la conferencia, estoy consciente 
     de las consecuencias posibles de actitudes que puedan entrar en conflicto con las responsabilidades que estoy 
     asumiendo al aceptar los términos de este documento.

@@ -266,7 +266,7 @@ es:
         withdraw:
           author_agreement: "Declaro desistir de presentar mi sesión en la conferencia y reconozco que no tengo derecho de dar marcha atrás en esta decisión."
         image_agreement_description: "Además de estos términos, usted puede opcionalmente dar su consentimiento con el siguiente término: Autoriza a la organización a grabar el contenido de su sesión, por ejemplo en vídeo, para su divulgación posterior en Internet u otros medios sin fines comerciales."
-        image_agreement: "Al aceptar este término, concedo a la organización de Ágiles 2011 el derecho de grabación y reproducción total o parcial del contenido presentado por mí durante la conferencia para fines no comerciales, en cualquier formato y medio de comunicación, sin cualquier tipo de costo para la organización del evento."
+        image_agreement: "Al aceptar este término, concedo a la organización del evento el derecho de grabación y reproducción total o parcial del contenido presentado por mí durante la conferencia para fines no comerciales, en cualquier formato y medio de comunicación, sin cualquier tipo de costo para la organización del evento."
         author_confirmed: "Confirmación del autor"
         author_image_agreement: "Derecho de imagen"
       comment:
@@ -530,16 +530,16 @@ es:
     password_reset:
       subject: "Recuperación de contraseña"
     session_submitted:
-      subject: "Propuesta de sesión enviada para Ágiles 2011"
+      subject: "Propuesta de sesión enviada para %{conference_name}"
     reviewer_invitation:
-      subject: "Invitación al equipo de evaluación de Ágiles 2011"
+      subject: "Invitación al equipo de evaluación de %{conference_name}"
     session_accepted:
-      subject: "Comunicado del Comite de Programa de Ágiles 2011"
+      subject: "Comunicado del Comite de Programa de %{conference_name}"
     session_rejected:
-      subject: "Comunicado del Comite de Programa de Ágiles 2011"
+      subject: "Comunicado del Comite de Programa de %{conference_name}"
   
   vote:
-    description: "La votación para el logo de Ágiles 2011 terminó."
+    description: "La votación para el logo del evento terminó."
     confirmation: "¿Está seguro de votar por el logo $LOGO?"
     change:
       confirmation: "¿Está seguro de modificar su voto para el logo $LOGO?"

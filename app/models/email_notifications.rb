@@ -6,8 +6,8 @@ class EmailNotifications < ActionMailer::Base
     I18n.locale = user.default_locale
     subject       "[#{host}] #{I18n.t('email.welcome.subject')}"
     recipients    "\"#{user.full_name}\" <#{user.email}>"
-    from          "\"Ágiles 2011\" <no-reply@#{host}>"
-    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
+    from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
+    reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     sent_on       sent_at
     
     multipart_content_for(:welcome, :user => user)
@@ -17,8 +17,8 @@ class EmailNotifications < ActionMailer::Base
     I18n.locale = user.default_locale
     subject       "[#{host}] #{I18n.t('email.password_reset.subject')}"
     recipients    "\"#{user.full_name}\" <#{user.email}>"
-    from          "\"Ágiles 2011\" <no-reply@#{host}>"
-    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
+    from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
+    reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     sent_on       sent_at
     
     multipart_content_for(:password_reset_instructions, :user => user)
@@ -26,10 +26,10 @@ class EmailNotifications < ActionMailer::Base
   
   def session_submitted(session, sent_at = Time.now)
     I18n.locale = session.author.try(:default_locale)
-    subject       "[#{host}] #{I18n.t('email.session_submitted.subject')}"
+    subject       "[#{host}] #{I18n.t('email.session_submitted.subject', :conference_name => AppConfig[:conference_name])}"
     recipients    session.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" }
-    from          "\"Ágiles 2011\" <no-reply@#{host}>"
-    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
+    from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
+    reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     sent_on       sent_at
     
     multipart_content_for(:session_submitted, :session => session)
@@ -37,10 +37,10 @@ class EmailNotifications < ActionMailer::Base
   
   def reviewer_invitation(reviewer, sent_at = Time.now)
     I18n.locale = reviewer.user.try(:default_locale)
-    subject       "[#{host}] #{I18n.t('email.reviewer_invitation.subject')}"
+    subject       "[#{host}] #{I18n.t('email.reviewer_invitation.subject', :conference_name => AppConfig[:conference_name])}"
     recipients    "\"#{reviewer.user.full_name}\" <#{reviewer.user.email}>"
-    from          "\"Ágiles 2011\" <no-reply@#{host}>"
-    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
+    from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
+    reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     sent_on       sent_at
     
     multipart_content_for(:reviewer_invitation, :reviewer => reviewer)
@@ -50,10 +50,10 @@ class EmailNotifications < ActionMailer::Base
     raise "Notification can't be sent before decision has been made" unless session.review_decision
     raise "Cannot accept a rejected session" if session.review_decision.rejected?
     I18n.locale = session.author.try(:default_locale)
-    subject       "[#{host}] #{I18n.t('email.session_accepted.subject')}"
+    subject       "[#{host}] #{I18n.t('email.session_accepted.subject', :conference_name => AppConfig[:conference_name])}"
     recipients    session.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" }
-    from          "\"Ágiles 2011\" <no-reply@#{host}>"
-    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
+    from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
+    reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     sent_on       sent_at
     
     returning multipart_content_for(:session_accepted, :session => session) do
@@ -65,10 +65,10 @@ class EmailNotifications < ActionMailer::Base
     raise "Notification can't be sent before decision has been made" unless session.review_decision
     raise "Cannot reject an accepted session" if session.review_decision.accepted?
     I18n.locale = session.author.try(:default_locale)
-    subject       "[#{host}] #{I18n.t('email.session_rejected.subject')}"
+    subject       "[#{host}] #{I18n.t('email.session_rejected.subject', :conference_name => AppConfig[:conference_name])}"
     recipients    session.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" }
-    from          "\"Ágiles 2011\" <no-reply@#{host}>"
-    reply_to      "\"Ágiles 2011\" <no-reply@#{host}>"
+    from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
+    reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     sent_on       sent_at
     
     returning multipart_content_for(:session_rejected, :session => session) do

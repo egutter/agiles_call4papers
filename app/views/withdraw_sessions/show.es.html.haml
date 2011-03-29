@@ -1,8 +1,8 @@
-- title "Retirar sesión de Ágiles 2011 "
+- title "Retirar sesión de #{AppConfig[:conference_name]} "
 .auto_focus
 
 %p Estimado/a #{current_user.full_name},
 
-%p Su propuesta "#{@session.title}" ha sido seleccionada para formar parte del programa de Ágiles 2011, pero Ud. está rechazando presentarla en la conferencia. Por favor, confirme su voluntad de retirar su sesión debajo:
+%p Su propuesta "#{@session.title}" ha sido seleccionada para formar parte del programa de #{AppConfig[:conference_name]}, pero Ud. está rechazando presentarla en la conferencia. Por favor, confirme su voluntad de retirar su sesión debajo:
 
 = render 'withdraw_sessions/form'

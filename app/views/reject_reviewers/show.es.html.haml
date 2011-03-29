@@ -1,8 +1,8 @@
-- title "Invitación para ser parte del comité de evaluación de Ágiles 2011"
+- title "Invitación para ser parte del comité de evaluación de #{AppConfig[:conference_name]}"
 .auto_focus
 
 %p Estimado/a #{@reviewer.user.full_name},
 
-%p Gracias por considerar ser parte del comité de revisión de Ágiles 2011. Por favor confirme su elección:
+%p Gracias por considerar ser parte del comité de revisión de #{AppConfig[:conference_name]}. Por favor confirme su elección:
 
 = render 'form'

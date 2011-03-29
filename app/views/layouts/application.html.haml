@@ -3,7 +3,7 @@
   
   %head
     %title
-      Ágiles 2011 -
+      #{AppConfig[:conference_name]} -
       = (yield(:title) || t('title.untitled'))
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %link{"rel" => "shortcut icon", "href" => "/favicon.ico"}/
@@ -17,7 +17,7 @@
       #header
         = link_to image_tag('logo.png'), root_path
         .logo
-          %h1 Ágiles 2011
+          %h1 #{AppConfig[:conference_name]} 
           %strong Buenos Aires, 11-13 Oct/2011
         %ul#languages
           %li= link_to "Español", "?locale=es"
@@ -39,7 +39,7 @@
       
         = yield
 
-      #footer Copyleft - Ágiles 2011 - #{t('footer.help')}
+      #footer Copyleft - #{AppConfig[:conference_name]} - #{t('footer.help')}
 
     - unless AppConfig[:tracker_id].nil?
       :javascript

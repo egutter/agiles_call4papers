@@ -26,43 +26,43 @@ es:
       half_a_minute: 'medio minuto'
       less_than_x_seconds:
         one: 'menos de 1 segundo'
-        other: 'menos de {{count}} segundos'
+        other: 'menos de %{count} segundos'
       
       x_seconds:
         one: '1 segundo'
-        other: '{{count}} segundos'
+        other: '%{count} segundos'
       
       less_than_x_minutes:
         one: 'menos de un minuto'
-        other: 'menos de {{count}} minutos'
+        other: 'menos de %{count} minutos'
       
       x_minutes:
         one: '1 minuto'
-        other: '{{count}} minutos'
+        other: '%{count} minutos'
       
       about_x_hours:
         one: 'aproximadamente 1 hora'
-        other: 'aproximadamente {{count}} horas'
+        other: 'aproximadamente %{count} horas'
       
       x_days:
         one: '1 día'
-        other: '{{count}} dias'
+        other: '%{count} dias'
       
       about_x_months:
         one: 'aproximadamente 1 mes'
-        other: 'aproximadamente {{count}} meses'
+        other: 'aproximadamente %{count} meses'
       
       x_months:
         one: '1 mes'
-        other: '{{count}} meses'
+        other: '%{count} meses'
       
       about_x_years:
         one: 'aproximadamente 1 año'
-        other: 'aproximadamente {{count}} años'
+        other: 'aproximadamente %{count} años'
       
       over_x_years:
         one: 'más de 1 año'
-        other: 'más de {{count}} años'
+        other: 'más de %{count} años'
     
     prompts:
       year: "Año"
@@ -118,8 +118,8 @@ es:
     errors:
       template:
         header:
-          one: "No fue posible guardar {{model}}: 1 error"
-          other: "No fue posible guardar {{model}}: {{count}} errores."
+          one: "No fue posible guardar %{model}: 1 error"
+          other: "No fue posible guardar %{model}: %{count} errores."
         body: "Por favor, verifique el/lo(s) siguente(s) campo(s):"
       messages:
         inclusion: "no está incluido en la lista"
@@ -129,19 +129,19 @@ es:
         accepted: "debe ser aceptado"
         empty: "no puede ser dejado vacío"
         blank: "no puede ser dejado en blanco"
-        too_long: "es muy largo (máximo: {{count}} caracteres)"
-        too_short: "es muy corto (mínimo: {{count}} caracteres)"
-        wrong_length: "no posee el tamaño esperado ({{count}} caracteres)"
+        too_long: "es muy largo (máximo: %{count} caracteres)"
+        too_short: "es muy corto (mínimo: %{count} caracteres)"
+        wrong_length: "no posee el tamaño esperado (%{count} caracteres)"
         taken: "ya está en uso"
         not_a_number: "no es un número"
-        greater_than: "debe ser mayor a {{count}}"
-        greater_than_or_equal_to: "debe ser mayor o igual a {{count}}"
-        equal_to: "debe ser igual a {{count}}"
-        less_than: "debe ser menor que {{count}}"
-        less_than_or_equal_to: "debe ser menor o igual a {{count}}"
+        greater_than: "debe ser mayor a %{count}"
+        greater_than_or_equal_to: "debe ser mayor o igual a %{count}"
+        equal_to: "debe ser igual a %{count}"
+        less_than: "debe ser menor que %{count}"
+        less_than_or_equal_to: "debe ser menor o igual a %{count}"
         odd: "debe ser impar"
         even: "debe ser par"
-        record_invalid: "La validación falló: {{errors}}"
+        record_invalid: "La validación falló: %{errors}"
         existence: "no existe"
         same_author: "no puede ser el mismo autor"
         incomplete: "perfil de autor incompleto"
@@ -160,7 +160,7 @@ es:
         session:
           attributes:
             keyword_list:
-              too_long: "no puede tener más que {{count}} palabras clave"
+              too_long: "no puede tener más que %{count} palabras clave"
         vote:
           attributes:
             logo_id:
@@ -374,14 +374,14 @@ es:
     tracks: "Tracks de interes"
     session_types: "Tipos de sesión"
     audience_levels: "Perfiles del público"
-    edit_profile: "Actualizar perfil de {{user}}"
+    edit_profile: "Actualizar perfil de %{user}"
     edit_session: "Editar sesión"
     comments: "Comentarios"
     edit_comment: "Editar comentario"
     vote: "Vote las propuestas de logo"
     edit_organizer: "Actualizar organizador"
-    new_review: "nueva evaluación de sesión '{{session}}'"
-    review_decision: "Revisar decisión para la sesión '{{session}}'"
+    new_review: "nueva evaluación de sesión '%{session}'"
+    review_decision: "Revisar decisión para la sesión '%{session}'"
     accepted_sessions: "Sesiones aceptadas"
   
   actions:
@@ -417,8 +417,8 @@ es:
     edit_review_decision: "Editar Decisión"
   
   text:
-    for_user: "Mostrando Sesiones del usuario: <strong>{{name}}</strong>"
-    tagged_with: "Mostrando Sesiones con palabra-clave: <strong>{{tag}}</strong>"
+    for_user: "Mostrando Sesiones del usuario: <strong>%{name}</strong>"
+    tagged_with: "Mostrando Sesiones con palabra-clave: <strong>%{tag}</strong>"
     lost_password:
       instructions: "Ingrese el e-mail que utilizó para registrarse y su nombre de usuario. Las instrucciones para modificar su contraseña serán enviados por email:"
     
@@ -472,7 +472,7 @@ es:
         success: "Evaluador invitado."
       reject:
         success: "Su invitación fue rechazada. Gracias por responder oportunamente."
-        failure: "Su invitación ya está {{status}}."
+        failure: "Su invitación ya está %{status}."
       accept:
         success: "Su invitación fue aceptada. Gracias por responder oportunamente."
     review_decision:
@@ -543,7 +543,7 @@ es:
     confirmation: "¿Está seguro de votar por el logo $LOGO?"
     change:
       confirmation: "¿Está seguro de modificar su voto para el logo $LOGO?"
-    current_vote: "¡Gracias por votar en el concurso para seleccionar nuestro logo! Su voto actual es para el logo {{logo}}."
+    current_vote: "¡Gracias por votar en el concurso para seleccionar nuestro logo! Su voto actual es para el logo %{logo}."
   
   reviewer:
     state:
@@ -562,9 +562,9 @@ es:
       accepted: "Aceptada"
       rejected: "Rechazada"
     parameters: "Sobre esta sesión"
-    audience_limit: "Limite: {{limit}} participantes"
+    audience_limit: "Limite: %{limit} participantes"
     no_audience_limit: "No hay límite de participantes"
-    reviews: "Evaluaciones de '{{session}}'"
+    reviews: "Evaluaciones de '%{session}'"
   
   review:
     view_session: "Ver propuesta original (con comentarios)"
@@ -611,10 +611,10 @@ es:
     previous: "&laquo; Anterior"
     next: "Próxima &raquo;"
     says: "dice"
-    are_you_sure: "¿Está seguro que quiere {{action}}?"
+    are_you_sure: "¿Está seguro que quiere %{action}?"
     reviewed_by: "Evaluado por"
-    sort_by: "Ordenar {{direction}}"
+    sort_by: "Ordenar %{direction}"
     sort_up: "ascendente"
     sort_down: "descendente"
-    show: "Mostrar {{target}}"
-    hide: "Ocultar {{target}}"
+    show: "Mostrar %{target}"
+    hide: "Ocultar %{target}"

@@ -516,13 +516,13 @@ es:
   audience_levels:
     beginner:
       title: "Principiante"
-      description: "Alguien que está comenzando o terminó de aprender sobre Metodologías Ágiles; ¡Un aprendiz!"
+      description: "Alguien que está comenzando con, aprendiendo o con ganas de conocer sobre metodologías ágiles."
     practitioner:
       title: "Practicante"
-      description: "Alguien que practica Metodologías Ágiles, concuerda con sus valores y ya se benefició de ellos."
+      description: "Alguien que utiliza metodologías ágiles, concuerda con sus valores y los puso en práctica."
     experienced:
       title: "Experto"
-      description: "Alguien que comprende los valores y principios del Manifiesto Ágil y domina alguna metodología ágil al punto de liderar un equipo o capacitarlo en sus prácticas."
+      description: "Alguien que comprende los valores y principios ágiles y además de haberlos puesto en práctica, ha liderado equipos y/o capacitado a otros en sus prácticas."
   
   email:
     welcome:

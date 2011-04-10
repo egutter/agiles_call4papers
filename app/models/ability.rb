@@ -21,11 +21,11 @@ class Ability
     can(:modify, Comment) { |c| c.user == user }
     can(:create, Vote) do
       first_vote = Vote.for_user(user.id).count == 0
-      first_vote && Time.zone.now <= ImportantDates::ACCEPTANCE_NOTIFICATION_DATE
+      first_vote && Time.zone.now <= ImportantDates::ACCEPTANCE_NOTIFICATION_DATETIME
     end
     can(:update, Vote) do |vote|
       is_voter = vote.try(:user) == user
-      is_voter && Time.zone.now <= ImportantDates::ACCEPTANCE_NOTIFICATION_DATE
+      is_voter && Time.zone.now <= ImportantDates::ACCEPTANCE_NOTIFICATION_DATETIME
     end
     can(:new, Vote)
     can(:update, Reviewer) do |reviewer|
@@ -40,7 +40,7 @@ class Ability
         Time.zone.now <= ImportantDates::SUBMISSION_END_DATE
       end
       can(:update, Session) do |session|
-        session.try(:is_author?, user) && Time.zone.now <= ImportantDates::SUBMISSION_END_DATE
+        session.try(:is_author?, user) && Time.zone.now <= ImportantDates::SUBMISSION_END_DATETIME
       end
       can(:index, Review) do |_, session|
         session = find_session(params) if session.nil?

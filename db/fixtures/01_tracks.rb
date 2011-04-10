@@ -15,9 +15,3 @@ Track.seed do |track|
   track.title = 'tracks.engineering.title'
   track.description = 'tracks.engineering.description'
 end
-
-Track.seed do |track|
-  track.id = 4
-  track.title = 'tracks.experience_reports.title'
-  track.description = 'tracks.experience_reports.description'
-end

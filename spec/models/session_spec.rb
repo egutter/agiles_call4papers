@@ -133,12 +133,12 @@ describe Session do
       end
     end
     
-    context "experience report" do
+    context "experience report session type" do
       before(:each) do
-        @talk = SessionType.new(:title => 'session_types.talk.title')
+        @experience_report = SessionType.new(:title => 'session_types.experience_reports.title')
         @session = Factory(:session)
-        @session.track = Track.new(:title => 'tracks.experience_reports.title')
-        @session.session_type = @talk
+        @session.track = Track.new(:title => 'tracks.general_interest.title')
+        @session.session_type = @experience_report
       end
       
       it "should only have duration of 45 minutes" do
@@ -148,12 +148,6 @@ describe Session do
         @session.should_not be_valid
       end
 
-      it "should only be talk" do
-        @session.session_type = @talk
-        @session.should be_valid
-        @session.session_type = SessionType.new(:title => 'session_types.workshop.title')
-        @session.should_not be_valid
-      end
     end
     
     it "should validate that author doesn't change" do
@@ -258,10 +252,10 @@ describe Session do
   end
 
   it "should determine if it's experience_report" do
-    experience_report = Track.new(:title => 'tracks.experience_reports.title')
+    experience_report = SessionType.new(:title => 'session_types.experience_reports.title')
     session = Factory(:session)
     session.should_not be_experience_report
-    session.track = experience_report
+    session.session_type = experience_report
     session.should be_experience_report
   end
   

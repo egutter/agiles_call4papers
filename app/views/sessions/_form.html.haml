@@ -22,14 +22,9 @@
       multiple: true
     });
     
-    $("#session_session_type_id").filterOn("#session_track_id", {
-      "4": ["", "1", "2"]
-    })
-    $("#session_duration_mins").filterOn("#session_track_id", {
+    $("#session_duration_mins").filterOn("#session_session_type_id", {
       "4": ["", "90"]
     })
-    $("#session_track_id").bindSelectUpdated();
-    
     $("#session_session_type_id").bind('updated', sessionTypeActions);
     $("#session_session_type_id").bindSelectUpdated();
     

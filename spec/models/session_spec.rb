@@ -86,7 +86,7 @@ describe Session do
     should_validate_presence_of :experience
     should_validate_presence_of :duration_mins
     should_validate_presence_of :keyword_list
-    should_validate_inclusion_of :duration_mins, :in => [45, 90], :allow_blank => true
+    should_validate_inclusion_of :duration_mins, :in => [45, 90, 120, 240], :allow_blank => true
     
     should_validate_numericality_of :audience_limit, :only_integer => true, :greater_than => 0, :allow_nil => true
     
@@ -106,6 +106,21 @@ describe Session do
         session.session_type = SessionType.new(:title => 'session_types.workshop.title')
         session.should_not be_valid
       end
+      
+      it "should allow only 2hs and 4hs workshops" do
+        session = Factory(:session)
+        session.mechanics = "Una mecánica X"
+        session.session_type = SessionType.new(:title => 'session_types.workshop.title')
+        session.duration_mins = 60
+        session.should_not be_valid
+        session.duration_mins = 90
+        session.should_not be_valid
+        session.duration_mins = 120
+        session.should be_valid
+        session.duration_mins = 240
+        session.should be_valid
+      end
+      
     end
     
     context "second author" do

@@ -146,6 +146,7 @@ pt:
         same_author: "não pode ser o mesmo autor"
         incomplete: "perfil de autor incompleto"
         experience_report_duration: "só pode ser 45 minutos"
+        workshop_duration: "só pode ser 2 ou 4 horas"
         experience_report_session_type: "só pode ser uma Palestra"
         email_format: "deve ter um formato de e-mail válido"
         username_format: "deve usar apenas letras, números, espaços e .-_@"
@@ -512,13 +513,13 @@ pt:
       description: "Sessões orientadas a profissionais que trabalham com metodologias ágeis intencionados a discutir novos conceitos e práticas relacionadas a mudanças organizacionais e gestão de produtos, processos ou projetos."
     engineering:
       title: "Ferramentas e Práticas de Engenharia"
-      description: "Dedicada a profissionais que trabalham com metodologias ágeis ou estão interessados na qualidade técnica dos produtos de software. Você vai achar tutoriais, workshops e lições endereçando tópicos como programação, integração contínua, automação de testes e o uso de ferramentas eletrônicas para apoiar o desenvolvimento ágil."
+      description: "Dedicado aos profissionais que trabalham com metodologias ágeis ou estão interessados ​​na qualidade técnica dos produtos de software. Você vai encontrar tutoriais, oficinas e palestras abordando a programação, os temas de integração contínua ea utilização de ferramentas electrónicas de apoio ao desenvolvimento ágil. Esta trilha também explora o papel fundamental que as linguagens de programação, práticas e técnicas desempenhar para atingir os objectivos de agilidade. Este não é o palco para encontrar palestras convencionais na forma de \"Como fazer TDD em Java.\" Pelo contrário, desta trilha desafia o pensamento convencional sobre a agilidade, ou reafirma-lo em novas formas, com base nas características de determinadas línguas, práticas e técnicas. Esta é uma trilha para o desenvolvedor experiente ágil que quer explorar novos territórios."
     coaching:
       title: "Coaching, Cultura e Times"
-      description: "Coaching, mentoring, sessões de formadores, colaboração, cultura organizacional, etc."
+      description: "Você é um Coach novo? Você quer ajudá na transição de um papel técnico para uno de Agile Coaching? Não sabe por onde começar? Então, esta trilha é um bom lugar para você iniciar sua jornada e se tornar uma pessoa que se concentra em ajudar os outros. Venha aprender técnicas, ouvir a experiência de treinadores colegas, e veja como você pode melhor apoiar as equipes técnicas no seu dia a dia desafios. Nessa trilha, haverá também sessões de discussão sobre cultura, times e colaboração como responsabilidade, auto-organização, etc"
     transformation:
       title: "Aprovação e transformação"
-      description: "ntrodução e / ou adoção de metodologias ágeis na organização, mudança cultural e organizacional, etc"
+      description: "Já considerou a mudança para Agile, mas ainda não sabe por onde começar? Você está praticando Agile, mas não obtendo os resultados esperados? Se você respondeu sim a qualquer destas perguntas, então a trilha Aprovação e Transformação poderia ser sua primeira parada na estrada para melhores resultados de negócios através da agilidade. Se você está apenas começando ou começando a \"pegar\" você encontrará informações valiosas sobre o que é preciso para executar uma adoção e transformação organizacional com sucesso - para não mencionar as obstáculos que você deve evitar ao longo do caminho como os outros partilhar a sua mais dolorosa experiências e melhores momentos de introspecção."
     qa_testing:
       title: "Agile QA e Testing"
       description: "A trilha Agile QA e Testing foi projetada para ajudar os testers e quem faz parte de uma equipe ágil ter sucesso na entrega de software de alta qualidade. A apresentação de novas técnicas e idéias inovadoras e para garantir resultados de alta qualidade é um objetivo importante desta trilha. As sessões desta trilha vai lhe dar idéias práticas e técnicas para levar de volta ao seu local de trabalho. Se você é um tester, programador, analista de negócios, treinador, gerente ou qualquer outra pessoa com uma participação na entrega de software de alta qualidade, você encontrará informações práticas aqui."
@@ -619,6 +620,7 @@ pt:
     ago: "atrás"
     confirmed: "Sim"
     minutes: "minutos"
+    hours: "horas"
     previous: "&laquo; Anterior"
     next: "Próxima &raquo;"
     says: "diz"

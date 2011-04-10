@@ -498,7 +498,11 @@ es:
     talk:
       title: "Charla"
       description: "Sesiones dirigidas a quienes buscan tópicos para aumentar sus conocimientos sobre metodologías Ágiles y las mejores prácticas usadas por la comunidad Ágil."
-
+    experience_reports:
+      title: "Relato de Experiencia"
+      description: "Este tipo de sesión capta la aplicación de la temática en cuestión (track) en un proyecto ágil real, resumiendo la historia de su aplicación y los aprendizajes más importantes. Estos relatos permiten que los practicantes compartan su experiencia práctica que pueda inspirar a otros equipos."
+    
+      
   tracks:
     general_interest:
       title: "Interés General"
@@ -509,10 +513,7 @@ es:
     engineering:
       title: "Ingeniería"
       description: "Dedicada a profesionales que trabajan con metodologías ágiles o están interesados en la calidad técnica de los productos de software. Encontrará tutoriales, workshops y charlas sobre tópicos como programación, integración continua, automatización de tests y el uso de herramientas para apoyar el desarrollo ágil."
-    experience_reports:
-      title: "Relatos de Experiencia"
-      description: "Un relato de experiencia capta la historia de un proyecto ágil real, resumiendo la historia del proyecto y los aprendizajes más importantes. Estos relatos permiten que los practicantes compartan su experiencia práctica que pueda inspirar a otros equipos."
-
+    
   audience_levels:
     beginner:
       title: "Principiante"

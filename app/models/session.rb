@@ -46,9 +46,6 @@ class Session < ActiveRecord::Base
   validates_each :duration_mins, :if => :experience_report? do |record, attr, value|
     record.errors.add(attr, :experience_report_duration) if value != 45
   end
-  validates_each :session_type_id, :if => :experience_report? do |record, attr, value|
-    record.errors.add(attr, :experience_report_session_type) if record.session_type.try(:title) != 'session_types.talk.title'
-  end
   validates_each :author_id, :on => :update do |record, attr, value|
     record.errors.add(attr, :constant) if record.author_id_changed?
   end
@@ -154,6 +151,6 @@ class Session < ActiveRecord::Base
   end
 
   def experience_report?
-    self.track.try(:title) == 'tracks.experience_reports.title'
+    self.session_type.try(:title) == 'session_types.experience_reports.title'
   end
 end

@@ -498,6 +498,10 @@ pt:
     talk:
       title: "Palestra"
       description: "Palestras direcionadas àqueles procurando por tópicos a fim de aumentar seus conhecimentos sobre metodologias Ágeis e as melhores práticas usadas pela comunidade Ágil."
+    experience_reports:
+      title: "Relato de Experiência"
+      description: "Este tipo de sessão capta a aplicação do tema atual (track) em um projeto real ágil, resumindo o que aconteceu com a sua aplicação e os principais pontos de aprendizagem. Estes relatórios permitem aos profissionais compartilhar seus conselhos práticos e orientação com outros times."
+    
 
   tracks:
     general_interest:
@@ -509,10 +513,7 @@ pt:
     engineering:
       title: "Engenharia"
       description: "Dedicada a profissionais que trabalham com metodologias ágeis ou estão interessados na qualidade técnica dos produtos de software. Você vai achar tutoriais, workshops e lições endereçando tópicos como programação, integração contínua, automação de testes e o uso de ferramentas eletrônicas para apoiar o desenvolvimento ágil."
-    experience_reports:
-      title: "Relatos de Experiência"
-      description: "Um relato de experiência capta a história de um projeto ágil real, sumarizando os acontecimentos do projeto e aprendizados importantes. Estes relatos permitem que praticantes compartilhem dicas práticas que podem inspirar outros times."
-
+    
   audience_levels:
     beginner:
       title: "Iniciante"

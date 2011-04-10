@@ -336,6 +336,10 @@ en:
     talk:
       title: "Talk"
       description: "Presentations aimed at those people who are looking for a topic to increase their knowledge about the Agile methodologies and the best practices used by the Agile community."
+    experience_reports:
+      title: "Experience Report"
+      description: "This session type captures the application of the current theme (track) in a real agile project, summarizing what happened with its application and the key learning points. These reports allow practitioners to share their practical advice and guidance with other teams."
+
     
   tracks:
     general_interest:
@@ -347,9 +351,6 @@ en:
     engineering:
       title: "Engineering"
       description: "Dedicated to professionals working with agile methodologies or are interested in the technical quality of software products. You will find tutorials, workshops and lectures addressing programming, continuous integration and automated testing topics and the use of electronic tools to support agile development."
-    experience_reports:
-      title: "Experience Reports"
-      description: "An experience report captures the story of a real agile project, summarizing what happened on the project and the key learning points. These reports allow practitioners to share their practical advice and guidance with other teams."
 
   audience_levels:
     beginner:

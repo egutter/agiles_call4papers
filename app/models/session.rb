@@ -24,7 +24,7 @@ class Session < ActiveRecord::Base
                         :experience, :duration_mins, :keyword_list
   
   validates_presence_of :mechanics, :if => :workshop?
-  validates_inclusion_of :duration_mins, :in => [45, 90], :allow_blank => true
+  validates_inclusion_of :duration_mins, :in => [45, 90, 120, 240], :allow_blank => true
   validates_numericality_of :audience_limit, :only_integer => true, :greater_than => 0, :allow_nil => true
   
   validates_length_of :title, :maximum => 100
@@ -45,6 +45,9 @@ class Session < ActiveRecord::Base
   end
   validates_each :duration_mins, :if => :experience_report? do |record, attr, value|
     record.errors.add(attr, :experience_report_duration) if value != 45
+  end
+  validates_each :duration_mins, :if => :workshop? do |record, attr, value|
+    record.errors.add(attr, :workshop_duration) if value == 45 or value == 90
   end
   validates_each :author_id, :on => :update do |record, attr, value|
     record.errors.add(attr, :constant) if record.author_id_changed?

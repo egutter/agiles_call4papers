@@ -17,8 +17,13 @@
   %li= link_to t(@session.audience_level.title), audience_levels_path
   %li= link_to t(@session.session_type.title), session_types_path
   %li
-    &= @session.try(:duration_mins)
-    = t('generic.minutes')
+    - if @session.try(:duration_mins) == 90 or @session.try(:duration_mins) == 45
+      &= @session.try(:duration_mins)
+      = t('generic.minutes')
+    - elsif @session.try(:duration_mins) == 120
+      = "2 " + t('generic.hours')
+    - elsif @session.try(:duration_mins) == 240
+      = "4 " + t('generic.hours')
   - unless @session.audience_limit.blank?
     %li= t('session.audience_limit', :limit => @session.audience_limit)
 

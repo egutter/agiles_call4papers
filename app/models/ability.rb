@@ -21,11 +21,11 @@ class Ability
     can(:modify, Comment) { |c| c.user == user }
     can(:create, Vote) do
       first_vote = Vote.for_user(user.id).count == 0
-      first_vote && Time.zone.now <= Time.zone.local(2010, 3, 7, 23, 59, 59)
+      first_vote && Time.zone.now <= ImportantDates::ACCEPTANCE_NOTIFICATION_DATE
     end
     can(:update, Vote) do |vote|
       is_voter = vote.try(:user) == user
-      is_voter && Time.zone.now <= Time.zone.local(2010, 3, 7, 23, 59, 59)
+      is_voter && Time.zone.now <= ImportantDates::ACCEPTANCE_NOTIFICATION_DATE
     end
     can(:new, Vote)
     can(:update, Reviewer) do |reviewer|

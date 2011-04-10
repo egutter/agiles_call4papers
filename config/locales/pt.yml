@@ -505,14 +505,24 @@ pt:
 
   tracks:
     general_interest:
-      title: "Interesse Geral"
+      title: "Tópicos Gerais"
       description: "Esta trilha incluirá sessões dedicada àqueles que querem entender os princípios e práticas das metodologias ágeis. Você vai encontrar tutoriais, workshops e palestras selecionadas para guiar seus primeiros passos em direção à cultura ágil."
     management:
-      title: "Gestão"
+      title: "Melhoria Contínua e Gestão"
       description: "Sessões orientadas a profissionais que trabalham com metodologias ágeis intencionados a discutir novos conceitos e práticas relacionadas a mudanças organizacionais e gestão de produtos, processos ou projetos."
     engineering:
-      title: "Engenharia"
+      title: "Ferramentas e Práticas de Engenharia"
       description: "Dedicada a profissionais que trabalham com metodologias ágeis ou estão interessados na qualidade técnica dos produtos de software. Você vai achar tutoriais, workshops e lições endereçando tópicos como programação, integração contínua, automação de testes e o uso de ferramentas eletrônicas para apoiar o desenvolvimento ágil."
+    coaching:
+      title: "Coaching, Cultura e Times"
+      description: "Coaching, mentoring, sessões de formadores, colaboração, cultura organizacional, etc."
+    transformation:
+      title: "Aprovação e transformação"
+      description: "ntrodução e / ou adoção de metodologias ágeis na organização, mudança cultural e organizacional, etc"
+    qa_testing:
+      title: "Agile QA e Testing"
+      description: "A trilha Agile QA e Testing foi projetada para ajudar os testers e quem faz parte de uma equipe ágil ter sucesso na entrega de software de alta qualidade. A apresentação de novas técnicas e idéias inovadoras e para garantir resultados de alta qualidade é um objetivo importante desta trilha. As sessões desta trilha vai lhe dar idéias práticas e técnicas para levar de volta ao seu local de trabalho. Se você é um tester, programador, analista de negócios, treinador, gerente ou qualquer outra pessoa com uma participação na entrega de software de alta qualidade, você encontrará informações práticas aqui."
+
     
   audience_levels:
     beginner:

@@ -505,14 +505,24 @@ es:
       
   tracks:
     general_interest:
-      title: "Interés General"
+      title: "Temas Generales"
       description: "Este track incluirá sesiones dedicadas a quienes quieren entender los principios y prácticas de las metodologías ágiles. Encontrará tutoriales, workshops y charlas seleccionadas para guiar sus primeros pasos en dirección a la cultura ágil."
     management:
-      title: "Gestión"
+      title: "Mejora Continua y Gestión"
       description: "Sesiones orientadas a profesionales que trabajan con metodologías ágiles dirigidas a discutir nuevos conceptos y prácticas relacionadas a cambios organizacionales y gestión de productos, equipos, procesos o proyectos."
     engineering:
-      title: "Ingeniería"
+      title: "Herramientas y Prácticas de Ingeniería"
       description: "Dedicada a profesionales que trabajan con metodologías ágiles o están interesados en la calidad técnica de los productos de software. Encontrará tutoriales, workshops y charlas sobre tópicos como programación, integración continua, automatización de tests y el uso de herramientas para apoyar el desarrollo ágil."
+    coaching:
+      title: "Coaching, Cultura y Equipos"
+      description: "Coaching, mentoring, sesiones dedicadas a capacitadores, colaboración, cultura organizacional, etc."
+    transformation:
+      title: "Adopción y Transformación"
+      description: "Introducción y/o Adopción de metodologias agiles en la empresa, Cambio cultural y organizacional, etc."
+    qa_testing:
+      title: "Agile QA y Testing"
+      description: "El track de Agile QA y Testing está diseñado para ayudar a los testers y cualquier persona que forma parte de un equipo ágil a tener éxito en la entrega de software de alta calidad. La presentación de las técnicas nuevas e innovadoras ideas para garantizar resultados de alta calidad es un objetivo importante de este track. Las sesiones en este track le dará ideas y técnicas prácticas para llevar a su lugar de trabajo. Si usted es un tester, desarrollador, analista de negocios, entrenador, gerente, o cualquier otra persona con una participación en la entrega de software de alta calidad, usted encontrará información práctica aquí."
+
     
   audience_levels:
     beginner:

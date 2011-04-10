@@ -1,9 +1,9 @@
 :smtp_settings:
-  :address: smtp.gmail.com
-  :domain: gmail.com
+  :address: smtp.domain.com
+  :domain: domain.com
   :port: 587
   :authentication: :login
-  :user_name: agiles2011-notifications@agiles.org
-  :password: 179l5s2011
+  :user_name: no-reply@domain.com
+  :password: password
 :host: agiles-call4papers.heroku.com
 :conference_name: Ágiles 2011

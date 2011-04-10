@@ -343,14 +343,24 @@ en:
     
   tracks:
     general_interest:
-      title: "General Interest"
+      title: "General Topics"
       description: "Dedicated to those who want to understand the principles and practices of agile methodologies. You will find tutorials, workshops and conferences, selected to guide your first steps towards agile culture."
     management:
-      title: "Management"
+      title: "Continuous Improvement and Management"
       description: "Dedicated to professionals working with agile methodologies that want to discuss new concepts and practices related organizational change and management of products, process and projects."
     engineering:
-      title: "Engineering"
+      title: "Engineering Tools and Practices"
       description: "Dedicated to professionals working with agile methodologies or are interested in the technical quality of software products. You will find tutorials, workshops and lectures addressing programming, continuous integration and automated testing topics and the use of electronic tools to support agile development."
+    coaching:
+      title: "Coaching, Culture and Teams"
+      description: "Coaching, mentoring, sessions for trainers, collaboration, organizational culture, etc.."
+    transformation:
+      title: "Adoption and Transformation"
+      description: "Introduction and / or adoption of Agile methodologies in the organization, cultural and organizational change, etc."
+    qa_testing:
+      title: "Agile QA & Testing"
+      description: "The Agile Qa and Testing track is designed to help testers and anyone who is part of an agile team succeed in delivering high quality software.  The presentation of new and innovative techniques and ideas for ensuring high quality results is an important purpose of this track. The sessions in this track will give you practical ideas and techniques to take back to your workplace. If you're a tester, developer, business analyst, coach, manager, or anyone else with a stake in delivering high-quality software, you'll find practical information here."
+
 
   audience_levels:
     beginner:

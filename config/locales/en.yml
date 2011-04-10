@@ -154,7 +154,7 @@ en:
         city: "City of residence, collected for statistical purpose."
         organization: "Name of company or organization that you will represent, collected for statistical purpose."
         website_url: "Personal or organization's website to be used as reference by the program committee. If you submit a session proposal, this website might be visited when evaluating your session."
-        bio: "Tell us about your academic experience, professional experience, and participation in the community, focusing on Agile. This will be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details."
+        bio: "Tell us about your academic experience, professional experience, and participation in the community, focusing on Agile. This will be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details.<br>Up to <b>1600 characters</b>."
         wants_to_submit: "Leave this blank if you only want to vote or leave comments on other users' sessions. You can change your mind later, by editing your profile."
       session:
         track_id: "A detailed description of each track can be found <a href='/tracks?locale=en' target='_blank'>here</a>. For Experience Reports, only Talks lasting 45 minutes will be accepted."
@@ -162,16 +162,16 @@ en:
         duration_mins: "If you are proposing a Talk, please indicate its duration. For Tutorials and Workshops we recommend a duration of 90 minutes."
         audience_level_id: "Indicate the appropriate experience level of your audience. A description of each level can be found <a href='/audience_levels?locale=en' target='_blank'>here</a>."
         audience_limit: "If your session is a Tutorial or Workshop, indicate if it has a maximum number of participants."
-        target_audience: "Indicate your target audience, for example: developers, new to Agile, analysts, architects, QAs, project managers, executives."
-        summary: "Summary of your session to be displayed in the program. It should match the complete description of this activity. This field will not be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details."
-        description: "Complete description of your session. This field will be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details."
-        mechanics: "Required for Workshops. Describe how you will run your session with the audience. This field will be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details."
-        benefits: "These are the benefits and learning outcomes that the participants will take from attending your session. This field will be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details."
-        experience: "Describe your experience on the subject of this session. This field will be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details."
+        target_audience: "Indicate your target audience, for example: developers, new to Agile, analysts, architects, QAs, project managers, executives.<br>Up to <b>200 characters</b>."
+        summary: "Summary of your session to be displayed in the program. It should match the complete description of this activity. This field will not be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details.<br>Up to <b>800 characters</b>."
+        description: "Complete description of your session. This field will be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details.<br>Up to <b>2400 characters</b>."
+        mechanics: "Required for Workshops. Describe how you will run your session with the audience. This field will be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details.<br>Up to <b>2400 characters</b>."
+        benefits: "These are the benefits and learning outcomes that the participants will take from attending your session. This field will be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details.<br>Up to <b>400 characters</b>."
+        experience: "Describe your experience on the subject of this session. This field will be used to evaluate your session.<br/>In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details.<br>Up to <b>400 characters</b>."
         second_author_username: "Please provide the second author's username in this field. The second author must also be a registered user. If you don't know the second author's username or he/she is not registered yet, leave it blank and edit your session proposal before the submission deadline."
         keyword_list: "Separate keywords with commas."
       comment:
-        comment: "In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details."
+        comment: "In this field, a limited markup syntax is allowed. See the <a href='/syntax_help?locale=en' target='_blank'>reference guide</a> for details.<br>Up to <b>1000 characters</b>."
       reviewer:
         user_username: "Please provide the reviewer's username in this field."
       review:
@@ -368,10 +368,10 @@ en:
       description: "Someone who is starting with, learning or wanting to know about agile methodologies."
     practitioner:
       title: "Practitioner"
-      description: "Someone who uses agile methodologies, agrees with their values​and put them into practice."
+      description: "Someone who uses agile methodologies, agrees with their values and put them into practice."
     experienced:
       title: "Experienced"
-      description: "Someone who understands the Agile values​and principles and have also put them into practice, has led teams and/or trained others in their practices."
+      description: "Someone who understands the Agile values and principles and have also put them into practice, has led teams and/or trained others in their practices."
   
   email:
     welcome:

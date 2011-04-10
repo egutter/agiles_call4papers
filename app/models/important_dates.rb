@@ -1,4 +1,4 @@
-def ImportantDates
+class ImportantDates
   
   SUBMISSION_START_DATE = Time.zone.local(2011, 4, 11, 0, 0, 0)
   SUBMISSION_END_DATE = Time.zone.local(2011, 5, 15, 23, 59, 59)

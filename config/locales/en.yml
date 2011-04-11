@@ -160,7 +160,7 @@ en:
       session:
         track_id: "A detailed description of each track can be found <a href='/tracks?locale=en' target='_blank'>here</a>. For Experience Reports, only Talks lasting 45 minutes will be accepted."
         session_type_id: "A detailed description of session types can be found <a href='/session_types?locale=en' target='_blank'>here</a>."
-        duration_mins: "If you are proposing a Talk, please indicate its duration. For Tutorials and Workshops we recommend a duration of 90 minutes."
+        duration_mins: "If you are proposing a Tutorial or Workshop, please indicate its duration."
         audience_level_id: "Indicate the appropriate experience level of your audience. A description of each level can be found <a href='/audience_levels?locale=en' target='_blank'>here</a>."
         audience_limit: "If your session is a Tutorial or Workshop, indicate if it has a maximum number of participants."
         target_audience: "Indicate your target audience, for example: developers, new to Agile, analysts, architects, QAs, project managers, executives.<br>Up to <b>200 characters</b>."

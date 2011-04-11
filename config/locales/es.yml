@@ -331,12 +331,12 @@ es:
         mechanics: "Obligatorio para Workshops. Describe cómo pretendes realizar la sesión junto al público. Este campo será usado para evaluar tu propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Encentra más detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>. <br>Máximo <b>2400 caracteres</b>."
         benefits: "Escribe aquí cuales serán los beneficios para el público de tu sesión. Qué podrán utilizar, o qué aprenderán, o qué experimentarán, cuál será la relevancia para la comunidad, etc. Este campo será usado para evaluar tu propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Encuentra más detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>.<br>Máximo <b>400 caracteres</b>."
         experience: "Describe tu experiencia con el tema sobre el cual disertarás. Este campo será usado para evaluar tu propuesta.<br/>En este campo, está habilitada una sintáxis limitada de hipertexto. Encuentra más detalles en <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>.<br>Máximo <b>400 caracteres</b>."
-        second_author_username: "Ingresa el nombre de usuario del segundo presentador en este campo. El segundo presentador también requiere ser un usuario registrado. Si no conoce el nombre de usuario del segundo presentador o el/ella aún no se registró, deje este campo en blanco y edite su propuesta antes del final del plazo de presentación de propuestas."
+        second_author_username: "Ingresa el nombre de usuario del segundo presentador en este campo. El segundo presentador también requiere ser un usuario registrado. Si no conoce el nombre de usuario del segundo presentador o el/ella aún no se registró, deje este campo en blanco y edita tu propuesta antes del final del plazo de presentación de propuestas."
         keyword_list: "Ingresa las palabras-clave separadas por coma."
       comment:
         comment: "En este campo, está habilitada una sintáxis limitada de hipertexto. Consulta la <a href='/syntax_help?locale=es' target='_blank'>guía de referencia</a>. <br>Máximo <b>1000 caracteres</b>."
       new_vote: "Para ver los logotipos en color, basta pasar el mouse por encima del logotipo, o clickear en la lupa para visualizar una imagen ampliada. Para modificar tu voto, haz click en el logotipo deseado para selecionarlo y déjalo coloreado."
-      edit_vote: "Para ver os logotipos en color, basta pasar el mouse por encima del logotipo, o clickear en la lupa para visualizar una imagen ampliada. Para modificar su voto, haz click en el logotipo deseado para selecionarlo y déjalo coloreado."
+      edit_vote: "Para ver os logotipos en color, basta pasar el mouse por encima del logotipo, o clickear en la lupa para visualizar una imagen ampliada. Para modificar tu voto, haz click en el logotipo deseado para selecionarlo y déjalo coloreado."
       reviewer:
         user_username: "Ingresa el nombre de usuario del evaluador en este campo."
       review:
@@ -550,7 +550,7 @@ es:
     session_rejected:
       subject: "Comunicado del Comite de Programa de %{conference_name}"
     comment_posted:
-      subject: "Comentario recibido en una de sus sesiones postuladas en %{conference_name}"      
+      subject: "Comentario recibido en una de tus sesiones postuladas en %{conference_name}"      
   
   vote:
     description: "La votación para el logo del evento terminó."

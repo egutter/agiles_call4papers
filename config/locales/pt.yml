@@ -322,7 +322,7 @@ pt:
       session:
         track_id: "A descrição de cada trilha pode ser consultada <a href='/tracks?locale=pt' target='_blank'>aqui</a>. Para Relatos de Experiência, só serão aceitas Palestras com 45 minutos de duração."
         session_type_id: "Uma descrição dos tipos de sessão pode ser consultada <a href='/session_types?locale=pt' target='_blank'>aqui</a>."
-        duration_mins: "Se a sua sessão for uma Palestra, indique a duração adequada para ela. Para Tutoriais e Workshops recomendamos uma duração de 90 minutos."
+        duration_mins: "Se a sua sessão for um Tutorial ou Workshop, indique a duração adequada para ela."
         audience_level_id: "Indique o nível esperado do seu público alvo. Leia uma descrição dos níveis <a href='/audience_levels?locale=pt' target='_blank'>aqui</a>."
         audience_limit: "Se a sua sessão for um Tutorial ou Workshop, indique se ela tem um número máximo de participantes."
         target_audience: "Descreva um pouco sobre o público-alvo, por exemplo: desenvolvedores, iniciantes em Métodos Ágeis, analistas, arquitetos, QAs, gerentes de projeto, executivos.<br>Máximo <b>200 caracteres</b>."

@@ -493,6 +493,8 @@ es:
         success: "Comentario guardado con éxito."
       update:
         success: "Comentario guardado con éxito."
+      remove:
+        success: "Comentario eliminado con éxito."
   
   session_types:
     tutorial:

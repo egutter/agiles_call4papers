@@ -326,6 +326,11 @@ en:
     review:
       create:
         success: "Review recorded successfully."
+    comment:
+      create:
+        success: "Comment recorded successfully."
+      update:
+        success: "Comment recorded successfully."
   
   session_types:
     tutorial:

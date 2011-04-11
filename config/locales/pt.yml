@@ -488,6 +488,11 @@ pt:
     review:
       create:
         success: "Avaliação gravada com sucesso."
+    comment:
+      create:
+        success: "Comentário gravado com sucesso."
+      update:
+        success: "Comentário gravado com sucesso."
   
   session_types:
     tutorial:

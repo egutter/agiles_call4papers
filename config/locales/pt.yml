@@ -549,7 +549,9 @@ pt:
       subject: "Comunicado do Comitê de Programa da %{conference_name}"
     session_rejected:
       subject: "Comunicado do Comitê de Programa da %{conference_name}"
-  
+    comment_posted:
+      subject: "Comentário recebido em uma de suas sessões submetidas para %{conference_name}"
+        
   vote:
     description: "A votação para o logotipo do evento terminou. Lembre-se que o logotipo será apresentado nos materiais de divulgação do evento: impresso, projetado ou usado em vídeos (tanto em formato colorido como em preto e branco)."
     confirmation: "Você tem certeza que quer votar no logo $LOGO? Apenas o seu voto mais recente será contado."

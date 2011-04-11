@@ -75,6 +75,17 @@ class EmailNotifications < ActionMailer::Base
       session.review_decision.update_attribute(:published, true)
     end
   end
+  
+  def comment_posted(comment, sent_at = Time.now)
+    I18n.locale = comment.commentable.author.try(:default_locale)
+    subject       "[#{host}] #{I18n.t('email.comment_posted.subject', :conference_name => AppConfig[:conference_name])}"
+    recipients    comment.commentable.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" }
+    from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
+    reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
+    sent_on       sent_at
+    
+    multipart_content_for(:comment_posted, :comment => comment)
+  end
 
   private
   def host

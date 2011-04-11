@@ -1,0 +1,15 @@
+Hola #{h(@comment.commentable.authors.map(&:full_name).join(" & "))},
+
+Usted acaba de recibir un comentario en el sistema de presentación #{AppConfig[:conference_name]} para su propuesta:
+#{@comment.commentable.title}.
+
+#{@comment.user.full_name} dice:
+* #{@comment.comment}
+
+Para responder a este comentario, por favor ingrese al sitio en #{root_url}.
+
+Muchas gracias,
+
+Equipo de programa de #{AppConfig[:conference_name]}
+
+[Se ruega no responda a este correo electrónico. Fue enviado a través de una dirección que no es monitoreada]

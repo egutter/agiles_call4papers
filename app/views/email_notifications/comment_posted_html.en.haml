@@ -1,0 +1,15 @@
+%p Dear #{h(@comment.commentable.authors.map(&:full_name).join(" & "))},
+
+%p You have received a comment at #{AppConfig[:conference_name]} conference for the session submitted: #{@comment.commentable.title}.
+
+
+%p #{@comment.user.full_name} says:<br /><strong>#{@comment.comment}</strong>
+
+
+%p To answer this comment, please visit #{root_url}.
+
+%p Regards,
+
+%p Program Committee of #{AppConfig[:conference_name]} Conference
+
+%small [Please do not reply to this e-mail. It was sent from an unmonitored email address]

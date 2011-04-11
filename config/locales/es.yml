@@ -549,6 +549,8 @@ es:
       subject: "Comunicado del Comite de Programa de %{conference_name}"
     session_rejected:
       subject: "Comunicado del Comite de Programa de %{conference_name}"
+    comment_posted:
+      subject: "Comentario recibido en una de sus sesiones postuladas en %{conference_name}"      
   
   vote:
     description: "La votación para el logo del evento terminó."

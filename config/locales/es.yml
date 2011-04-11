@@ -488,6 +488,11 @@ es:
     review:
       create:
         success: "Evaluación guardada con éxito."
+    comment:
+      create:
+        success: "Comentario guardado con éxito."
+      update:
+        success: "Comentario guardado con éxito."
   
   session_types:
     tutorial:

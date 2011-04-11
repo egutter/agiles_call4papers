@@ -1,19 +1,19 @@
-%p Estimado #{h(@reviewer.user.full_name)},
+%p Hola #{h(@reviewer.user.full_name)},
 
-%p Nos gustaría invitarlo a que forme parte del equipo de evaluación del programa de #{AppConfig[:conference_name]}. Si acepta esta invitación, por favor, visite en el siguiente link:
+%p Nos gustaría invitarte a formar parte del equipo de evaluación del programa de #{AppConfig[:conference_name]}. Si aceptas esta invitación, por favor, haz click en el siguiente link:
 
 %p= link_to reviewer_accept_url(@reviewer, :locale => 'es'), reviewer_accept_url(@reviewer, :locale => 'es')
 
-%p En el caso de no aceptar, por favor, haga click en el siguiente link:
+%p En el caso de no aceptar, por favor, haz click en el siguiente link:
 
 %p= link_to reviewer_reject_url(@reviewer, :locale => 'es'), reviewer_reject_url(@reviewer, :locale => 'es')
 
-%p Si alguna de las URLs anteriores no funcionan, pruebe copiándola y pegándola en su navegador.
+%p Si alguna de las URLs anteriores no funcionan, prueba copiándola y pegándola en tu navegador.
 
-%p Contamos con su colaboración para crear una programación excelente para Ágies 2011. Si tiene cualquier pregunta, puede contactarnos en #{link_to "agiles2011-program@agiles.org", "mailto:agiles2011-program@agiles.org"}.
+%p Contamos con tu colaboración para crear una programación excelente para #{AppConfig[:conference_name]}. Si tienes cualquier pregunta, puedes contactarnos a través de #{link_to "agiles2011-program@agiles.org", "mailto:agiles2011-program@agiles.org"}.
 
 %p Gracias,
 
-%p Comité de Programa de Ágies 2011
+%p Comité de Programa de #{AppConfig[:conference_name]}
 
-%small [Por favor no responda a este e-mail. Fue enviado desde una casilla no monitoreada]
+%small [Por favor no respondas este e-mail. Fue enviado desde una casilla no monitoreada]

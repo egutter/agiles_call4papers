@@ -1,0 +1,39 @@
+Hola #{h(@session.authors.map(&:full_name).join(" & "))},
+
+Nos complace informarte de que tu propuesta '#{h(@session.title)}' ha sido seleccionada para formar parte del programa de #{AppConfig[:conference_name]}!
+
+Nos gustaría pedirte que confirmes tu asistencia al evento antes de #{l(ImportantDates::AUTHORS_INSCRIPTION_END_DATETIME)} accediendo al formulario que se encuentra en:
+
+= link_to session_confirm_url(@session, :locale => 'es'), session_confirm_url(@session, :locale => 'es')
+
+
+Si no puedes asistir al evento, te rogamos que confirmes el retiro de tu propuesta a través del formulario en:
+
+= link_to session_withdraw_url(@session, :locale => 'es'), session_withdraw_url(@session, :locale => 'es')
+
+Sólo el primer autor de la sesión (#{@session.author.full_name}) puede confirmar la asistencia o retirar la propuesta.
+
+
+Si no confirmas tu asistencia antes de la fecha mencionada, nos veremos obligados a dar de baja tu propuesta y reemplazarla con otro trabajo seleccionado.
+
+
+Una vez que hayas confirmado tu asistencia o retirado tu propuesta, puedes revisar las observaciones y sugerencias formuladas por los evaluadores accediendo a:
+
+= link_to session_reviews_url(@session, :locale => 'es'), session_reviews_url(@session, :locale => 'es')
+
+
+ATENCIÓN: COMO EXPOSITOR DE #{AppConfig[:conference_name]} TIENES LA REGISTRACION A LA CONFERENCIAS BONIFICADA!
+ 
+Una vez que confirmes tu asistencia, recibirás un código de descuento para registrarte en la conferencia.
+
+Pronto estaremos enviando más instrucciones a todos los expositores. Si tienes cualquier pregunta, solicitud o comentario, por favor, ponte en contacto con el Comité de Programa a través de 'agiles2011-program@agiles.org'.
+
+
+
+Esperamos verte pronto!
+
+= "--"
+
+Comité de Programa de #{AppConfig[:conference_name]}
+
+[Por favor no respondas a este e-mail. Fue enviado desde una casilla no monitoreada]

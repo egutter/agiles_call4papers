@@ -1,14 +1,14 @@
 %p Hola #{h(@user.full_name)},
 
-%p Usted acaba de registrarse en el sistema de presentación #{AppConfig[:conference_name]}. Para presentar una propuesta de sesión, sólo tiene que ingresar a #{link_to root_url, root_url} y hacer login utilizando:
+%p Acabas de registrarte en el sistema de presentación de trabajos para #{AppConfig[:conference_name]}. Para presentar una propuesta de sesión, sólo tienes que ingresar a #{link_to root_url, root_url} y hacer login utilizando:
 
 %ul
   %li <strong>Nombre de usuario</strong>: #{h(@user.username)}
 
-%p Vamos a utilizar este e-mail de contacto con respecto a sus presentaciones. En caso de duda, crítica o sugerencia, por favor contáctenos a través de #{link_to "agiles2011-program@agiles.org", "mailto:agiles2011-program@agiles.org"} por e-mail .
+%p Vamos a utilizar este e-mail de contacto con respecto a tus presentaciones. En caso de duda, crítica o sugerencia, por favor contáctanos por e-mail a través de #{link_to "agiles2011-program@agiles.org", "mailto:agiles2011-program@agiles.org"}.
 
 %p Muchas gracias,
 
-%p Equipo de programa de #{AppConfig[:conference_name]}
+%p Comité de Programa de #{AppConfig[:conference_name]}
 
-%small [Se ruega no responda a este correo electrónico. Fue enviado a través de una dirección que no es monitoreada]
+%small [Por favor no respondas a este correo electrónico. Fue enviado a través de una dirección que no es monitoreada]

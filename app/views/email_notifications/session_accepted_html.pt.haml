@@ -1,9 +1,9 @@
 %p Caro#{@session.authors.size > 1 ? "s":""} #{h(@session.authors.map(&:full_name).join(" & "))},
 
-%p É com grande satisfação que comunicamos que seu trabalho <strong>'#{h(@session.title)}'</strong> foi selecionado para integrar o programa da Conferência Brasileira sobre Métodos Ágeis de Desenvolvimento de Software – Agile Brazil 2010!
+%p É com grande satisfação que comunicamos que seu trabalho <strong>'#{h(@session.title)}'</strong> foi selecionado para integrar o programa do #{AppConfig[:conference_name]}!
 
 %p
-  Por gentileza, queira confirmar sua presença no evento até às 23h59min do dia 09/05/2010 acessando o formulário
+  Por gentileza, queira confirmar sua presença no evento até #{l(ImportantDates::AUTHORS_INSCRIPTION_END_DATETIME)} acessando o formulário
   %br
   = link_to session_confirm_url(@session, :locale => 'pt'), session_confirm_url(@session, :locale => 'pt')
 
@@ -15,7 +15,7 @@
 %p
   Apenas o primeiro autor da sessão (#{@session.author.full_name}) pode confirmar ou cancelar a presença.
 
-%p O autor que não confirmar ou cancelar sua presença até o dia 09/05/2010 terá sua proposta removida automaticamente da programação, sendo substituída imediatamente por outro trabalho selecionado.
+%p O autor que não confirmar ou cancelar sua presença até o dia #{l(ImportantDates::AUTHORS_INSCRIPTION_END_DATE)} terá sua proposta removida automaticamente da programação, sendo substituída imediatamente por outro trabalho selecionado.
 
 %p
   Uma vez confirmada a presença ou desistência do evento, você poderá consultar as críticas e sugestões feitas pelos avaliadores acessando o endereço:
@@ -23,9 +23,9 @@
   = link_to session_reviews_url(@session, :locale => 'pt'), session_reviews_url(@session, :locale => 'pt')
 
 %p
-  ATENÇÃO: O PRIMEIRO AUTOR DE CADA SESSÃO ESTÁ ISENTO DE INSCRIÇÃO NO EVENTO!
+  ATENÇÃO: OS PALESTRANTES DO #{AppConfig[:conference_name]} RECEBERÃO INSCRIÇÕES DE CORTESIA!
   %br
-  Sua inscrição será feita pela organização do Agile Brazil 2010 uma vez que sua presença for confirmada.
+  Depois de confirmar a sua presença, receberá um código de desconto para sua inscrição na conferência.
 
 %p Em breve, enviaremos mais instruções a todos. Em caso de dúvidas, pedidos ou comentários, contate a Comissão de Programa através do email #{link_to 'agiles2011-program@agiles.org', 'mailto:agiles2011-program@agiles.org'}.
 
@@ -34,6 +34,6 @@
   %br
   = "--"
   %br
-  Comissão de Programa da Agile Brazil 2010
+  Comissão de Programa do #{AppConfig[:conference_name]}
 
 %small [Por favor não responda este e-mail. Ele foi enviado através de um endereço não monitorado]

@@ -1,28 +1,28 @@
-Estimado #{h(@reviewer.user.full_name)},
+Hola #{h(@reviewer.user.full_name)},
 
 
-Nos gustaría invitarlo a que forme parte del equipo de evaluación del programa de #{AppConfig[:conference_name]}. Si acepta esta invitación, por favor, visite el siguiente link:
+Nos gustaría invitarte a formar parte del equipo de evaluación del programa de #{AppConfig[:conference_name]}. Si aceptas esta invitación, por favor, haz click en el siguiente link:
 
 
 = link_to reviewer_accept_url(@reviewer, :locale => 'es'), reviewer_accept_url(@reviewer, :locale => 'es')
 
 
-En el caso de no aceptar, por favor, haga click en el siguiente link:
+En el caso de no aceptar, por favor, haz click en el siguiente link:
 
 
 = link_to reviewer_reject_url(@reviewer, :locale => 'es'), reviewer_reject_url(@reviewer, :locale => 'es')
 
 
-Si alguna de las URLs anteriores no funcionan, pruebe copiándola y pegándola en su navegador.
+Si alguna de las URLs anteriores no funcionan, prueba copiándola y pegándola en tu navegador.
 
 
-Contamos con su colaboración para crear una programación excelente para Ágies 2011. Si tiene cualquier pregunta, puede contactarnos en #{link_to "agiles2011-program@agiles.org", "mailto:agiles2011-program@agiles.org"}.
+Contamos con tu colaboración para crear una programación excelente para #{AppConfig[:conference_name]}. Si tienes cualquier pregunta, puedes contactarnos a través de agiles2011-program@agiles.org.
 
 
 Gracias,
 
 
-Comité de Programa de Ágies 2011
+Comité de Programa de #{AppConfig[:conference_name]}
 
 
-[Por favor no responda a este e-mail. Fue enviado desde una casilla no monitoreada]
+[Por favor no respondas a este e-mail. Fue enviado desde una casilla no monitoreada]

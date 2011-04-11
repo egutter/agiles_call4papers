@@ -1,0 +1,13 @@
+Hola #{h(@session.authors.map(&:full_name).join(" & "))},
+
+Gracias por enviarnos la propuesta de sesión '#{h(@session.title)}' para la conferencia #{AppConfig[:conference_name]}. Puedes acceder y modificar tu propuesta hasta la fecha límite de presentación de sesiones, #{l(ImportantDates::SUBMISSION_END_DATETIME)}, accediendo al siguiente link:
+
+= link_to session_url(@session, :locale => 'es'), session_url(@session, :locale => 'es')
+
+
+Atentamente,
+
+Comité de Programa de #{AppConfig[:conference_name]}
+
+
+[Por favor no respondas a este e-mail. Fue enviado desde una casilla no monitoreada]

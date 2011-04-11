@@ -1,7 +1,7 @@
 Olá #{@session.authors.map(&:full_name).join(" & ")},
 
 
-Obrigado por submeter a proposta de sessão '#{@session.title}' para a #{AppConfig[:conference_name]}. Você pode acessar e alterar os detalhes de sua proposta até o fim do prazo de submissão no dia 07/03/2010, acessando o link:
+Obrigado por submeter a proposta de sessão '#{@session.title}' para a #{AppConfig[:conference_name]}. Você pode acessar e alterar os detalhes de sua proposta até o fim do prazo de submissão no dia #{l(ImportantDates::SUBMISSION_END_DATETIME)}, acessando o link:
 
 
 = session_url(@session, :locale => 'pt')

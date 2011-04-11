@@ -1,14 +1,13 @@
-Hola #{@user.full_name},
+Hola #{h(@user.full_name)},
 
+Acabas de registrarte en el sistema de presentación de trabajos para #{AppConfig[:conference_name]}. Para presentar una propuesta de sesión, sólo tienes que ingresar a #{link_to root_url, root_url} y hacer login utilizando:
 
-Usted acaba de registrarse en el sistema de presentación #{AppConfig[:conference_name]}. Para presentar una propuesta de sesión, sólo tiene que ingresar a #{root_url} y hacer login utilizando:
+* Nombre de usuario: #{h(@user.username)}
 
-* Nombre de usuario: #{@user.username}
-
-Vamos a utilizar este e-mail de contacto con respecto a sus presentaciones. En caso de duda, crítica o sugerencia, por favor contáctenos a través de agiles2011-program@agiles.org por e-mail
+Vamos a utilizar este e-mail de contacto con respecto a tus presentaciones. En caso de duda, crítica o sugerencia, por favor contáctanos por e-mail a través de 'agiles2011-program@agiles.org'.
 
 Muchas gracias,
 
-Equipo de programa de #{AppConfig[:conference_name]}
+Comité de Programa de #{AppConfig[:conference_name]}
 
-[Se ruega no responda a este correo electrónico. Fue enviado a través de una dirección que no es monitoreada]
+[Por favor no respondas a este correo electrónico. Fue enviado a través de una dirección que no es monitoreada]

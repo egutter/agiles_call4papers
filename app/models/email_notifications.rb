@@ -4,7 +4,7 @@ class EmailNotifications < ActionMailer::Base
   
   def welcome(user, sent_at = Time.now)
     I18n.locale = user.default_locale
-    subject       "[#{host}] #{I18n.t('email.welcome.subject')}"
+    subject       "[#{AppConfig[:conference_name]}] #{I18n.t('email.welcome.subject')}"
     recipients    "\"#{user.full_name}\" <#{user.email}>"
     from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
@@ -15,7 +15,7 @@ class EmailNotifications < ActionMailer::Base
   
   def password_reset_instructions(user, sent_at = Time.now)
     I18n.locale = user.default_locale
-    subject       "[#{host}] #{I18n.t('email.password_reset.subject')}"
+    subject       "[#{AppConfig[:conference_name]}] #{I18n.t('email.password_reset.subject')}"
     recipients    "\"#{user.full_name}\" <#{user.email}>"
     from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
@@ -26,7 +26,7 @@ class EmailNotifications < ActionMailer::Base
   
   def session_submitted(session, sent_at = Time.now)
     I18n.locale = session.author.try(:default_locale)
-    subject       "[#{host}] #{I18n.t('email.session_submitted.subject', :conference_name => AppConfig[:conference_name])}"
+    subject       "[#{AppConfig[:conference_name]}] #{I18n.t('email.session_submitted.subject', :conference_name => AppConfig[:conference_name])}"
     recipients    session.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" }
     from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
@@ -37,7 +37,7 @@ class EmailNotifications < ActionMailer::Base
   
   def reviewer_invitation(reviewer, sent_at = Time.now)
     I18n.locale = reviewer.user.try(:default_locale)
-    subject       "[#{host}] #{I18n.t('email.reviewer_invitation.subject', :conference_name => AppConfig[:conference_name])}"
+    subject       "[#{AppConfig[:conference_name]}] #{I18n.t('email.reviewer_invitation.subject', :conference_name => AppConfig[:conference_name])}"
     recipients    "\"#{reviewer.user.full_name}\" <#{reviewer.user.email}>"
     from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
@@ -50,7 +50,7 @@ class EmailNotifications < ActionMailer::Base
     raise "Notification can't be sent before decision has been made" unless session.review_decision
     raise "Cannot accept a rejected session" if session.review_decision.rejected?
     I18n.locale = session.author.try(:default_locale)
-    subject       "[#{host}] #{I18n.t('email.session_accepted.subject', :conference_name => AppConfig[:conference_name])}"
+    subject       "[#{AppConfig[:conference_name]}] #{I18n.t('email.session_accepted.subject', :conference_name => AppConfig[:conference_name])}"
     recipients    session.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" }
     from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
@@ -65,7 +65,7 @@ class EmailNotifications < ActionMailer::Base
     raise "Notification can't be sent before decision has been made" unless session.review_decision
     raise "Cannot reject an accepted session" if session.review_decision.accepted?
     I18n.locale = session.author.try(:default_locale)
-    subject       "[#{host}] #{I18n.t('email.session_rejected.subject', :conference_name => AppConfig[:conference_name])}"
+    subject       "[#{AppConfig[:conference_name]}] #{I18n.t('email.session_rejected.subject', :conference_name => AppConfig[:conference_name])}"
     recipients    session.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" }
     from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
@@ -78,7 +78,7 @@ class EmailNotifications < ActionMailer::Base
   
   def comment_posted(comment, sent_at = Time.now)
     I18n.locale = comment.commentable.author.try(:default_locale)
-    subject       "[#{host}] #{I18n.t('email.comment_posted.subject', :conference_name => AppConfig[:conference_name])}"
+    subject       "[#{AppConfig[:conference_name]}] #{I18n.t('email.comment_posted.subject', :conference_name => AppConfig[:conference_name])}"
     recipients    comment.commentable.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" }
     from          "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"
     reply_to      "\"#{AppConfig[:conference_name]}\" <no-reply@#{host}>"

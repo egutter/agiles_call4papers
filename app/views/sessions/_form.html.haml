@@ -24,7 +24,7 @@
     });
     
     $("#session_duration_mins").filterOn("#session_session_type_id", {
-      "1": ["", "120", "240"],"2": ["", "45", "90"],"3": ["", "120", "240"],"4": ["", "90","120","240"]
+      "1": ["", "120", "240"],"2": ["", "45"],"3": ["", "120", "240"],"4": ["", "90","120","240"]
     })
     $("#session_session_type_id").bind('updated', sessionTypeActions);
     $("#session_session_type_id").bindSelectUpdated();

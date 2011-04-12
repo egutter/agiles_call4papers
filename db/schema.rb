@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100501033554) do
+ActiveRecord::Schema.define(:version => 20110410231100) do
 
   create_table "audience_levels", :force => true do |t|
     t.string   "title"
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(:version => 20100501033554) do
     t.integer  "reviews_count",     :default => 0
     t.boolean  "author_agreement"
     t.boolean  "image_agreement"
+    t.string   "language"
   end
 
   create_table "slots", :force => true do |t|

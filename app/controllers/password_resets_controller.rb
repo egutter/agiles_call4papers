@@ -8,6 +8,8 @@ class PasswordResetsController < ApplicationController
   end
   
   def new
+    puts "rendering new"
+    render :new
   end
   
   def create

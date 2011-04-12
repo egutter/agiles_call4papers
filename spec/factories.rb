@@ -52,6 +52,7 @@ Factory.define :session do |s|
   s.target_audience "Managers, developers, testers"
   s.association :author, :factory => :user
   s.experience "Description of author's experience on subject"
+  s.language "Español"
 end
 
 Factory.define :comment do |c|

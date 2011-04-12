@@ -47,7 +47,7 @@ class Session < ActiveRecord::Base
     record.errors.add(attr, :experience_report_duration) if value != 45
   end
   validates_each :duration_mins, :if => :workshop? do |record, attr, value|
-    record.errors.add(attr, :workshop_duration) if value == 45 or value == 90
+    record.errors.add(attr, :workshop_duration) if value == 45
   end
   validates_each :author_id, :on => :update do |record, attr, value|
     record.errors.add(attr, :constant) if record.author_id_changed?

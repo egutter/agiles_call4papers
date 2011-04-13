@@ -105,7 +105,7 @@ a:hover {
       list-style: none; }
     #header ul#languages li:before {
       content: "\00a0|\00a0"; }
-    #header ul#languages li:fist-child:before {
+    #header ul#languages li:first-child:before {
       content: ""; }
     #header ul#languages a {
       color: #009933;

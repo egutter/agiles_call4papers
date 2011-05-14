@@ -37,7 +37,7 @@ class Ability
     end
     if user.author?
       can(:create, Session) do
-        Time.zone.now <= ImportantDates::SUBMISSION_END_DATE
+        Time.zone.now <= ImportantDates::SUBMISSION_END_DATETIME
       end
       can(:update, Session) do |session|
         session.try(:is_author?, user) && Time.zone.now <= ImportantDates::SUBMISSION_END_DATETIME

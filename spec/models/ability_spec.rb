@@ -276,13 +276,13 @@ describe Ability do
         Time.zone.stubs(:now).returns(Time.zone.local(2010, 1, 1))
       end
       
-      it "- before deadline of 7/3/2010" do
-        Time.zone.expects(:now).returns(Time.zone.local(2010, 3, 7, 23, 59, 59))
+      it "- before deadline of 29/5/2010" do
+        Time.zone.expects(:now).returns(Time.zone.local(2011, 5, 29, 23, 59, 59))
         @ability.should be_can(:create, Session)
       end
       
-      it "- after deadline author can't update" do
-        Time.zone.expects(:now).returns(Time.zone.local(2010, 3, 8, 0, 0, 0))
+      it "- after deadline 29/5/2010 author can't update" do
+        Time.zone.expects(:now).returns(Time.zone.local(2011, 5, 30, 0, 0, 0))
         @ability.should be_cannot(:create, Session)
       end
     end

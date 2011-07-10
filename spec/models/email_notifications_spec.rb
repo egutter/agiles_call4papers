@@ -77,7 +77,7 @@ describe EmailNotifications do
   	  mail.body.should =~ /Olá #{@session.author.full_name},/
   	  mail.body.should =~ /#{@session.title}/
   	  mail.body.should =~ /\/sessions\/#{@session.to_param}/
-  	  mail.subject.should == "[localhost:3000] Proposta de sessão submetida para Ágiles 2011"
+  	  mail.subject.should == "[localhost:3000] Proposta de sessão submetida para #{AppConfig[:conference_name]}"
     end
     
     it "should be sent to second author, if available" do
@@ -91,7 +91,7 @@ describe EmailNotifications do
   	  mail.body.should =~ /Olá #{@session.author.full_name} &amp; #{user.full_name},/
   	  mail.body.should =~ /#{@session.title}/
   	  mail.body.should =~ /\/sessions\/#{@session.to_param}/
-  	  mail.subject.should == "[localhost:3000] Proposta de sessão submetida para Ágiles 2011"
+  	  mail.subject.should == "[localhost:3000] Proposta de sessão submetida para #{AppConfig[:conference_name]}"
     end
     
     it "should be sent to first author in default language" do
@@ -103,7 +103,7 @@ describe EmailNotifications do
   	  mail.body.should =~ /Dear #{@session.author.full_name},/
   	  mail.body.should =~ /#{@session.title}/
   	  mail.body.should =~ /\/sessions\/#{@session.to_param}/
-  	  mail.subject.should == "[localhost:3000] Ágiles 2011 session proposal submitted"
+  	  mail.subject.should == "[localhost:3000] #{AppConfig[:conference_name]} session proposal submitted"
     end
 
     it "should be sent to second author, if available (in first author's default language)" do
@@ -118,7 +118,7 @@ describe EmailNotifications do
   	  mail.body.should =~ /Dear #{@session.author.full_name} &amp; #{user.full_name},/
   	  mail.body.should =~ /#{@session.title}/
   	  mail.body.should =~ /\/sessions\/#{@session.to_param}/
-  	  mail.subject.should == "[localhost:3000] Ágiles 2011 session proposal submitted"
+  	  mail.subject.should == "[localhost:3000] #{AppConfig[:conference_name]} session proposal submitted"
     end
     
   end
@@ -135,7 +135,7 @@ describe EmailNotifications do
       mail.content_type.should == "multipart/alternative"
   	  mail.body.should =~ /\/reviewers\/3\/accept/
   	  mail.body.should =~ /\/reviewers\/3\/reject/
-  	  mail.subject.should == "[localhost:3000] Convite para equipe de avaliação da Ágiles 2011"
+  	  mail.subject.should == "[localhost:3000] Convite para equipe de avaliação da #{AppConfig[:conference_name]}"
     end
 
     it "should be sent in user's default language" do
@@ -146,7 +146,7 @@ describe EmailNotifications do
       mail.content_type.should == "multipart/alternative"
   	  mail.body.should =~ /\/reviewers\/3\/accept/
   	  mail.body.should =~ /\/reviewers\/3\/reject/
-  	  mail.subject.should == "[localhost:3000] Invitation to be part of Ágiles 2011 review committee"
+  	  mail.subject.should == "[localhost:3000] Invitation to be part of #{AppConfig[:conference_name]} review committee"
     end
   end
   
@@ -186,7 +186,7 @@ describe EmailNotifications do
       mail.body.should =~ /\/sessions\/#{@session.to_param}\/confirm/
       mail.body.should =~ /\/sessions\/#{@session.to_param}\/withdraw/
   	  
-  	  mail.subject.should == "[localhost:3000] Comunicado do Comitê de Programa da Ágiles 2011"
+  	  mail.subject.should == "[localhost:3000] Comunicado do Comitê de Programa da #{AppConfig[:conference_name]}"
     end
     
     it "should be sent to second author, if available" do
@@ -203,7 +203,7 @@ describe EmailNotifications do
       mail.body.should =~ /\/sessions\/#{@session.to_param}\/confirm/
       mail.body.should =~ /\/sessions\/#{@session.to_param}\/withdraw/
 
-  	  mail.subject.should == "[localhost:3000] Comunicado do Comitê de Programa da Ágiles 2011"
+  	  mail.subject.should == "[localhost:3000] Comunicado do Comitê de Programa da #{AppConfig[:conference_name]}"
     end
     
     it "should be sent to first author in default language" do
@@ -218,7 +218,7 @@ describe EmailNotifications do
       mail.body.should =~ /\/sessions\/#{@session.to_param}\/confirm/
       mail.body.should =~ /\/sessions\/#{@session.to_param}\/withdraw/
       
-  	  mail.subject.should == "[localhost:3000] Notification from the Program Committee of Ágiles 2011"
+  	  mail.subject.should == "[localhost:3000] Notification from the Program Committee of #{AppConfig[:conference_name]}"
     end
 
     it "should be the same to both authors, if second autor is available" do
@@ -236,7 +236,7 @@ describe EmailNotifications do
       mail.body.should =~ /\/sessions\/#{@session.to_param}\/confirm/
       mail.body.should =~ /\/sessions\/#{@session.to_param}\/withdraw/
 
-  	  mail.subject.should == "[localhost:3000] Notification from the Program Committee of Ágiles 2011"
+  	  mail.subject.should == "[localhost:3000] Notification from the Program Committee of #{AppConfig[:conference_name]}"
     end
     
   end
@@ -275,7 +275,7 @@ describe EmailNotifications do
   	  mail.body.should =~ /#{@session.title}/
   	  mail.body.should =~ /\/sessions\/#{@session.to_param}/
   	  
-  	  mail.subject.should == "[localhost:3000] Comunicado do Comitê de Programa da Ágiles 2011"
+  	  mail.subject.should == "[localhost:3000] Comunicado do Comitê de Programa da #{AppConfig[:conference_name]}"
     end
     
     it "should be sent to second author, if available" do
@@ -290,7 +290,7 @@ describe EmailNotifications do
   	  mail.body.should =~ /#{@session.title}/
   	  mail.body.should =~ /\/sessions\/#{@session.to_param}/
 
-  	  mail.subject.should == "[localhost:3000] Comunicado do Comitê de Programa da Ágiles 2011"
+  	  mail.subject.should == "[localhost:3000] Comunicado do Comitê de Programa da #{AppConfig[:conference_name]}"
     end
     
     it "should be sent to first author in default language" do
@@ -303,7 +303,7 @@ describe EmailNotifications do
   	  mail.body.should =~ /#{@session.title}/
   	  mail.body.should =~ /\/sessions\/#{@session.to_param}/
       
-  	  mail.subject.should == "[localhost:3000] Notification from the Program Committee of Ágiles 2011"
+  	  mail.subject.should == "[localhost:3000] Notification from the Program Committee of #{AppConfig[:conference_name]}"
     end
 
     it "should be the same to both authors, if second autor is available" do
@@ -319,7 +319,7 @@ describe EmailNotifications do
   	  mail.body.should =~ /#{@session.title}/
   	  mail.body.should =~ /\/sessions\/#{@session.to_param}/
 
-  	  mail.subject.should == "[localhost:3000] Notification from the Program Committee of Ágiles 2011"
+  	  mail.subject.should == "[localhost:3000] Notification from the Program Committee of #{AppConfig[:conference_name]}"
     end
     
   end

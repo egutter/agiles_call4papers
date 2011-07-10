@@ -3,10 +3,12 @@
 %p Lamentamos informarte que tu propuesta <strong>'#{h(@session.title)}'</strong> no ha sido seleccionada para formar parte del programa de #{AppConfig[:conference_name]}.
 
 %p
-  Hemos recibido muchas propuestas muy interesantes este año. Lamentablemente, esto significa que muchas buenas propuestas no pudieron ser incluidos en el programa debido a la falta de espacio. Al final, alrededor de 35 sesiones fueron seleccionadas, teniendo en cuenta la necesidad de crear una programación equilibrada, con un contenido de alta calidad y adaptado a los asistentes a la conferencia. Puedes ver los comentarios que tu propuesta ha recibido de parte de los revisores y organizadores en:
+  Hemos recibido muchas propuestas muy interesantes este año. Lamentablemente, esto significa que muchas buenas propuestas no pudieron ser incluidos en el programa debido a la falta de espacio. Puedes ver los comentarios que tu propuesta ha recibido de parte de los revisores y organizadores en:
 
   %br
   = link_to session_reviews_url(@session, :locale => 'es'), session_reviews_url(@session, :locale => 'es')
+
+%p Esperamos que decidas participar de este evento y consideres proponer esta sesión durante el día de Open Space de la conferencia.
 
 %p Si tienes cualquier pregunta, solicitud o comentario, no dudes en ponerte en contacto con el Comité del Programa a través de #{link_to 'agiles2011-program@agiles.org','mailto:agiles2011-program@agiles.org'}.
 

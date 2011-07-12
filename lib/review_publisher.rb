@@ -1,7 +1,7 @@
 class ReviewPublisher
   def publish
-#    ensure_all_sessions_reviewed
-#    ensure_all_decisions_made
+    ensure_all_sessions_reviewed
+    ensure_all_decisions_made
     rejected_sessions.each do |session|
       Rails.logger.info("[SESSION] #{session.to_param}")
       try_with("REJECT") { EmailNotifications.deliver_notification_of_rejection(session) }
@@ -10,7 +10,7 @@ class ReviewPublisher
       Rails.logger.info("[SESSION] #{session.to_param}")
       try_with("ACCEPT") { EmailNotifications.deliver_notification_of_acceptance(session) }
     end
-    Rails.logger.flush
+#    Rails.logger.flush
   end
   
   private

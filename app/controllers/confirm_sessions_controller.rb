@@ -16,6 +16,6 @@ class ConfirmSessionsController < ApplicationController
   protected
   def authorize_action
     @session = Session.find(params[:session_id])
-    unauthorized! unless @session.author == current_user && @session.pending_confirmation? && @session.review_decision && Time.zone.now <= ImportantDates::ACCEPTANCE_NOTIFICATION_DATETIME
+    unauthorized! unless @session.author == current_user && @session.pending_confirmation? && @session.review_decision && Time.zone.now <= ImportantDates::AUTHORS_INSCRIPTION_END_DATETIME
   end
 end

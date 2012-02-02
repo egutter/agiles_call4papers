@@ -31,7 +31,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :except => [:destroy] do |user|
     user.my_sessions 'my_sessions', :controller => 'sessions', :action => 'index'
   end
-
+  
+  map.resources :api_sessions, :only => [:index,:show]
+  map.resources :api_authors, :only => [:index,:show]
+  
   map.static_page ':page', :controller => 'static_pages', :action => 'show', :page => /guidelines|syntax_help/  
   map.root :controller => 'user_sessions', :action => 'new'
 end

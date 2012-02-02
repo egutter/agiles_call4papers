@@ -30,6 +30,7 @@ gem 'factory_girl', '1.2.3'
 gem 'inherited_resources', '1.0.0'
 gem 'remarkable_activerecord', '3.1.11'
 gem 'RedCloth'
+gem 'hoe', '2.8.0'
 group :development, :test do
   gem 'rspec-rails', '1.2.9'
   gem 'rspec', '1.2.9'

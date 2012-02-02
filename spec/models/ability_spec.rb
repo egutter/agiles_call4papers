@@ -277,12 +277,12 @@ describe Ability do
       end
       
       it "- before deadline of 29/5/2010" do
-        Time.zone.expects(:now).returns(Time.zone.local(2011, 5, 29, 23, 59, 59))
+        Time.zone.expects(:now).returns(Time.zone.local(2012, 5, 29, 23, 59, 59))
         @ability.should be_can(:create, Session)
       end
       
       it "- after deadline 29/5/2010 author can't update" do
-        Time.zone.expects(:now).returns(Time.zone.local(2011, 5, 30, 0, 0, 0))
+        Time.zone.expects(:now).returns(Time.zone.local(2012, 5, 30, 0, 0, 0))
         @ability.should be_cannot(:create, Session)
       end
     end

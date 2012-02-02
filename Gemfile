@@ -34,6 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '1.2.9'
   gem 'rspec', '1.2.9'
   gem 'mocha', '0.9.4'
+  gem 'heroku'
 end
 
 # Use unicorn as the web server

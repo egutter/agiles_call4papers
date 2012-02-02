@@ -151,7 +151,7 @@ BUGS:
 
 * After I have logged in, I then change my password, when I click on update, I am logged out....
 
-* After I have logged in, I should not see "Register a new account" on the main text, How to submit a session to Agile Brazil 2010.  The registered user should not be asked to register again, in other words. [won't fix]
+* After I have logged in, I should not see "Register a new account" on the main text, How to submit a session to #{AppConfig[:conference_name]}.  The registered user should not be asked to register again, in other words. [won't fix]
 * Should not allow numerical characters in City field. [won't fix]
 * Should not allow numerical characters in First name and Last name fields. [won't fix]
 * Should not allow tags, for example, <h1>, to be inserted in any field. [won't fix]
@@ -192,7 +192,7 @@ account" link on the left hand column.  They point to the same link but used dif
 * More spacing in Session Track, Session Types and Audience Levels pages?  It was slightly difficult to read the 4 bullet points when they are all squashed together [fixed]
 ? After I have edited my profile (changed password), when I click on Update profile, I should not be logged out.  But if I have only changed, say, Bio section and updated, it does not log me out. [fixed]
 * There needs to be more white space before the Copyleft / footer statement.  Ideally the copyleft should always align at the bottom of the page, and not at the end of the text. [fixed]
-* Need more spacing on the "How to submit a session to Agile Brazil 2010" page between paragraphs [fixed]
+* Need more spacing on the "How to submit a session to #{AppConfig[:conference_name]}" page between paragraphs [fixed]
 * The date formats expressed on the site do not follow the same rule.  At the top-left corner, it is YYYY-MM-DD, but in body text, it is DD/MM/YYYY. [fixed]
 * Create a session proposal: When I click on the link under the second author's field, http://agilebrazil2010.dtsato.com/users/new?locale=en, I get an error message "This page is only available when you're logged out."  This should not happen and I should see all registered users without having to log out.  At least I think this is the intended use for this link. [fixed]
 * When I create a new user, and I enter an email address of an existing user, the error message should not be "has already been taken".  It should be "Another user has an account with the same email address.  Please enter another." .... or some sort. [fixed]
@@ -202,7 +202,7 @@ account" link on the left hand column.  They point to the same link but used dif
 * Wrap text? [See AgileBrazilQA-01.tiff] [fixed]
 * State field on the create user form: still does not have a "Not applicable" value in the drop down. [fixed]
 * When creating a session proposal, should there be some help / description in Target audience field? [fixed]
-* Agile Brazil 2010 is inviting the members of the community .... [JW] Remove the word "the" in this sentence. [fixed]
+* #{AppConfig[:conference_name]} is inviting the members of the community .... [JW] Remove the word "the" in this sentence. [fixed]
 * Once you voted ... [JW] Add word: "Once you have voted ..." [fixed]
 * Should not see "Are you sure you want to vote for logo undefined? You are only allowed to vote once." message, when the user did not select a logo and clicked on the Vote button. [fixed]
 * The site allows the user to vote as many times as they like before the closing date.  Therefore there is no need to warn users (on the confirmation message) that they are only allowed to vote once. [fixed]

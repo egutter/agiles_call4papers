@@ -426,7 +426,7 @@ es:
       instructions: "Ingresa el e-mail que has utilizado para registrarte y tu nombre de usuario. Las instrucciones para modificar tu contraseña serán enviados por email:"
     
   footer:
-    help: "Si tienes dudas, críticas o sugerencias contáctanos a través del email <a href='mailto:agiles2011-program@agiles.org'>agiles2011-program@agiles.org</a>"
+    help: "Si tienes dudas, críticas o sugerencias contáctanos a través del email <a href='mailto:agiles2012-program@agiles.org'>agiles2012-program@agiles.org</a>"
   
   flash:
     user:

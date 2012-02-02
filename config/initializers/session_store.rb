@@ -5,7 +5,7 @@
 # Make sure the secret is at least 30 characters and all random, 
 # no regular words or you'll be exposed to dictionary attacks.
 ActionController::Base.session = {
-  :key         => '_agiles2011_session',
+  :key         => '_agiles2012_session',
   :secret      => '27a9c35910b0eab08d12d9837c5460caae4b83c5898888cf36804082711894f32a7389e97ed16bef01e59c1d0db38783183b7b24dbd3014501a35761e5574a25'
 }
 

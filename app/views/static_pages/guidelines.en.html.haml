@@ -1,25 +1,36 @@
 - title "Submission Guidelines"
 - show_actions!
 
-%p To submit your proposal, create an account in the submission system and fill out the submission form with the details of your proposal. Until the submission deadline, you will be able to edit your profile, create session proposals and edit existing proposals of which you are one of the authors. You may submit as many proposals as you wish, but <strong>no more than one session per author will be accepted</strong> in the final program. It is not possible to remove a proposal.
+%p To submit your proposal, create an account in the submission system and fill out the submission form with the details of your proposal. <strong>If you submitted proposals last year, your account is still active</strong>. Until the submission deadline, you will be able to edit your profile, create session proposals and edit existing proposals of which you are one of the authors. You may submit as many proposals as you wish. It is not possible to remove a proposal.
 
 %p Note that you will also be able to read proposals submitted by other users, as they will be able to read yours, even after the submission deadline.
 
-%p The submissions will be reviewed and evaluated by at least 3 members of the reviewing committee. For that, they will consider:
+%p The submissions will be reviewed and evaluated by at least 3 members of the Reviewing Committee. For that, they will consider:
 
 %ul
-  %li The authors' experience - both the mini biography presented in #{logged_in? ? link_to("your user profile", user_path(current_user)) : "your user profile"} and the field about experience with the subject in the submission form;
+  %li The authors' experience - both the mini biography presented in #{user_signed_in? ? link_to("your user profile", user_path(current_user)) : "your user profile"} and the field about experience with the subject in the submission form;
   %li Adequacy of your proposal in what concerns the chosen #{link_to "track", tracks_path}, #{link_to "session type", session_types_path}, #{link_to "audience level", audience_levels_path}, and target audience;
   %li Relevance to event;
   %li Clarity and quality of the written material.
 
-%p Authors of the sessions selected to be in the program will be notified by email after the revision period. After the notification, the main author will have a deadline to register in the conference. In case the main author does not register before the deadline, his session will be removed from the program.
-
-%p See below the important dates:
+%p Furthermore, during the program elaboration, the following rules will be considered to include a session:
 
 %ul
-  %li #{l(ImportantDates::SUBMISSION_START_DATE)}: Release of proposal submission form
-  %li #{l(ImportantDates::SUBMISSION_END_DATE)}: Submission deadline
+  %li One author cannot have more than 3 sessions accepted (except lightning talks).
+  %li There are no limits to the number of accepted lightning talks per author.
+  %li Only one session per set of authors will be accepted. That is, John can have, at max, one session alone, one with Mary and another with Joseph. John cannot have two sessions alone or two sessions with Mary.
+  %li The program committee will try to promote author diversity in the program as long as this does not affect the quality of the event (according to the evaluations performed by the evaluation committee).
+
+%p Authors of the sessions selected to be in the program will be notified by email after the review period. After the notification, the authors will have a deadline to register in the conference. In case none of the authors register before the deadline, their session will be removed from the program.
+
+%p Each confirmed session (except lightning talks) will be granted one (1) complementary registration that must be used by one of its authors. Lightning talks authors are granted no benefits no matter how many lightning talks are accepted.
+
+%p See the important dates below:
+
+%ul
+  %li #{l(Date.new(2011, 2, 5))}: Call for Submissions
+  %li #{l(Date.new(2011, 2, 14))}: Release of proposal submission form
+  %li #{l(Ability::SESSION_SUBMISSION_DEADLINE.to_date)}: Submission deadline
+  %li #{l(Ability::AUTHOR_NOTIFICATION_DEADLINE.to_date)}: Acceptance notification
   %li
-    %strong #{l(ImportantDates::ACCEPTANCE_NOTIFICATION_DATE)}: Acceptance notification
-  %li #{l(ImportantDates::AUTHORS_INSCRIPTION_END_DATE)}: Inscription deadline to selected authors
+    %strong #{l(Ability::AUTHOR_CONFIRMATION_DEADLINE.to_date)}: Inscription deadline to selected authors

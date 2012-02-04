@@ -30,9 +30,13 @@ class Review < ActiveRecord::Base
                         :proposal_duration, :proposal_limit, :proposal_abstract,
                         :in => [true, false]
   
+  validates_length_of :comments_to_authors, :minimum => 150
+
   validates_uniqueness_of :reviewer_id, :scope => :session_id
 
-  def after_create
+  scope :for_conference, lambda { |c| joins(:session).where(:sessions => {:conference_id => c.id})}
+
+  after_create do
     session.reviewing
   end
   

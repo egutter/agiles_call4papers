@@ -7,7 +7,7 @@ class ReviewDecision < ActiveRecord::Base
   belongs_to :organizer, :class_name => "User"
   
   validates_presence_of :organizer_id, :session_id, :outcome_id, :note_to_authors
-  validates_existence_of :organizer, :session, :outcome, :message => :existence
+  validates_existence_of :organizer, :session, :outcome
   
   validates_each :session_id do |record, attr, value|
     case record.outcome
@@ -18,7 +18,7 @@ class ReviewDecision < ActiveRecord::Base
     end
   end
   
-  def after_save
+  after_save do
     case outcome
     when Outcome.find_by_title('outcomes.accept.title')
       session.tentatively_accept unless session.pending_confirmation?
@@ -26,6 +26,14 @@ class ReviewDecision < ActiveRecord::Base
       session.reject unless session.rejected?
     end
   end
+
+  scope :for_conference, lambda { |c| joins(:session).where('sessions.conference_id = ?', c.id) }
+  
+  scope :for_tracks, lambda { |track_ids| joins(:session).where('sessions.track_id IN(?)', track_ids) }
+  
+  scope :accepted, where('outcome_id = ?', Outcome.find_by_title('outcomes.accept.title').id)
+  
+  scope :confirmed, joins(:session).where('sessions.state IN (?)', ['accepted', 'rejected'])
   
   def accepted?
     outcome == Outcome.find_by_title('outcomes.accept.title')

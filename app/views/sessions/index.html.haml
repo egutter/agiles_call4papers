@@ -3,9 +3,9 @@
 
 %ul
   - if params[:tagged_with]
-    %li= t('text.tagged_with', :tag => h(params[:tagged_with]))
+    %li= t('text.tagged_with', :tag => h(params[:tagged_with])).html_safe
   - if params[:user_id]
-    %li= t('text.for_user', :name => h(@user.try(:full_name)))
+    %li= t('text.for_user', :name => h(@user.try(:full_name))).html_safe
 
 %table.sessions
   %thead
@@ -16,13 +16,17 @@
       %th.author= t('formtastic.labels.session.second_author_id')
       - if @user == current_user
         %th.reviews= t('formtastic.labels.session.reviews')
+        %th.state= t('formtastic.labels.session.state')
+        %th.action
       %th.created_at= t('formtastic.labels.session.created_at')
   %tbody
     - @sessions.each do |session|
-      - content_tag_for(:tr, session, :class => cycle(:odd, :even)) do
+      = content_tag_for(:tr, session, :class => cycle(:odd, :even)) do
         %td.session_id= session.id
         %td.title
           = link_to h(session.try(:title)), session_path(session)
+          - if session.lightning_talk?
+            = image_tag("lightning-talk.png", :alt => t('session_types.lightning_talk.title'))
           - if session.comments.size > 0
             .commentCount= session.comments.size
         %td.author= link_to h(session.author.full_name), user_path(session.author)
@@ -33,6 +37,11 @@
           %td.reviews
             - if can?(:index, Review, session) && session.reviews_count > 0
               = link_to t('formtastic.labels.session.reviews'), session_reviews_path(session)
+          %td.state
+            = t("session.state.#{session.state}")
+          %td.action
+            - if session.pending_confirmation? && Time.zone.now <= Ability::AUTHOR_CONFIRMATION_DEADLINE
+              = link_to t('formtastic.actions.confirm_session'), session_confirm_url(session)
         %td.created_at
           = time_ago_in_words(session.created_at)
           = t('generic.ago')

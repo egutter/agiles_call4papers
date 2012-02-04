@@ -1,15 +1,16 @@
-require 'spec/spec_helper'
+require 'spec_helper'
  
 describe ReviewerSessionsController do
-  integrate_views
+  render_views
 
   it_should_require_login_for_actions :index
 
   before(:each) do
+    @conference = Factory(:conference)
     @user = Factory(:user)
-    @reviewer = Factory(:reviewer, :user => @user)
-    activate_authlogic
-    UserSession.create(@user)
+    @reviewer = Factory(:reviewer, :user => @user, :conference => @conference)
+    sign_in @user
+    disable_authorization
   end
 
   it "index action should render index template" do
@@ -18,8 +19,8 @@ describe ReviewerSessionsController do
   end
   
   it "index action should find sessions for reviewer" do
-    Session.expects(:for_reviewer).with(@user).returns([])
+    Session.expects(:for_reviewer).with(@user, @conference).returns([])
     get :index
-    assigns[:sessions].should == []
+    assigns(:sessions).should == []
   end
 end

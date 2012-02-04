@@ -1,0 +1,13 @@
+.bundle
+.DS_Store
+db/*.sqlite3
+log/*.log
+tmp/**/*
+coverage
+**/*~
+config/config*.yml
+.idea
+bin/*
+turbulence
+tmp
+certs/*.pem

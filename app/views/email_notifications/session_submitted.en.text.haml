@@ -1,0 +1,16 @@
+Dear #{@session.authors.map(&:full_name).join(" & ")},
+
+
+Thank you for submitting the session proposal '#{@session.title}' to the #{@conference_name} conference. You can access and amend the proposal until the session submission deadline on 19th Mar 2011 by accessing the link:
+
+
+= session_url(@session, :locale => 'en')
+
+
+Regards,
+
+
+Program Committee of #{@conference_name} Conference
+
+
+[Please do not reply to this e-mail. It was sent from an unmonitored email address]

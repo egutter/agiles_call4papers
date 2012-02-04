@@ -5,13 +5,13 @@ pt:
       default: "%d/%m/%Y"
       short: "%d de %B"
       long: "%d de %B de %Y"
-    
+
     day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
     abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
     month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
     abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
     order: [:day, :month, :year]
-  
+
   time:
     formats:
       default: "%A, %d de %B de %Y, %H:%M h"
@@ -19,7 +19,7 @@ pt:
       long: "%A, %d de %B de %Y, %H:%M h"
     am: ''
     pm: ''
-  
+
   # distancia do tempo em palavras
   datetime:
     distance_in_words:
@@ -27,43 +27,42 @@ pt:
       less_than_x_seconds:
         one: 'menos de 1 segundo'
         other: 'menos de %{count} segundos'
-      
       x_seconds:
         one: '1 segundo'
         other: '%{count} segundos'
-      
+
       less_than_x_minutes:
         one: 'menos de um minuto'
         other: 'menos de %{count} minutos'
-      
+
       x_minutes:
         one: '1 minuto'
         other: '%{count} minutos'
-      
+
       about_x_hours:
         one: 'aproximadamente 1 hora'
         other: 'aproximadamente %{count} horas'
-      
+
       x_days:
         one: '1 dia'
         other: '%{count} dias'
-      
+
       about_x_months:
         one: 'aproximadamente 1 mês'
         other: 'aproximadamente %{count} meses'
-      
+
       x_months:
         one: '1 mês'
         other: '%{count} meses'
-      
+
       about_x_years:
         one: 'aproximadamente 1 ano'
         other: 'aproximadamente %{count} anos'
-      
+
       over_x_years:
         one: 'mais de 1 ano'
         other: 'mais de %{count} anos'
-    
+
     prompts:
       year: "Ano"
       month: "Mês"
@@ -71,7 +70,7 @@ pt:
       hour: "Hora"
       minute: "Minuto"
       second: "Segundos"
- 
+
   # numeros
   number:
     format:
@@ -105,14 +104,14 @@ pt:
           mb: "MB"
           gb: "GB"
           tb: "TB"
- 
+
   # Usado no Array.to_sentence
   support:
     array:
       words_connector: ", "
       two_words_connector: " e "
       last_word_connector: " e "
-    
+
   # ActiveRecord
   activerecord:
     errors:
@@ -147,6 +146,9 @@ pt:
         incomplete: "perfil de autor incompleto"
         experience_report_duration: "só pode ser 45 minutos"
         workshop_duration: "só pode ser 2 ou 4 horas"
+        incomplete: "usuário não possui perfil de autor completo"
+        non_lightning_talk_duration: "só pode ser 50 ou 110 minutos"
+        lightning_talk_duration: "só pode ser 10 minutos"
         experience_report_session_type: "só pode ser uma Palestra"
         email_format: "deve ter um formato de e-mail válido"
         username_format: "deve usar apenas letras, números, espaços e .-_@"
@@ -158,14 +160,14 @@ pt:
               invalid: "deve usar apenas números, espaços e .-+()"
             email:
               taken: "outro usuário já usou o mesmo e-mail. Por favor escolha outro e-mail"
+              invalid: "deve ter um formato de e-mail válido"
+              not_found: "nenhum usuário foi encontrado com esse endereço de email"
+            reset_password_token:
+              invalid: "Desculpe-nos mas não conseguimos localizar seu usuário. Se você está tendo problemas para recuperar seus dados de acesso tente copiar e colar a URL fornecida por email no navegador ou reinicie o processo de recuperação de senha."
         session:
           attributes:
             keyword_list:
               too_long: "não pode ter mais que %{count} palavras-chave"
-        vote:
-          attributes:
-            logo_id:
-              blank: "por favor escolha um logo para votar"
         organizer:
           attributes:
             track_id:
@@ -179,28 +181,19 @@ pt:
         review_decision:
           cant_accept: "não pode ser aceita"
           cant_reject: "não pode ser rejeitada"
-
-  authlogic:
-    error_messages:
-      login_blank: "não pode ficar em branco"
-      login_not_found: "não é válido"
-      login_invalid: "deve usar apenas letras, números, espaços e .-_@"
-      consecutive_failed_logins_limit_exceeded: "Limite de tentativas de logins atingido, conta suspensa"
-      email_invalid: "deve ter um formato de e-mail válido"
-      password_blank: "não pode ficar em branco"
-      password_invalid: "não é válido"
-      not_active: "Sus conta não está ativa"
-      not_confirmed: "Sua conta não está confirmada"
-      not_approved: "Sua conta não está aprovada"
-      no_authentication_details: "Você não passou detalhes para autenticação"
-    # models:
-    #   user_session: UserSession (or whatever name you are using)
-    # attributes:
-    #   user_session: (or whatever name you are using)
-    #     login: login
-    #     email: email
-    #     password: password
-    #     remember_me: remember me
+        attendee:
+          attributes:
+            courses:
+              compatible: "não é possível participar de todos os cursos escolhidos. Por favor verifique a <a href='http://www.agilebrazil.com/2011/pt/programacao.php' target='_blank'>programação dos cursos</a>."
+              limit_reached: "vagas esgotadas para o curso %{course}."
+            registration_type_id:
+              free_not_allowed: "Inscrição gratuita não está disponível."
+            email:
+              free_not_allowed: "Inscrições gratuitas só estão disponíveis para o email do palestrante."
+        registration_group:
+          attributes:
+            total_attendees:
+              incomplete: "não possui %{total} participantes cadastrados"
 
   # Formtastic
   formtastic:
@@ -217,6 +210,12 @@ pt:
       to_authors: "Informações aos autores"
       details: "Detalhes"
       review_decision: "Parecer final"
+      attendee_personal: "Informações Pessoais"
+      attendee_address: "Informações para Contato"
+      attendee_courses: "Inscrição em Cursos"
+      attendee_payment: "Dados de Pagamento"
+      registration_group_info: "Informações da Empresa"
+      registration_group_contact: "Informações para Contato"
     labels:
       user:
         first_name: "Nome"
@@ -232,15 +231,20 @@ pt:
         bio: "Mini-currículo"
         roles: "Permissões"
         wants_to_submit: "Pretendo submeter palestras para a conferência"
+        password: "Senha"
+        current_password: "Senha atual"
         new:
           password: "Senha"
           password_confirmation: "Confirmação de senha"
+        create:
+          password: "Senha"
+          password_confirmation: "Confirmação de senha"
         edit:
-          password: "Trocar senha"
+          password: "Nova senha"
           password_confirmation: "Confirmação da nova senha"
-      user_session:
-        username: "Nome de usuário"
-        password: "Senha"
+        update:
+          password: "Nova senha"
+          password_confirmation: "Confirmação da nova senha"
       session:
         title: "Título da sessão"
         track_id: "Trilha de interesse"
@@ -285,8 +289,8 @@ pt:
       preference:
         audience_level_id: "Nível de conhecimento"
       review:
-        author_agile_xp_rating_id: "Como você avalia a experiência do autor principal com métodos ágeis?"
-        author_proposal_xp_rating_id: "Como você avalia a experiência do autor com o assunto da proposta?"
+        author_agile_xp_rating_id: "Como você avalia a experiência do(s) autor(es) com métodos ágeis?"
+        author_proposal_xp_rating_id: "Como você avalia a experiência do(s) autor(es) com o assunto da proposta?"
         proposal_track: "A trilha está adequada?"
         proposal_level: "O nível está adequado?"
         proposal_type: "O tipo da sessão está adequado?"
@@ -308,6 +312,61 @@ pt:
       review_decision:
         outcome_id: "Parecer do organizador"
         note_to_authors: "Comentários para os autores"
+      attendee:
+        registration_type_id: "Tipo de inscrição"
+        first_name: "Nome"
+        last_name: "Sobrenome"
+        full_name: "Nome"
+        email: "Email"
+        email_confirmation: "Confirmação de email"
+        phone: "Telefone para contato"
+        country: "País"
+        state: "Estado"
+        city: "Cidade"
+        organization: "Organização / Instituição de ensino"
+        badge_name: "Nome para crachá"
+        cpf: "CPF"
+        gender: "Sexo"
+        twitter_user: "Usuário no Twitter"
+        address: "Endereço"
+        neighbourhood: "Bairro"
+        zipcode: "CEP"
+        status: "Status"
+        courses: "Cursos"
+        group: "Empresa"
+        registration_date: "Data de Inscrição"
+        payment_agreement: "Confirmo que o participante realizou o pagamento no valor acima. O sistema notificará o participante por email de que sua inscrição foi confirmada."
+        notes: "Anotações"
+        only_with_notes: "Exibir apenas resultados com anotações"
+        total: "Valor"
+      registration_group:
+        name: "Razão social"
+        contact_name: "Nome para contato"
+        contact_email: "Email"
+        contact_email_confirmation: "Confirmação de email"
+        phone: "Telefone para contato"
+        fax: "Fax"
+        country: "País"
+        state: "Estado"
+        city: "Cidade"
+        cnpj: "CNPJ"
+        state_inscription: "Inscrição estadual"
+        municipal_inscription: "Inscrição municipal"
+        address: "Endereço"
+        neighbourhood: "Bairro"
+        zipcode: "CEP"
+        total_attendees: "Quantidade de participantes"
+        registered_attendees: "Participantes incritos"
+        status: "Status"
+        payment_agreement: "Confirmo que a empresa realizou o pagamento no valor acima. O sistema notificará o responsável pela empresa por email de que a inscrição de todos os participantes foram confirmadas."
+        notes: "Anotações"
+        total: "Valor"
+      payment_notification:
+        transaction_id: "Código da transação"
+        paid_at: "Data do pagamento"
+        payer_email: "E-mail do PayPal"
+        settle_amount: "Total pago"
+        notes: "Notas"
     hints:
       user:
         email: "Principal email de contato."
@@ -320,10 +379,11 @@ pt:
         website_url: "Pessoal ou da empresa para referência da comissão de programa. Caso você submeta uma proposta, este website pode ser consultado para avaliá-la."
         bio: "Escreva um pouco sobre sua formação acadêmica, experiência profissional e atuação na comunidade, com foco na sua experiência com métodos ágeis. Este campo será usado para avaliar sua proposta.<br/>Neste campo, uma sintaxe de marcação limitada é permitida. Veja detalhes no <a href='/syntax_help?locale=pt' target='_blank'>guia de referência</a>.<br>Máximo <b>1600 caracteres</b>."
         wants_to_submit: "Deixe este campo desmarcado caso você queira apenas votar ou deixar comentários nas sessões propostas por outros usuários. Você pode mudar de idéia mais tarde, editando seu perfil."
+        current_password: "Para qualquer alteração no perfil é preciso confirmar sua senha atual."
       session:
-        track_id: "A descrição de cada trilha pode ser consultada <a href='/tracks?locale=pt' target='_blank'>aqui</a>. Para Relatos de Experiência, só serão aceitas Palestras com 45 minutos de duração."
+        track_id: "A descrição de cada trilha pode ser consultada <a href='/tracks?locale=pt' target='_blank'>aqui</a>. Para Relatos de Experiência, só serão aceitas Palestras com 50 minutos de duração ou Lightning Talks com 10 minutos de duração."
         session_type_id: "Uma descrição dos tipos de sessão pode ser consultada <a href='/session_types?locale=pt' target='_blank'>aqui</a>."
-        duration_mins: "Se a sua sessão for um Tutorial ou Workshop, indique a duração adequada para ela."
+        duration_mins: "Se a sua sessão for uma Palestra, indique a duração adequada para ela. Para Tutoriais e Workshops recomendamos uma duração de 110 minutos."
         audience_level_id: "Indique o nível esperado do seu público alvo. Leia uma descrição dos níveis <a href='/audience_levels?locale=pt' target='_blank'>aqui</a>."
         audience_limit: "Se a sua sessão for um Tutorial ou Workshop, indique se ela tem um número máximo de participantes."
         language: "Linguagem em que será apresentado a sessão"
@@ -336,13 +396,26 @@ pt:
         second_author_username: "Digite o nome de usuário do segundo palestrante neste campo. O segundo palestrante também precisa ser um usuário registrado. Se você não sabe o nome de usuário do segundo palestrante ou ele(a) ainda não se cadastrou, deixe este campo em branco e edite sua proposta antes do prazo de submissão."
         keyword_list: "Digite as palavras-chave separadas por vírgula."
       comment:
-        comment: "Neste campo, uma sintaxe de marcação limitada é permitida. Veja detalhes no <a href='/syntax_help?locale=pt' target='_blank'>guia de referência</a>.<br>Máximo <b>1000 caracteres</b>."
-      new_vote: "Para ver os logotipos coloridos, basta passar o mouse por cima do logotipo, ou clicar na lupa para visualizar uma imagem ampliada. Para alterar seu voto, clique no logotipo desejado para selecioná-lo e deixá-lo colorido sempre."
-      edit_vote: "Para ver os logotipos coloridos, basta passar o mouse por cima do logotipo, ou clicar na lupa para visualizar uma imagem ampliada. Para alterar seu voto, clique no logotipo desejado para selecioná-lo e deixá-lo colorido sempre."
+        comment: "Neste campo, uma sintaxe de marcação limitada é permitida. Veja detalhes no <a href='/syntax_help?locale=pt' target='_blank'>guia de referência</a>."
       reviewer:
         user_username: "Digite o nome de usuário do avaliador neste campo."
       review:
-        comments_to_authors: "Procurem escrever feedback útil aos autores neste campo. Vale também sugestões de alterações na própria proposta (por exemplo caso alguma resposta na parte de <strong>Sobre a proposta</strong> seja não, vale colocar aqui sugestões de alteração para melhorar isso)"
+        comments_to_authors: "Procurem escrever feedback útil aos autores neste campo, explicando o motivo da rejeição ou aceitação. Quais dúvidas ficaram? Quais informações mais você gostaria de ver? Vale também sugestões de alterações na própria proposta (por exemplo caso alguma resposta na parte de <strong>Sobre a proposta</strong> seja não, vale colocar aqui sugestões de alteração para melhorar isso)"
+        justification: "Explique para os organizadores o motivo do seu parecer. Os autores não terão acesso a essa justificativa."
+      attendee:
+        registration_type_id: "Indique se sua inscrição é individual normal ou de estudante. O estudante deverá comprovar seu vínculo com uma instituição de ensino técnico ou superior para ter acesso aos valores com desconto."
+        badge_name: "Indique o nome que você deseja que apareça no seu crachá. Se deixar em branco, será utilizado seu nome completo."
+        organization: "Nome da empresa ou organização que representa ou nome da instituição de ensino onde estuda. Essa informação constará no seu crachá."
+        cpf: "Deixe este campo em branco se não for brasileiro."
+        twitter_user: "Seu nome de usuário no <a href='http://www.twitter.com' target='_blank'>twitter</a> (sem o caracter '@' - exemplo 'agilebrazil'), se preenchido, constará no seu crachá. Deixe em branco se não quiser isso."
+        email_confirmation: "Certifique-se que o e-mail está correto pois esse será o principal canal de comunicação a respeito de sua inscrição."
+        courses: "Selecione os cursos em que gostaria de se inscrever. Cada curso tem uma capacidade máxima de 30 participantes, que serão escolhidos por ordem de inscrição e confirmação de pagamento. Para garantir sua vaga no curso, será necessário realizar o pagamento e enviar o comprovante em, no máximo, 5 dias.<br/><br/>** Vagas esgotadas. Para registrar seu interesse e colocar seu nome numa lista de espera, mande um e-mail para <a href='mailto:atendimento@resultonline.com.br'>atendimento@resultonline.com.br</a> com cópia para <a href='mailto:result@resultonline.com.br'>result@resultonline.com.br</a>."
+        notes: "Deixe aqui qualquer anotação ou observação que considere relevante, para futura referência (por exemplo: número de confirmação do pagamento, ou alguma informação especial sobre essa inscrição)"
+      registration_group:
+        cnpj: "Deixe este campo em branco se não for uma empresa brasileira"
+        state_inscription: "Deixe este campo em branco se não for uma empresa brasileira"
+        municipal_inscription: "Deixe este campo em branco se não for uma empresa brasileira"
+        total_attendees: "É preciso cadastrar no mínimo 5 participantes por empresa. Nenhum deles poderá ser cadastrado como estudante. Será necessário comprovar que todos os participantes trabalham na empresa cadastrada."
     actions:
       signup: "Criar novo usuário"
       reset_password: "Recuperar meus dados de acesso"
@@ -352,8 +425,6 @@ pt:
       edit_session: "Atualizar sessão"
       add_comment: "Enviar comentário"
       edit_comment: "Atualizar comentário"
-      add_vote: "Votar"
-      change_vote: "Mudar voto"
       create_organizer: "Adicionar organizador"
       update_organizer: "Atualizar organizador"
       create_reviewer: "Convidar avaliador"
@@ -363,16 +434,23 @@ pt:
       submit_review_decision: "Submeter parecer da organização"
       confirm_session: "Confirmar participação"
       withdraw_session: "Retirar sessão"
-  
+      new_registration: "Submeter inscrição"
+      new_registration_group: "Inscrever participantes"
+      confirm_registered_attendee: "Confirmar Pagamento"
+      update_pending_attendee: "Atualizar preço"
+      paid_pending_attendee: "Pagamento recebido"
+      search: "Buscar"
+
   # Mensagens customizadas
   title:
     home: "Página inicial"
-    guidelines: "Regras de Submissão"
+    guidelines: "Regras de submissão"
     signup: "Novo usuário"
     lost_password: "Esqueceu seu nome de usuário ou senha?"
     change_password: "Escolha uma nova senha"
     untitled: "Sem título"
     sessions: "Sessões submetidas"
+    user_sessions: "Sessões submetidas por %{name}"
     new_session: "Proposta de sessão"
     tracks: "Trilhas de interesse"
     session_types: "Tipos de sessão"
@@ -381,15 +459,21 @@ pt:
     edit_session: "Editar sessão"
     comments: "Comentários"
     edit_comment: "Editar comentário"
-    vote: "Veja as propostas de logo"
     edit_organizer: "Atualizar organizador"
     new_review: "Nova avaliação da sessão '%{session}'"
     review_decision: "Parecer da sessão '%{session}'"
     accepted_sessions: "Sessões aceitas"
-  
+    registration: "Nova inscrição"
+    registration_group_new_attendee: "Nova inscrição (%{current_attendee}/%{total_attendees}) na empresa %{registration_group}"
+    registration_group: "Nova inscrição de empresa"
+    attendee: "Detalhes da inscrição"
+    attendees_summary: "Resumo das inscrições"
+
   actions:
     submission_date: "Prazo para submissões"
     review_date: "Prazo para avaliações"
+    notification_date: "Prazo para notificação aos autores"
+    author_confirmation_date: "Prazo para confirmação de participação"
     review_goal: "Meta"
     submit_session: "Envie uma proposta"
     browse_sessions: "Propostas de sessão submetidas"
@@ -401,7 +485,6 @@ pt:
     destroy: "Remover"
     destroy_comment: "remover comentário"
     cancel: "Cancelar"
-    vote: "Veja as propostas"
     manage_organizers: "Organizadores"
     create_organizer: "Criar novo organizador"
     manage_reviewers: "Avaliadores"
@@ -413,44 +496,29 @@ pt:
     section:
       session: "Sessões"
       review: "Processo de avaliação"
-      vote: "Concurso logo"
       user: "Perfil"
+      registration: "Inscrições"
     review_decision: "Parecer"
     create_review_decision: "Novo Parecer"
     edit_review_decision: "Editar Parecer"
-  
+    new_registration: "Individual"
+    new_registration_group: "Empresa"
+    new_speaker_registration: "Palestrante"
+    new_sponsor_registration: "Patrocinador"
+    registered_attendees: "Gerenciar Inscrições"
+    registered_groups: "Gerenciar Empresas"
+    pending_attendees: "Atualizar inscrições pendentes"
+    attendees_summary: "Resumo das inscrições"
+
   text:
     for_user: "Mostrando sessões do usuário: <strong>%{name}</strong>"
     tagged_with: "Mostrando sessões com a palavra-chave: <strong>%{tag}</strong>"
     lost_password:
       instructions: "Preencha abaixo o e-mail que usou para se cadastrar e seu nome de usuário e instruções para trocar sua senha serão enviados por email:"
-    
+
   footer:
     help: "Se tiver dúvidas, críticas ou sugestões entre em contato através do email <a href='mailto:agiles2011-program@agiles.org'>agiles2011-program@agiles.org</a>"
-  
   flash:
-    user:
-      create:
-        success: "Usuário criado com sucesso! Login efetuado com sucesso."
-      update:
-        success: "Perfil atualizado com sucesso!"
-      login:
-        required: "Você precisa estar logado para acessar esta página."
-      logout:
-        required: "Página disponível apenas quando você não está logado."
-    password_reset:
-      create:
-        success: "Instruções para recuperar seus dados de acesso foram enviadas. Por favor verifique seu e-mail."
-        failure: "Nenhum usuário foi encontrado com esse endereço de email."
-      update:
-        success: "Senha alterada com sucesso!"
-        failure: "Por favor escolha uma nova senha"
-      invalid_token: "Desculpe-nos mas não conseguimos localizar seu usuário. Se você está tendo problemas para recuperar seus dados de acesso tente copiar e colar a URL fornecida por email no navegador ou reinicie o processo de recuperação de senha."
-    user_session:
-      create:
-        success: "Login efetuado com sucesso."
-      destroy:
-        success: "Logout efetuado."
     session:
       update:
         success: "Sessão atualizado com sucesso!"
@@ -462,9 +530,6 @@ pt:
         success: "Retirada de sessão confirmada com sucesso."
       cancel:
         failure: "Sessão já está cancelada."
-    vote:
-      create:
-        success: "Obrigado por votar no concurso para escolher nosso logotipo!"
     organizer:
       create:
         success: "Organizador criado com sucesso."
@@ -486,7 +551,7 @@ pt:
     failure: "Por favor verifique os campos em destaque"
     unauthorised: "Você não está autorizado a acessar esta página"
     news:
-      vote: "Novidades: Participe do <a href='#news_contest'>concurso do logo</a> e dê o seu feedback nas propostas submetidas!"
+      session_different_conference: "Você está acessando uma proposta da %{conference_name}. Veja as <a href='/sessions?locale=pt'>sessões</a> da %{current_conference_name}."
     review:
       create:
         success: "Avaliação gravada com sucesso."
@@ -498,21 +563,51 @@ pt:
       remove:
         success: "Comentário removido com sucesso."
       
-  
+    attendee:
+      create:
+        success: "Inscrição submetida com sucesso. Instruções para confirmação e pagamento foram enviadas por e-mail."
+        free_not_allowed: "Inscrição falhou. Inscrição gratuita não está disponível. Por favor escolha outro tipo de inscrição"
+      news: "<a href='/registration_groups/new?locale=pt'>Clique aqui</a> para cadastro de empresa."
+      mail:
+        fail: "Ocorreu um problema para enviar o email de confirmação. Sua inscrição foi recebida mas não foi possível entregar o email de confirmação. Tentaremos mais tarde mas se não receber o email em 24 horas, entre em contato via contato@agilebrazil.com."
+      registration_group:
+        complete: "Essa empresa já possui %{total_attendees} participantes inscritos."
+        success: "Inscrição submetida com sucesso. Por favor cadastre o próximo participante."
+    registration_group:
+      create:
+        success: "Empresa criada com sucesso. Caso não tenha todas as informações para cadastrar os %{total_attendees} participantes agora, ou queira que cada participante preencha seu próprio formulário de cadastro separadamente, salve ou compartilhe a seguinte URL: <a href='%{attendee_url}'>%{attendee_url}</a>"
+      news: "<a href='/attendees/new?locale=pt'>Clique aqui</a> para inscrições individuais."
+    registration:
+      attendee: "Ao me inscrever na conferência, declaro estar ciente que o meu nome e email poderá ser compartilhado com os patrocinadores da conferência."
+      group: "Declaro estar ciente que o nome e email de todos os participantes inscritos na conferência poderão ser compartilhados com os patrocinadores da conferência."
+    registered_attendees:
+      confirm:
+        success: "Inscrição confirmada com sucesso. O participante foi notificado por e-mail."
+      update:
+        success: "Inscrição atualizada com sucesso."
+    pending_attendees:
+      confirm:
+        success: "Inscrição atualizada com sucesso."
+    registered_groups:
+      confirm:
+        success: "Inscrição confirmada com sucesso. O representante da empresa foi notificado por e-mail."
+
   session_types:
     tutorial:
       title: "Tutorial"
       description: "Este tipo de sessão contempla atividades endereçadas especialmente a pessoas que estão apenas começando ou procurando por um apoio em Métodos Ágeis. Tutoriais são aulas guiadas pelo(s) instrutor(es) com o objetivo de prover aos participantes conhecimento prático que possa ser usado de imediato em projetos Ágeis. Tutoriais têm objetivos claros de aprendizado que focam no ensino de habilidades ou técnicas específicas."
     workshop:
       title: "Workshop"
-      description: "Sessões altamente interativas e participativas que permitem que os participantes adquiram conhecimento de uma maneira prática. Esse tipo de sessão é ideal para tópicos relacionados a inovação, resolução de conflitos, liderança, etc. Um workshop é uma oportunidade para que os participantes aprendam uns com os outros sobre um tópico relevante, para que compartilhem idéias para expandir uma nova técnica ou prática ou para fazer um brainstorm de idéia para a próxima \"novidade\"."
+      description: "Sessões altamente interativas e participativas que permitem que os participantes adquiram conhecimento de uma maneira prática. Esse tipo de sessão é ideal para tópicos relacionados a inovação, resolução de conflitos, liderança, etc. Um workshop é uma oportunidade para que os participantes aprendam uns com os outros sobre um tópico relevante, para que compartilhem idéias para expandir uma nova técnica ou prática ou para discutir novas idéias a serem compartilhadas com a comunidade."
     talk:
       title: "Palestra"
       description: "Palestras direcionadas àqueles procurando por tópicos a fim de aumentar seus conhecimentos sobre metodologias Ágeis e as melhores práticas usadas pela comunidade Ágil."
     experience_reports:
       title: "Relato de Experiência"
       description: "Este tipo de sessão capta a aplicação do tema atual (track) em um projeto real ágil, resumindo o que aconteceu com a sua aplicação e os principais pontos de aprendizagem. Estes relatórios permitem aos profissionais compartilhar seus conselhos práticos e orientação com outros times."
-    
+    lightning_talk:
+      title: "Lightning Talk"
+      description: "Lightning talks são palestras de no máximo 8 minutos com 2 minutos para perguntar (sem slides) que têm o objetivo de transmitir uma ideia de forma rápida e concisa. O uso de slides é opcional. Um dos formatos conhecidos para lightning talk é o Pecha Kucha, no qual o apresentador tem 20 slides mudando automaticamente a cada 20 segundos, totalizando 6 minutos e 40 segundos de apresentação."
 
   tracks:
     general_interest:
@@ -533,6 +628,9 @@ pt:
     qa_testing:
       title: "Agile QA e Testing"
       description: "A trilha Agile QA e Testing foi projetada para ajudar os testers e quem faz parte de uma equipe ágil ter sucesso na entrega de software de alta qualidade. A apresentação de novas técnicas e idéias inovadoras e para garantir resultados de alta qualidade é um objetivo importante desta trilha. As sessões desta trilha vai lhe dar idéias práticas e técnicas para levar de volta ao seu local de trabalho. Se você é um tester, programador, analista de negócios, treinador, gerente ou qualquer outra pessoa com uma participação na entrega de software de alta qualidade, você encontrará informações práticas aqui."
+    experience_reports:
+      title: "Relatos de Experiência"
+      description: "Esta trilha é para aqueles que desejam compartilhar suas experiências reais com métodos ágeis, seja em projetos, transições, cursos ou comunidades. Estes relatos permitem que participantes compartilhem dicas práticas que possam inspirar outras pessoas e times."
 
     
   audience_levels:
@@ -544,8 +642,7 @@ pt:
       description: "Alguém que usa metodologias ágeis, concorda com seus valores e colocá-los em prática."
     experienced:
       title: "Experiente"
-      description: "Alguém que entenda os valores e princípios ágeis e também colocá-los em prática, levou as equipes e/ou treinado outros em suas práticas."
-  
+      description: "Alguém que compreende os valores e princípios do Manifesto Ágil e domina alguma metodologia ágil a ponto de liderar uma equipe ou capacitá-la em suas práticas."
   email:
     welcome:
       subject: "Cadastro realizado com sucesso"
@@ -561,14 +658,17 @@ pt:
       subject: "Comunicado do Comitê de Programa da %{conference_name}"
     comment_posted:
       subject: "Comentário recebido em uma de suas sessões submetidas para %{conference_name}"
-        
-  vote:
-    description: "A votação para o logotipo do evento terminou. Lembre-se que o logotipo será apresentado nos materiais de divulgação do evento: impresso, projetado ou usado em vídeos (tanto em formato colorido como em preto e branco)."
-    confirmation: "Você tem certeza que quer votar no logo $LOGO? Apenas o seu voto mais recente será contado."
-    change:
-      confirmation: "Você tem certeza que quer mudar seu voto para o logo $LOGO?"
-    current_vote: "Obrigado por votar no concurso para escolher nosso logotipo! Seu voto atual é para o logotipo %{logo}."
-  
+    registration_pending:
+      subject: "Pedido de inscrição na %{conference_name} enviado"
+    registration_confirmed:
+      subject: "Inscrição na %{conference_name} confirmada"
+    registration_group_pending:
+      subject: "Pedido de inscrição em empresa na %{conference_name} enviado"
+    registration_group_confirmed:
+      subject: "Inscrição na %{conference_name} confirmada"
+    registration_reminder:
+      subject: "Nova forma de pagamento por Paypal para inscrições na %{conference_name}"
+
   reviewer:
     state:
       created: "Criado"
@@ -576,7 +676,7 @@ pt:
       accepted: "Ativo"
       rejected: "Convite rejeitado"
     doesnot_review: "Não avalia"
-  
+
   session:
     state:
       created: "Criada"
@@ -589,7 +689,7 @@ pt:
     audience_limit: "Limite: %{limit} participantes"
     no_audience_limit: "Não há limite de participantes"
     reviews: "Avaliações de '%{session}'"
-  
+
   review:
     view_session: "Ver proposta original (com comentários)"
     justification: "Justificativa"
@@ -599,7 +699,7 @@ pt:
     proposal_relevance_rating: "Relevância pro evento"
     comments_to_organizers: "Comentários aos organizadores"
     comments_to_authors: "Comentários aos autores"
-    
+
   rating:
     high:
       title: "Alta"
@@ -609,7 +709,7 @@ pt:
       title: "Baixa"
     none:
       title: "Nenhuma"
-  
+
   recommendation:
     strong_accept:
       title: "Aceitação forte (sem restrições)"
@@ -619,13 +719,67 @@ pt:
       title: "Rejeição fraca (posso mudar de opinião)"
     strong_reject:
       title: "Rejeição forte (não mudarei de opinião)"
-      
+
   outcomes:
     accept:
       title: "Aceita"
     reject:
       title: "Rejeitada"
-  
+
+  gender:
+    male: "Masculino"
+    female: "Feminino"
+
+  registration_total:
+    title: "Custo total da inscrição"
+    title_partial: "Custo parcial da inscrição"
+    base_price: "Inscrição"
+    courses: "Cursos"
+    discount: "Desconto"
+    total: "Total"
+
+  registration_type:
+    student: "Estudante"
+    group: "Empresa"
+    individual: "Individual"
+    free: "Gratuita"
+
+  registration:
+    quantity: "Quantidade"
+    status: "Status das inscrições para %{date}"
+
+  course:
+    csm:
+      name: "CSM"
+      full_name: "Certified Scrum Master"
+    cspo:
+      name: "CSPO"
+      full_name: "Certified Scrum Product Owner"
+    lean:
+      name: "Lean"
+      full_name: "Curso de Introdução ao Lean Thinking"
+    tdd:
+      name: "TDD"
+      full_name: "TDD: do básico ao avançado"
+    psm:
+      name: "PSM"
+      full_name: "Professional Scrum Master"
+
+  attendee:
+    status:
+      pending: "Pendente"
+      confirmed: "Confirmado"
+      paid: "Pagamento efetuado"
+      all: "Todos"
+
+  registration_group:
+    status:
+      incomplete: "Incompleto"
+      complete: "Pendente"
+      paid: "Pagamento efetuado"
+      confirmed: "Confirmado"
+      all: "Todos"
+
   generic:
     or: "ou"
     and: "e"
@@ -643,3 +797,11 @@ pt:
     sort_down: "descendente"
     show: "Exibir %{target}"
     hide: "Esconder %{target}"
+    registration_id: "Número da inscrição"
+
+  will_paginate:
+    previous_label: "&laquo; Anterior"
+    next_label: "Próxima &raquo;"
+
+  tips:
+    users_from_last_year: "<strong>Dica:</strong> os usuários do ano passado ainda são válidos. Caso não lembre do nome do seu usuário ou sua senha, use o link acima para recuperá-la."

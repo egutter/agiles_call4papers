@@ -1,15 +1,16 @@
-!!! Strict
+!!! 5
 %html{html_attrs(I18n.locale)}
   
   %head
     %title
-      #{AppConfig[:conference_name]} -
-      = (yield(:title) || t('title.untitled'))
+      #{current_conference.name} -
+      = content_for?(:title) ? yield(:title) : t('title.untitled')
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %link{"rel" => "shortcut icon", "href" => "/favicon.ico"}/
-    = stylesheet_link_tag 'application', 'formtastic', 'formtastic_changes', 'jquery.autocomplete', '/facebox/facebox', :cache => true
-    = javascript_include_tag 'jquery-1.4.min', 'application', 'jquery.autocomplete.min', 'jquery.textarearesizer', 'jquery.progressbar.min', '/facebox/facebox', :cache => true
-    
+    = csrf_meta_tag
+    = include_stylesheets :application
+    = include_javascripts :application
+
     = yield(:head)
   
   %body    
@@ -17,8 +18,8 @@
       #header
         = link_to image_tag('logo.png'), root_path
         .logo
-          %h1 #{AppConfig[:conference_name]} 
-          %strong Buenos Aires, 11-13 Oct/2011
+          %h1= current_conference.name
+          %strong Fortaleza CE, 27/Jun - 1/Jul, 2011
         %ul#languages
           %li= link_to "Español", "?locale=es"
           %li= link_to "Português", "?locale=pt"
@@ -39,20 +40,21 @@
       
         = yield
 
-      #footer Copyleft - #{AppConfig[:conference_name]} - #{t('footer.help')}
+      #footer Copyleft - Agile Brazil 2010-2011 - #{t('footer.help').html_safe}
 
-    - unless AppConfig[:tracker_id].nil?
+    - unless AppConfig[:google].nil?
       :javascript
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
       :javascript
         try{
-          var pageTracker = _gat._getTracker("UA-#{AppConfig[:tracker_id]}");
+          var pageTracker = _gat._getTracker("UA-#{AppConfig[:google][:tracker_id]}");
           pageTracker._trackPageview();
         } catch(err) {}
     :javascript
       $(document).ready(function() {
         $('textarea').TextAreaResizer();
+        $('[placeholder]').placeholder();
         var errorInput = $('li.error :input:visible:enabled:first');
         if (errorInput.length > 0) {
           errorInput.focus();

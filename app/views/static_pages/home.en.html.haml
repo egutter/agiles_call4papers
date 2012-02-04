@@ -1,0 +1,20 @@
+- title "Sessions proposed to #{current_conference.name}"
+- show_actions!
+.auto_focus
+
+%p The Brazilian Conference about Agile Methods – #{link_to(current_conference.name, "http://www.agilebrazil.com/2011")} – is a non-profitable national conference organized by representatives of the main Brazilian agile communities. The event's goal is to promote communication and collaboration among its attendees aiming to disseminate the Agile culture in the whole country.
+
+%p #{current_conference.name} will be held in Fortaleza, in the end of June, and will feature courses, work presentations and experience reports from around Brazil, as well as the presence of international guests.
+
+%p Submit your proposal and come join us in Fortaleza! Read the submission #{link_to(t('title.guidelines'), static_page_path('guidelines'))}, build your proposal and submit it. To do so, just enter your user and password, click on '#{t('actions.submit_session')}' and fill the form. Send your proposal, add comments to others and make Agile Brazil 2011 the perfect conference for you.
+
+%h3 Important dates
+
+%ul
+  %li #{l(Date.new(2011, 2, 5))}: Call for Submissions
+  %li #{l(Date.new(2011, 2, 14))}: Release of proposal submission form
+  %li #{l(Ability::SESSION_SUBMISSION_DEADLINE.to_date)}: Submission deadline
+  %li #{l(Ability::AUTHOR_NOTIFICATION_DEADLINE.to_date)}: Acceptance notification
+  %li #{l(Ability::AUTHOR_CONFIRMATION_DEADLINE.to_date)}: Session confirmation deadline to selected authors
+  %li
+    %strong #{l(Ability::REGISTRATION_DEADLINE.to_date)}: Registration and payment deadline

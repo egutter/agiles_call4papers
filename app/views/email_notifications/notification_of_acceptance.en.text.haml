@@ -1,0 +1,45 @@
+Dear #{@session.authors.map(&:full_name).join(" & ")},
+
+
+Due to a problem in our server, not all email notifications were sent. Therefore, we decided it would be better to resend all notifications to avoid any further problems. If you have already received this email, please ignore it.
+
+
+Please refer to the comments and suggestions made by the evaluators accessing:
+
+= session_reviews_url(@session, :locale => 'en')
+
+
+We are pleased to inform you that your proposal '#{h(@session.title)}' has been selected to be part of the program of the Brazilian Conference about Agile Methods – #{@conference_name}!
+
+
+We would like to ask you to confirm your attendance at the event until #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%H:%M of %B %dth, %Y')} by accessing the form at
+
+= session_confirm_url(@session, :locale => 'en')
+
+
+If you can not attend the event, we kindly ask you to confirm your withdrawal using the form at
+
+= session_withdraw_url(@session, :locale => 'en')
+
+
+- if(@session.authors.size > 1)
+  Any of the two authors (#{@session.author.full_name} or #{@session.second_author.full_name}) may confirm or withdraw the attendance. Once the attendance is confirmed or withdrawn by any author, none can change the decision.
+
+
+The sessions whose authors do not confirm or withdraw their attendance until #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%B %dth, %Y')} will be automatically removed from the program and replaced immediately by other selected work.
+
+
+If your attendance is confirmed, the organization of #{@conference_name} will contact you about your complementary registration#{@session.authors.size > 1 ? 's' : ''} for the event.
+
+
+Should you have any queries, requests or comments, please contact the Program Committee at programa@agilebrazil.com.
+
+
+We hope to see you soon!
+
+#{"--"}
+
+Program Committee of #{@conference_name} Conference
+
+
+[Please do not reply to this e-mail. It was sent from an unmonitored email address]

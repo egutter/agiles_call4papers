@@ -1,54 +1,50 @@
-require 'spec/spec_helper'
+# encoding: utf-8
+require 'spec_helper'
 
 describe Reviewer do
   before(:each) do
-    EmailNotifications.stubs(:deliver_reviewer_invitation)
+    EmailNotifications.stubs(:reviewer_invitation).returns(stub(:deliver => true))
   end
   
   context "protect from mass assignment" do
     should_allow_mass_assignment_of :user_id
+    should_allow_mass_assignment_of :conference_id
     should_allow_mass_assignment_of :user_username
     should_allow_mass_assignment_of :preferences_attributes
     should_allow_mass_assignment_of :reviewer_agreement
     should_allow_mass_assignment_of :state_event
   
-    should_not_allow_mass_assignment_of :evil_attr
+    should_not_allow_mass_assignment_of :id
   end
   
   it_should_trim_attributes Reviewer, :user_username
 
   context "validations" do
     before { Factory(:reviewer) }
-    should_validate_presence_of :user_username
-    should_validate_uniqueness_of :user_id
-    
-    it "should validate existence of user" do
-      reviewer = Factory.build(:reviewer)
-      reviewer.should be_valid
-      reviewer.user_id = 0
-      reviewer.should_not be_valid
-      reviewer.errors.on(:user).should == "não existe"
-    end
+    should_validate_presence_of :user_username, :conference_id
+    should_validate_uniqueness_of :user_id, :scope => :conference_id
+
+    should_validate_existence_of :user, :conference
     
     it "should validate that at least 1 preference was accepted" do
       reviewer = Factory(:reviewer)
       reviewer.preferences.build(:accepted => false)
       reviewer.accept.should be_false
-      reviewer.errors.on(:base).should == "pelo menos uma trilha deve ser aceita"
+      reviewer.errors[:base].should include("pelo menos uma trilha deve ser aceita")
     end
 
     it "should validate that reviewer agreement was accepted" do
       reviewer = Factory(:reviewer, :reviewer_agreement => false)
       reviewer.preferences.build(:accepted => true, :track_id => 1, :audience_level_id => 1)
       reviewer.accept.should be_false
-      reviewer.errors.on(:reviewer_agreement).should == "deve ser aceito"
+      reviewer.errors[:reviewer_agreement].should include("deve ser aceito")
     end
     
     it "should copy user errors to user_username" do
       reviewer = Factory(:reviewer)
-      new_reviewer = Factory.build(:reviewer, :user => reviewer.user)
+      new_reviewer = Factory.build(:reviewer, :user => reviewer.user, :conference => reviewer.conference)
       new_reviewer.should_not be_valid
-      new_reviewer.errors.on(:user_username).should == "já está em uso"
+      new_reviewer.errors[:user_username].should include("já está em uso")
     end
 
     context "user" do
@@ -59,13 +55,14 @@ describe Reviewer do
       it "should be a valid user" do
         @reviewer.user_username = 'invalid_username'
         @reviewer.should_not be_valid
-        @reviewer.errors.on(:user_username).should include("não existe")
+        @reviewer.errors[:user_username].should include("não existe")
       end
     end      
   end
   
   context "associations" do
     should_belong_to :user
+    should_belong_to :conference
     should_have_many :preferences
     should_have_many :accepted_preferences, :class_name => 'Preference', :conditions => ['preferences.accepted = ?', true]
     
@@ -131,7 +128,7 @@ describe Reviewer do
     
     context "Event: invite" do
       it "should send invitation email" do
-        EmailNotifications.expects(:deliver_reviewer_invitation).with(@reviewer)
+        EmailNotifications.expects(:reviewer_invitation).with(@reviewer).returns(stub(:deliver => true))
         @reviewer.invite
       end
     end
@@ -218,8 +215,12 @@ describe Reviewer do
   end
 
   shared_examples_for "reviewer role" do
+    before do
+      @conference = Factory(:conference)
+    end
+
     it "should make given user reviewer role after invitation accepted" do
-      reviewer = Factory(:reviewer, :user => @user)
+      reviewer = Factory(:reviewer, :user => @user, :conference => @conference)
       reviewer.invite
       @user.should_not be_reviewer
       reviewer.preferences.build(:accepted => true, :track_id => 1, :audience_level_id => 1)
@@ -229,7 +230,7 @@ describe Reviewer do
     end
     
     it "should remove organizer role after destroyed" do
-      reviewer = Factory(:reviewer, :user => @user)
+      reviewer = Factory(:reviewer, :user => @user, :conference => @conference)
       reviewer.invite
       reviewer.preferences.build(:accepted => true, :track_id => 1, :audience_level_id => 1)
       reviewer.accept
@@ -259,15 +260,20 @@ describe Reviewer do
   context "checking if able to review a track" do
     before(:each) do
       @organizer = Factory(:organizer)
-      @reviewer = Factory(:reviewer, :user => @organizer.user)
+      @reviewer = Factory(:reviewer, :user => @organizer.user, :conference => @organizer.conference)
     end
     
     it "can review track when not organizer" do
       @reviewer.should be_can_review(Factory(:track))
     end
     
-    it "can not review track when organizer" do
+    it "can not review track when organizer on the same conference" do
       @reviewer.should_not be_can_review(@organizer.track)
+    end
+
+    it "can review track when organizer for different conference" do
+      reviewer = Factory(:reviewer, :user => @organizer.user)
+      reviewer.should be_can_review(@organizer.track)
     end
   end
 end

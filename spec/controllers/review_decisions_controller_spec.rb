@@ -1,21 +1,34 @@
-require 'spec/spec_helper'
+require 'spec_helper'
  
 describe ReviewDecisionsController do
-  integrate_views
+  render_views
 
-  it_should_require_login_for_actions :new, :create, :edit, :update
+  it_should_require_login_for_actions :new, :create, :edit, :update, :index
 
   before(:each) do
     @session = Factory(:session)
-    @organizer = Factory(:organizer, :track => @session.track)
-    activate_authlogic
-    UserSession.create(@organizer.user)
+    @organizer = Factory(:organizer, :track => @session.track, :conference => @session.conference)
+    sign_in @organizer.user
+    disable_authorization
+  end
+
+  it "index action (JS) should render JSON" do
+    Factory(:session, :track => @session.track, :conference => @session.conference)
+    Factory(:review_decision, :session => @session, :organizer => @organizer.user)
+
+    get :index, :format => 'js'
+    response.body.should == {
+      'required_decisions' => 2,
+      'total_decisions' => 1,
+      'total_accepted' => 0,
+      'total_confirmed' => 0
+    }.to_json
   end
   
   it "new action should render new template" do
     get :new, :session_id => Session.first
     response.should render_template(:new)
-    assigns[:review_decision].organizer.should == @organizer.user
+    assigns(:review_decision).organizer.should == @organizer.user
   end
 
   it "create action should render new template when model is invalid" do
@@ -40,7 +53,7 @@ describe ReviewDecisionsController do
     it "edit action should render edit template" do
       get :edit, :session_id => @session.id, :id => @decision.id
       response.should render_template(:edit)
-      assigns[:review_decision].organizer.should == @organizer.user
+      assigns(:review_decision).organizer.should == @organizer.user
     end
   
     it "update action should render edit template when model is invalid" do

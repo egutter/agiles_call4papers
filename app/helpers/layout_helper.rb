@@ -4,7 +4,7 @@
 #   helper :layout
 module LayoutHelper
   def title(page_title, show_title = true)
-    @content_for_title = page_title.to_s
+    content_for(:title, page_title.to_s)
     @show_title = show_title
   end
   
@@ -14,7 +14,6 @@ module LayoutHelper
   
   def show_actions!
     @show_actions = true
-    @user_session ||= UserSession.new
   end
   
   def show_actions?

@@ -1,3 +1,8 @@
+# encoding: utf-8
+Factory.define :conference do |c|
+  c.sequence(:name) {|n| "Agile Brazil #{2000+n}"}
+end
+
 Factory.define :user do |u|
   u.first_name "User"
   u.sequence(:last_name) {|n| "Name#{n}"}
@@ -42,7 +47,8 @@ Factory.define :session do |s|
   s.association :track
   s.association :session_type
   s.association :audience_level
-  s.duration_mins 45
+  s.association :conference
+  s.duration_mins 50
   s.title "Fake title"
   s.summary "Summary details of session"
   s.description "Full details of session"
@@ -61,23 +67,15 @@ Factory.define :comment do |c|
   c.comment "Fake comment body..."
 end
 
-Factory.define :logo do |l|
-  l.format "jpg"
-end
-
-Factory.define :vote do |v|
-  v.association :user
-  v.association :logo
-  v.user_ip "192.168.0.22"
-end
-
 Factory.define :organizer do |o|
   o.association :user
   o.association :track
+  o.association :conference
 end
 
 Factory.define :reviewer do |r|
   r.association :user
+  r.association :conference
 end
 
 Factory.define :preference do |p|
@@ -105,18 +103,18 @@ Factory.define :review do |r|
   r.proposal_duration true
   r.proposal_limit true
   r.proposal_abstract true
-  
+
   r.association :proposal_quality_rating, :factory => :rating
   r.association :proposal_relevance_rating, :factory => :rating
-  
+
   r.association :recommendation
   r.justification "Fake"
-  
+
   r.association :reviewer_confidence_rating, :factory => :rating
-  
+
   r.comments_to_organizers "Fake"
-  r.comments_to_authors "Fake"
-  
+  r.comments_to_authors "Fake " * 40
+
   r.association :reviewer, :factory => :user
   r.association :session
 end
@@ -138,4 +136,64 @@ Factory.define :review_decision do |d|
   d.association :outcome
   d.note_to_authors "Some note to the authors"
   d.published false
+end
+
+Factory.define :attendee do |a|
+  a.association :conference
+  a.registration_type { RegistrationType.find_by_title('registration_type.individual') }
+
+  a.first_name "Attendee"
+  a.sequence(:last_name) {|n| "Name#{n}"}
+  a.email { |e| "#{e.last_name.parameterize}@example.com" }
+  a.email_confirmation { |e| "#{e.last_name.parameterize}@example.com" }
+  a.phone "(11) 3322-1234"
+  a.country "BR"
+  a.state "SP"
+  a.city "São Paulo"
+  a.organization "ThoughtWorks"
+  a.badge_name {|e| "The Great #{e.first_name}" }
+  a.cpf "111.444.777-35"
+  a.gender 'M'
+  a.twitter_user {|e| "#{e.last_name.parameterize}"}
+  a.address "Rua dos Bobos, 0"
+  a.neighbourhood "Vila Perdida"
+  a.zipcode "12345000"
+end
+
+Factory.define :course do |c|
+  c.association :conference
+  c.name "Course"
+  c.full_name "That big course of ours"
+  c.combine false
+end
+
+Factory.define :course_attendance do |ca|
+  ca.association :course
+  ca.association :attendee
+end
+
+Factory.define :registration_group do |a|
+  a.name "Big Corp"
+  a.contact_name "Contact Name"
+  a.contact_email { |e| "contact@#{e.name.parameterize}.com" }
+  a.contact_email_confirmation { |e| "contact@#{e.name.parameterize}.com" }
+  a.phone "(11) 3322-1234"
+  a.fax "(11) 4422-1234"
+  a.country "BR"
+  a.state "SP"
+  a.city "São Paulo"
+  a.cnpj "69.103.604/0001-60"
+  a.state_inscription "110.042.490.114"
+  a.municipal_inscription "9999999"
+  a.address "Rua dos Bobos, 0"
+  a.neighbourhood "Vila Perdida"
+  a.zipcode "12345000"
+  a.total_attendees 5
+end
+
+Factory.define :payment_notification do |p|
+  p.params { {:some => 'params'} }
+  p.status "Completed"
+  p.transaction_id "9JU83038HS278211W"
+  p.association :invoicer, :factory => :attendee
 end

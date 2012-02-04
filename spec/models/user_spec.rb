@@ -1,4 +1,5 @@
-require 'spec/spec_helper'
+# encoding: utf-8
+require 'spec_helper'
 
 describe User do
   context "protect from mass assignment" do
@@ -18,7 +19,7 @@ describe User do
     should_allow_mass_assignment_of :wants_to_submit
     should_allow_mass_assignment_of :default_locale
   
-    should_not_allow_mass_assignment_of :evil_attr
+    should_not_allow_mass_assignment_of :id
   end
   
   it_should_trim_attributes User, :first_name, :last_name, :username,
@@ -34,7 +35,7 @@ describe User do
       should_not_validate_presence_of :state
     end
     
-    context "non guest" do
+    context "author" do
       subject { u = Factory.build(:user); u.add_role("author"); u }
       should_validate_presence_of :phone
       should_validate_presence_of :country
@@ -51,8 +52,7 @@ describe User do
     end
     
     should_validate_length_of :username, :minimum => 3, :maximum => 30
-    should_validate_length_of :password, :minimum => 4
-    should_validate_length_of :password_confirmation, :minimum => 4
+    should_validate_length_of :password, :within => 3..30
     should_validate_length_of :email, :minimum => 6, :maximum => 100
     should_validate_length_of :first_name, :maximum => 100, :allow_blank => true
     should_validate_length_of :last_name, :maximum => 100, :allow_blank => true
@@ -67,6 +67,9 @@ describe User do
     
     should_allow_values_for :email, "user@domain.com.br", "test_user.name@a.co.uk"
     should_not_allow_values_for :email, "a", "a@", "a@a", "@12.com"
+
+    should_validate_uniqueness_of :email
+    should_validate_uniqueness_of :username, :case_sensitive => false
         
     should_validate_confirmation_of :password
     
@@ -74,21 +77,95 @@ describe User do
       user = Factory(:user)
       user.username = 'new_username'
       user.should_not be_valid
-      user.errors.on(:username).should == "não pode mudar"
+      user.errors[:username].should == ["não pode mudar"]
     end
   end
   
   context "associations" do
     should_have_many :sessions, :foreign_key => 'author_id'
     should_have_many :organizers
-    should_have_many :organized_tracks, :through => :organizers, :source => :track
-    should_have_one :reviewer
-    should_have_many :preferences, :through => :reviewer, :source => :accepted_preferences
+    should_have_many :all_organized_tracks, :through => :organizers, :source => :track
+    should_have_many :reviewers
     should_have_many :reviews, :foreign_key => 'reviewer_id'
+
+    describe "organized tracks for conference" do
+      it "should narrow tracks based on conference" do
+        organizer = Factory(:organizer)
+        user = organizer.user
+        Factory(:organizer, :user => user)
+
+        user.organized_tracks(organizer.conference).should == [organizer.track]
+      end
+    end
+    
+    describe "#has_approved_session?" do
+      it "should not have approved long sessions if never submited" do
+         user = Factory(:user)
+         user.should_not have_approved_session(Factory(:conference))
+      end
+      
+      it "should not have approved long sessions if accepted was on another conference" do
+         user = Factory(:user)
+         old_conference = Factory(:conference)
+         current = Factory(:conference)
+         session = Factory(:session, :author => user, :conference => old_conference)
+
+         user.should_not have_approved_session(current)
+      end
+      
+      it "should have approved long sessions if accepted was lightning talk" do
+         user = Factory(:user)
+         session = Factory(:session, :author => user, :session_type_id => 4, :duration_mins => 10, :state => 'accepted')
+
+         user.should have_approved_session(session.conference)
+      end
+      
+      it "should have approved long sessions if accepted was not lightning talk" do
+         user = Factory(:user)
+         session = Factory(:session, :author => user, :session_type_id => 1, :state => 'accepted')
+
+         user.should have_approved_session(session.conference)
+      end
+
+      it "should have approved long sessions if accepted contains at least one non lightning talk" do
+        user = Factory(:user)
+        session = Factory(:session, :author => user, :session_type_id => 1, :state => 'accepted')
+        lightning_talk = Factory(:session, :author => user, :session_type_id => 4, :duration_mins => 10,  :state => 'accepted')
+
+        user.should have_approved_session(session.conference)
+      end
+
+      it "should not have approved long sessions if no sessions was not accepted" do
+        user = Factory(:user)
+        session = Factory(:session, :author => user, :session_type_id => 1, :state => 'cancelled')
+        lightning_talk = Factory(:session, :author => user, :session_type_id => 4, :duration_mins => 10,  :state => 'rejected')
+
+        user.should_not have_approved_session(session.conference)
+      end
+
+      it "should have approved sessions as second author" do
+         user = Factory(:user)
+         user.add_role :author
+         session = Factory(:session, :second_author => user, :session_type_id => 1, :state => 'accepted')
+
+         user.should have_approved_session(session.conference)
+      end
+    end
+
+    describe "user preferences" do
+      it "should return reviewer preferences based on conference" do
+        preference = Factory(:preference)
+        reviewer = preference.reviewer
+        user = reviewer.user
+        Factory(:preference, :reviewer => Factory(:reviewer, :user => user))
+
+        user.preferences(reviewer.conference).should == [preference] 
+      end
+    end
   end
   
   context "named scopes" do
-    should_have_scope :search, :conditions => ['username LIKE ?', "%danilo%"], :with => 'danilo'
+    xit { should have_scope(:search, :with =>'danilo', :where => "username LIKE '%danilo%'") }
   end
   
   context "authorization" do
@@ -116,14 +193,6 @@ describe User do
     
     user.username = nil
     user.to_param.ends_with?("-danilo-sato-1990-2").should be_false
-  end
-  
-  it "should allow reset password" do
-    user = Factory(:user)
-    old_token = user.perishable_token
-    
-    EmailNotifications.expects(:deliver_password_reset_instructions).with(user)
-    user.deliver_password_reset_instructions!
   end
   
   it "should have 'pt' as default locale" do

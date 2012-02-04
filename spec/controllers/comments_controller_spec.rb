@@ -1,14 +1,14 @@
-require 'spec/spec_helper'
+require 'spec_helper'
 
 describe CommentsController do
-  integrate_views
+  render_views
 
   it_should_require_login_for_actions :index, :show, :create, :edit, :update, :destroy
 
   before(:each) do
     @comment = Factory(:comment)
-    activate_authlogic
-    UserSession.create(@comment.user)
+    sign_in @comment.user
+    disable_authorization
   end
   
   it "index action should redirect to session path" do
@@ -45,7 +45,7 @@ describe CommentsController do
     # inherited_resources does +obj.errors.empty?+ to determine
     # if validation failed
     put :update, :id => Comment.first, :session_id => @comment.commentable, :comment => {:comment => nil}
-    assigns[:session].should == @comment.commentable
+    assigns(:session).should == @comment.commentable
     response.should render_template(:edit)
   end
 

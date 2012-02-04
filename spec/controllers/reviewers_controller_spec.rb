@@ -1,14 +1,15 @@
-require 'spec/spec_helper'
+require 'spec_helper'
  
 describe ReviewersController do
-  integrate_views
+  render_views
 
   it_should_require_login_for_actions :index, :new, :create, :update
 
   before(:each) do
+    @conference = Factory(:conference)
     @user = Factory(:user)
-    activate_authlogic    
-    UserSession.create(@user)
+    sign_in @user
+    disable_authorization
   end
 
   it "index action should render index template" do
@@ -30,7 +31,7 @@ describe ReviewersController do
   end
   
   it "create action should redirect when model is valid" do
-    post :create, :reviewer => {:user_id => @user.id}
+    post :create, :reviewer => {:user_id => @user.id, :conference_id => @conference.id}
     response.should redirect_to(reviewers_path)
   end
   
@@ -49,8 +50,7 @@ describe ReviewersController do
     put :update, :id => reviewer.id
     response.should redirect_to(reviewer_sessions_path)
   end
-  
-  
+
   it "destroy action should redirect" do
     reviewer = Factory(:reviewer, :user_id => @user.id)
     delete :destroy, :id => reviewer.id

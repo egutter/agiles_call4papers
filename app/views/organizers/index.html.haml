@@ -9,12 +9,12 @@
       %th
   %tbody
     - @organizers.each do |organizer|
-      - content_tag_for(:tr, organizer, :class => cycle(:odd, :even)) do
+      = content_tag_for(:tr, organizer, :class => cycle(:odd, :even)) do
         %td.organizer
           - if can? :update, organizer
             = link_to h(organizer.user.full_name), edit_organizer_path(organizer)
           - else
-            = h(organizer.user.full_name)
+            = organizer.user.full_name
         %td.track&= t(organizer.track.title)
         %td
           - if can? :destroy, organizer

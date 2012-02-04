@@ -1,20 +1,12 @@
-require 'spec/spec_helper'
+require 'spec_helper'
 
 describe PasswordResetsController do
-  integrate_views
+  render_views
+  it_should_behave_like_a_devise_controller
 
-  it_should_require_logout_for_actions :index, :new, :create, :edit, :update
-  
   before(:each) do
     @user = Factory(:user)
-    User.stubs(:find_using_perishable_token).returns(@user)
   end
-
-  it "index action should redirect to new" do
-    get :index
-    response.should render_template(:new)
-  end
-
 
   it "new action should render new template" do
     get :new
@@ -22,7 +14,7 @@ describe PasswordResetsController do
   end
 
   it "edit action should render edit template" do
-    get :edit, :id => @user
+    get :edit, :id => @user, :reset_password_token => 'aaaa'
     response.should render_template(:edit)
   end
 end

@@ -1,25 +1,28 @@
-require 'spec/spec_helper'
+require 'spec_helper'
 
 describe ReviewPublisher do
   before(:each) do
     Session.stubs(:count).returns(0)
     Session.stubs(:all).returns([])
-    EmailNotifications.stubs(:deliver_notification_of_rejection)
-    EmailNotifications.stubs(:deliver_notification_of_acceptance)
+    EmailNotifications.stubs(:notification_of_rejection).returns(stub(:deliver => true))
+    EmailNotifications.stubs(:notification_of_acceptance).returns(stub(:deliver => true))
     Rails.logger.stubs(:info)
     Rails.logger.stubs(:flush)
+    HoptoadNotifier.stubs(:notify)
+    
+    @conference = Factory(:conference)
     
     @publisher = ReviewPublisher.new
   end
   
   it "should raise error if there are sessions not reviewed" do
-    Session.expects(:count).with(:conditions => ['state = ?', 'created']).returns(2)
+    Session.expects(:count).with(:conditions => ['state = ? AND conference_id = ?', 'created', @conference.id]).returns(2)
     lambda {@publisher.publish}.should raise_error("There are 2 sessions not reviewed")
   end
 
   context "validating sessions without decision" do
     it "should raise error if sessions in_review" do
-      Session.expects(:count).with(:conditions => ['state = ?', 'in_review']).returns(3)
+      Session.expects(:count).with(:conditions => ['state = ? AND conference_id = ?', 'in_review', @conference.id]).returns(3)
       lambda {@publisher.publish}.should raise_error("There are 3 sessions without decision")
     end
   
@@ -31,7 +34,7 @@ describe ReviewPublisher do
                   GROUP BY session_id
                 ) AS review_decision_count
                 ON review_decision_count.session_id = sessions.id",
-        :conditions => ['state IN (?) AND review_decision_count.cnt <> 1', ['pending_confirmation', 'rejected']]).
+        :conditions => ['state IN (?) AND review_decision_count.cnt <> 1 AND conference_id = ?', ['pending_confirmation', 'rejected'], @conference.id]).
         returns(4)
       lambda {@publisher.publish}.should raise_error("There are 4 sessions without decision")
     end
@@ -40,16 +43,18 @@ describe ReviewPublisher do
   context "Sessions are all reviewed" do
     before(:each) do
       @sessions = [Factory(:session), Factory(:session)]
+      Factory(:review_decision, :session => @sessions[0])
+      Factory(:review_decision, :session => @sessions[1])
       Session.stubs(:all).returns(@sessions)
     end
   
     it "should send reject e-mails" do
       Session.expects(:all).with(
         :joins => :review_decision,
-        :conditions => ['outcome_id = ? AND published = ?', 2, false]).
+        :conditions => ['outcome_id = ? AND published = ? AND conference_id = ?', 2, false, @conference.id]).
         returns(@sessions)
     
-      EmailNotifications.expects(:deliver_notification_of_rejection).with(@sessions[0]).with(@sessions[1])
+      EmailNotifications.expects(:notification_of_rejection).with(@sessions[0]).with(@sessions[1]).returns(stub(:deliver => true))
     
       @publisher.publish
     end
@@ -57,24 +62,31 @@ describe ReviewPublisher do
     it "should send acceptance e-mails" do
       Session.expects(:all).with(
         :joins => :review_decision,
-        :conditions => ['outcome_id = ? AND published = ?', 1, false]).
+        :conditions => ['outcome_id = ? AND published = ? AND conference_id = ?', 1, false, @conference.id]).
         returns(@sessions)
         
-      EmailNotifications.expects(:deliver_notification_of_acceptance).with(@sessions[0]).with(@sessions[1])
+      EmailNotifications.expects(:notification_of_acceptance).with(@sessions[0]).with(@sessions[1]).returns(stub(:deliver => true))
     
       @publisher.publish
+    end
+    
+    it "should mark review decisions as published" do
+      @publisher.publish
+      @sessions.map(&:review_decision).all? {|r| r.published?}.should be_true
     end
     
     it "should send reject e-mails before acceptance e-mails" do
       notifications = sequence('notification')
 
-      EmailNotifications.expects(:deliver_notification_of_rejection).
+      EmailNotifications.expects(:notification_of_rejection).
         with(@sessions[0]).
         with(@sessions[1]).
+        returns(stub(:deliver => true)).
         in_sequence(notifications)
-      EmailNotifications.expects(:deliver_notification_of_acceptance).
+      EmailNotifications.expects(:notification_of_acceptance).
         with(@sessions[0]).
         with(@sessions[1]).
+        returns(stub(:deliver => true)).
         in_sequence(notifications)
     
       @publisher.publish
@@ -97,22 +109,26 @@ describe ReviewPublisher do
     end
     
     it "should capture error when notifying acceptance and move on" do
-      EmailNotifications.expects(:deliver_notification_of_acceptance).with(@sessions[0]).raises("error")
-      EmailNotifications.expects(:deliver_notification_of_acceptance).with(@sessions[1])
+      error = StandardError.new('error')
+      EmailNotifications.expects(:notification_of_acceptance).with(@sessions[0]).raises(error)
+      EmailNotifications.expects(:notification_of_acceptance).with(@sessions[1]).returns(stub(:deliver => true))
       
       Rails.logger.expects(:info).with("  [FAILED ACCEPT] error")
       Rails.logger.expects(:info).with("  [ACCEPT] OK")
+      HoptoadNotifier.expects(:notify).with(error)
       
       @publisher.publish
     end
 
     it "should capture error when notifying rejection and move on" do
-      EmailNotifications.expects(:deliver_notification_of_rejection).with(@sessions[0]).raises("error")
-      EmailNotifications.expects(:deliver_notification_of_rejection).with(@sessions[1])
+      error = StandardError.new('error')
+      EmailNotifications.expects(:notification_of_rejection).with(@sessions[0]).raises(error)
+      EmailNotifications.expects(:notification_of_rejection).with(@sessions[1]).returns(stub(:deliver => true))
       
       Rails.logger.expects(:info).with("  [FAILED REJECT] error")
       Rails.logger.expects(:info).with("  [REJECT] OK")
-      
+      HoptoadNotifier.expects(:notify).with(error)
+
       @publisher.publish
     end
     

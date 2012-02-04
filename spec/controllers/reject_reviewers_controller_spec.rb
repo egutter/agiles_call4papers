@@ -1,7 +1,7 @@
-require 'spec/spec_helper'
+require 'spec_helper'
  
 describe RejectReviewersController do
-  integrate_views
+  render_views
 
   it_should_require_login_for_actions :show, :update
 
@@ -9,8 +9,8 @@ describe RejectReviewersController do
     @user = Factory(:user)
     @reviewer = Factory(:reviewer, :user => @user)
     Reviewer.stubs(:find).returns(@reviewer)
-    activate_authlogic    
-    UserSession.create(@user)
+    sign_in @user
+    disable_authorization
   end
 
   it "show action should render show template" do

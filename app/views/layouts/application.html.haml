@@ -40,7 +40,7 @@
       
         = yield
 
-      #footer Copyleft - Agile Brazil 2010-2011 - #{t('footer.help').html_safe}
+      #footer Copyleft - #{current_conference.name} - #{t('footer.help').html_safe}
 
     - unless AppConfig[:google].nil?
       :javascript

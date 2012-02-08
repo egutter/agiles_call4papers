@@ -1,0 +1,11 @@
+Hola #{h(@session.authors.map(&:full_name).join(" & "))},
+
+Gracias por enviar la propuesta '#{h(@session.title)}' para  #{@conference_name}. Podras acceder y modificar la los detalles de la propuesta antes del fin del plazo de submisión el dia #{l(Ability::SESSION_SUBMISSION_DEADLINE.to_date)}, accediendo al link:
+
+= link_to session_url(@session, :locale => 'es'), session_url(@session, :locale => 'es')
+
+Gracias,
+
+Equipo de programa de #{@conference_name}
+
+[Por favor no responda este e-mail. Este fue enviado a traves de una dirección no monitoreada]

@@ -28,6 +28,16 @@ class EmailNotifications < ActionMailer::Base
          :reply_to => "\"#{@conference_name}\" <#{from_address}>",
          :date => sent_at
   end
+
+  def comment_posted(comment, sent_at = Time.now)
+    @comment = comment
+    @conference_name = current_conference.name
+    mail :subject => "[#{host}] #{I18n.t('email.comment_posted.subject', :conference_name => current_conference.name)}",
+         :to      => comment.commentable.authors.map { |author| "\"#{author.full_name}\" <#{author.email}>" },
+         :from     => "\"#{@conference_name}\" <#{from_address}>",
+         :reply_to => "\"#{@conference_name}\" <#{from_address}>",
+         :date => sent_at
+  end
   
   def reviewer_invitation(reviewer, sent_at = Time.now)
     I18n.locale = reviewer.user.try(:default_locale)

@@ -123,22 +123,21 @@ a:hover {
     #header ul#menu li {
       float: left;
       list-style: none;
-      background-color: #009933;
+      background-color: #336699;
       margin: 2px;
-      border: 2px solid #b0dff5; }
+      border: 2px solid #f7c13b; }
       #header ul#menu li.selected {
-        background-color: #22bb55; }
+        background-color: #5588bb; }
         #header ul#menu li.selected a {
-          color: #ffffe0; }
+          color: #f7c13b; }
     #header ul#menu a {
       color: white;
       padding: 10px;
       line-height: 25px;
       text-decoration: none; }
     #header ul#menu a:hover {
-      color: #ffffe0;
+      color: #f7c13b;
       text-decoration: underline; }
-
 #footer {
   display: inline;
   float: left;

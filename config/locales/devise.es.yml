@@ -14,6 +14,10 @@ es:
       invalid_token: "Llave de Autenticación invalida."
       timeout: "Su sesión ha expirado, por favor ingrese nuevamente para continuar."
       inactive: 'Su cuenta aun no ha sido activada.'
+    user_sessions:
+      user:
+        signed_in: 'Ingreso de sesión exitosamente.'
+      signed_out: 'Sesión cerrada exitosamente.'  
     sessions:
       signed_in: "Ingreso de sesión exitosamente."
       signed_out: 'Sesión cerrada exitosamente.'

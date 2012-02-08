@@ -389,6 +389,7 @@ es:
   
   actions:
     submission_date: "Plazo para enviar presentaciones"
+    author_confirmation_date: "Plazo para enviar presentaciones"
     review_date: "Plazo para evaluaciones"
     review_goal: "Objetivo"
     submit_session: "Envía una propuesta"
@@ -642,3 +643,10 @@ es:
     sort_down: "descendente"
     show: "Mostrar %{target}"
     hide: "Ocultar %{target}"
+
+  will_paginate:
+    previous_label: "&laquo; Anterior"
+    next_label: "Siguiente &raquo;"
+
+  tips:
+    users_from_last_year: "<strong>Aviso:</strong> Los usuarios del año pasado siguen activos. Si no te acordas de tu usuario o password, usa el link de arriba para recuperarlo."

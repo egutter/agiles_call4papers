@@ -1,6 +1,6 @@
 Hola #{h(@comment.commentable.authors.map(&:full_name).join(" & "))},
 
-Has recibo un comentario para tu propuesta '#{@comment.commentable.title}' en el sistema de presentación #{AppConfig[:conference_name]}.
+Has recibo un comentario para tu propuesta '#{@comment.commentable.title}' en el sistema de presentación #{@conference_name}.
 
 
 #{@comment.user.full_name} dice:
@@ -10,6 +10,6 @@ Para responder a este comentario, por favor accede al link: #{root_url}.
 
 Muchas gracias,
 
-Comité de Programa de #{AppConfig[:conference_name]}
+Comité de Programa de #{@conference_name}
 
 [Por favor no respondas a este correo electrónico. Fue enviado a través de una dirección que no es monitoreada]

@@ -1,6 +1,6 @@
 Olá #{h(@comment.commentable.authors.map(&:full_name).join(" & "))},
 
-Você acaba de receber um comentário no sistema de submissões da #{AppConfig[:conference_name]} para sua proposta de sessão: #{@comment.commentable.title}.
+Você acaba de receber um comentário no sistema de submissões da #{@conference_name} para sua proposta de sessão: #{@comment.commentable.title}.
 
 
 #{@comment.user.full_name} diz:
@@ -11,6 +11,6 @@ Para responder a este comentário, por favor entrar no site #{root_url}.
 
 Gratos,
 
-Equipe de programa da #{AppConfig[:conference_name]}
+Equipe de programa da #{@conference_name}
 
 [Por favor não responda este e-mail. Ele foi enviado através de um endereço não monitorado]

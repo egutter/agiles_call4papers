@@ -14,7 +14,7 @@ class CommentsController < InheritedResources::Base
   def create
     create! do |success, failure|
       success.html do
-        EmailNotifications.deliver_comment_posted(@comment)
+        EmailNotifications.comment_posted(@comment).deliver
         flash[:notice] = t('flash.comment.create.success')
         redirect_to session_path(@comment.commentable, :anchor => 'comments')
       end
@@ -29,7 +29,7 @@ class CommentsController < InheritedResources::Base
   def update
     update! do |success, failure|
       success.html do
-        EmailNotifications.deliver_comment_posted(@comment)
+        EmailNotifications.comment_posted(@comment).deliver
         flash[:notice] = t('flash.comment.update.success')
         redirect_to session_path(@comment.commentable, :anchor => 'comments')
       end

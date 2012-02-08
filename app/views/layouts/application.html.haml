@@ -8,8 +8,8 @@
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %link{"rel" => "shortcut icon", "href" => "/favicon.ico"}/
     = csrf_meta_tag
-    = include_stylesheets :application
-    = include_javascripts :application
+    = stylesheet_link_tag "application"  
+    = javascript_include_tag "application"    
 
     = yield(:head)
   
@@ -19,7 +19,7 @@
         = link_to image_tag('logo.png'), root_path
         .logo
           %h1= current_conference.name
-          %strong #{current_conference.location}, X/Ago - Y/Jul, 2012
+          %strong #{current_conference.location}, #{current_conference.name}
         %ul#languages
           %li= link_to "Español", "?locale=es"
           %li= link_to "Português", "?locale=pt"

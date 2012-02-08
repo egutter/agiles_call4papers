@@ -1,6 +1,6 @@
 # Be sure to restart your server when you modify this file.
 
-AgileBrazil::Application.config.session_store :cookie_store, :key => '_agile_brazil_session'
+AgilesCall4Papers::Application.config.session_store :cookie_store, :key => '_agiles_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information

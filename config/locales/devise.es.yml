@@ -18,6 +18,12 @@ es:
       user:
         signed_in: 'Ingreso de sesión exitosamente.'
       signed_out: 'Sesión cerrada exitosamente.'  
+    password_resets:
+      send_instructions: 'Usted recibirá un email con instrucciones de como confirmar su cuenta en unos minutos.'
+      updated: 'Su cuenta ha sido confirmada exitosamente. Ahora usted puede ingresar.'
+    confirmations:
+      send_instructions: 'Usted recibirá un email con instrucciones sobre como re establecer su contraseña en unos minutos.'
+      confirmed: 'Su contraseña ha sido cambiada exitosamente. Ahora usted puede ingresar.'
     sessions:
       signed_in: "Ingreso de sesión exitosamente."
       signed_out: 'Sesión cerrada exitosamente.'

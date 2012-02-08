@@ -1,4 +1,4 @@
-AgileBrazil::Application.configure do
+AgilesCall4Papers::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -13,6 +13,12 @@ AgileBrazil::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  config.action_mailer.delivery_method = :sendmail
+  # Defaults to:
+  # config.action_mailer.sendmail_settings = {
+  #   :location => '/usr/sbin/sendmail',
+  #   :arguments => '-i -t'
+  # }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
 

@@ -4,7 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-AgileBrazil::Application.load_tasks
+AgilesCall4Papers::Application.load_tasks
 
 begin
   require 'metric_fu'

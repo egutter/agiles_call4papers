@@ -51,7 +51,7 @@ en:
         attendee:
           attributes:
             courses:
-              compatible: "cannot attend all chosen courses. Please check the <a href='http://www.agilebrazil.com/2011/en/programacao.php' target='_blank'>program</a>."
+              compatible: "cannot attend all chosen courses. Please check the <a href='http://agiles2012.agiles.org' target='_blank'>program</a>."
               limit_reached: "the %{course} course has reached the limit number of participants."
             registration_type_id:
               free_not_allowed: "Inscrição gratuita não está disponível."

@@ -11,7 +11,7 @@ class RegistrationReminder
   
   private
   def pending_attendees
-    Attendee.all(:conditions => ['conference_id = ? AND status = ? AND registration_type_id <> ? AND registration_date < ?', current_conference.id, 'pending', RegistrationType.find_by_title('registration_type.group').id, Time.zone.local(2011, 5, 21)], :order => 'id')
+    Attendee.all(:conditions => ['conference_id = ? AND status = ? AND registration_type_id <> ? AND registration_date < ?', current_conference.id, 'pending', RegistrationType.find_by_title('registration_type.group').id, Time.zone.local(2012, 5, 21)], :order => 'id')
   end
   
   def try_with(action, &blk)

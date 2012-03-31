@@ -41,7 +41,7 @@
 - unless attendee.courses.empty?
   %p You must make the online payment or send your deposit confirmation receipt until #{I18n.l(deadline)}. After that date, your place in the #{attendee.courses.size > 1 ? 'courses' : 'course'} will no longer be guaranteed. To check place availability in any course, contact #{mail_to AppConfig[:organizer][:email]}.
 
-%p After #{I18n.l([attendee.registration_period.end_at.to_date, deadline].max)}, the registration amount will be updated according to the table available at #{link_to "http://www.agilebrazil.com.br/2011/en/inscricoes.php", "http://www.agilebrazil.com.br/2011/en/inscricoes.php"}.
+%p After #{I18n.l([attendee.registration_period.end_at.to_date, deadline].max)}, the registration amount will be updated according to the table available at #{link_to "http://www.agiles2012.agiles.org", "http://www.agiles2012.agiles.org"}.
 
 - if attendee.student?
   %h6 Valid student ids:

@@ -1,5 +1,10 @@
 == Agiles 20XX Submission System
 
+HOWTO:
+
+1. Change deadlines:
+ -In models/ability.rb you'll find all the deadlines
+
 KNOWN ISSUES AFTER UPGRADE:
 
  * Fix named_scope specs (problem with remarkable and rails3/arel, pending for now)

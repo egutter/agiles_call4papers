@@ -1,8 +1,8 @@
 class Ability
   include CanCan::Ability
 
-  SESSION_BROADCASTING = Time.zone.local(2012, 3, 20, 23, 59, 59)
-  SESSION_OPEN_SUBMISSION  = Time.zone.local(2012, 3, 20, 23, 59, 59)
+  SESSION_BROADCASTING = Time.zone.local(2012, 4, 29, 23, 59, 59)
+  SESSION_OPEN_SUBMISSION  = Time.zone.local(2012, 4, 29, 23, 59, 59)
   SESSION_SUBMISSION_DEADLINE = Time.zone.local(2012, 6, 15, 23, 59, 59)
   REVIEW_DEADLINE = Time.zone.local(2012, 7, 15, 23, 59, 59)
   AUTHOR_NOTIFICATION_DEADLINE = Time.zone.local(2012, 7, 20, 23, 59, 59)

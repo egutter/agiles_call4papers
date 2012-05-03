@@ -57,7 +57,7 @@ class Session < ActiveRecord::Base
     record.errors.add(attr, :lightning_talk_duration) if value != 10
   end
   validates_each :session_type_id, :if => :experience_report? do |record, attr, value|
-    record.errors.add(attr, :experience_report_session_type) unless ['session_types.talk.title', 'session_types.lightning_talk.title'].include?(record.session_type.try(:title))
+    record.errors.add(attr, :experience_report_session_type) unless ['session_types.talk.title', 'session_types.lightning_talk.title', 'session_types.experience_reports.title'].include?(record.session_type.try(:title))
   end
   validates_each :author_id, :on => :update do |record, attr, value|
     record.errors.add(attr, :constant) if record.author_id_changed?

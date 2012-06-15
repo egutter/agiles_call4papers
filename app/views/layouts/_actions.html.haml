@@ -1,8 +1,8 @@
 - if user_signed_in?
   - if current_user.author? || current_user.organizer?
     #date
-      %p= t('actions.author_confirmation_date')
-      %p <strong>#{l(Ability::AUTHOR_CONFIRMATION_DEADLINE.to_date)}</strong>
+      %p= t('actions.submission_date')
+      %p <strong>#{l(Ability::SESSION_SUBMISSION_DEADLINE.to_date)}</strong>
       - if current_user.organizer?
         #review_progress_count
           #{t('actions.review_goal')}:

@@ -389,7 +389,7 @@ es:
   
   actions:
     submission_date: "Plazo para enviar presentaciones"
-    author_confirmation_date: "Plazo para enviar presentaciones"
+    author_confirmation_date: "Plazo para confirmar la participación"
     review_date: "Plazo para evaluaciones"
     review_goal: "Objetivo"
     submit_session: "Envía una propuesta"

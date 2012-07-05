@@ -1,0 +1,19 @@
+%p Hola #{h(@reviewer.user.full_name)},
+
+%p Nos gustaría invitarte a formar parte del equipo de evaluación del programa de #{@conference_name}. Si aceptas esta invitación, por favor, haz click en el siguiente link:
+
+%p= link_to reviewer_accept_url(@reviewer, :locale => 'es'), reviewer_accept_url(@reviewer, :locale => 'es')
+
+%p En el caso de no aceptar, por favor, haz click en el siguiente link:
+
+%p= link_to reviewer_reject_url(@reviewer, :locale => 'es'), reviewer_reject_url(@reviewer, :locale => 'es')
+
+%p Si alguna de las URLs anteriores no funcionan, prueba copiándola y pegándola en tu navegador.
+
+%p Contamos con tu colaboración para crear una programación excelente para #{@conference_name}. Si tienes cualquier pregunta, puedes contactarnos a través de #{link_to "agiles2012-program@agiles.org", "mailto:agiles2012-program@agiles.org"}.
+
+%p Gracias,
+
+%p Comité de Programa de #{@conference_name}
+
+%small [Por favor no respondas este e-mail. Fue enviado desde una casilla no monitoreada]

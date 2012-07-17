@@ -30,7 +30,7 @@ class Review < ActiveRecord::Base
                         :proposal_duration, :proposal_limit, :proposal_abstract,
                         :in => [true, false]
   
-  validates_length_of :comments_to_authors, :minimum => 150
+  #validates_length_of :comments_to_authors, :minimum => 150
 
   validates_uniqueness_of :reviewer_id, :scope => :session_id
 

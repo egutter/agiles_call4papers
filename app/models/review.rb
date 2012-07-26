@@ -45,7 +45,7 @@ class Review < ActiveRecord::Base
     puts "Author, 2nd Author, Title, Summary, AudienceLevel, Session Type, Track, Durantion, Experience, Reviewer, Recommendation"
     for_conference(Conference.current).each { |review|
       puts "#{review.session.author.full_name}, #{review.session.second_author.try(:full_name)}, "+
-             "#{review.session.title}, #{review.session.summary.truncate(50)}, #{t review.audience_level.title}, "+
+             "#{review.session.title}, #{review.session.summary.truncate(50)}, #{t review.session.audience_level.title}, "+
             "#{t review.session.session_type.title}, #{t review.session.track.title}, #{review.session.duration_mins}, "+
              "#{review.session.experience}, #{review.reviewer.full_name}, #{t review.recommendation.title}"
     }

@@ -1,7 +1,13 @@
 class ReviewPublisher
+
   def publish
     ensure_all_sessions_reviewed
     ensure_all_decisions_made
+    publish_rejected()
+    publish_accepted
+  end
+
+  def publish_rejected
     rejected_sessions.each do |session|
       Rails.logger.info("[SESSION] #{session.to_param}")
       try_with("REJECT") do
@@ -9,6 +15,9 @@ class ReviewPublisher
         session.review_decision.update_attribute(:published, true)
       end
     end
+  end
+
+  def publish_accepted
     accepted_sessions.each do |session|
       Rails.logger.info("[SESSION] #{session.to_param}")
       try_with("ACCEPT") do
@@ -17,7 +26,7 @@ class ReviewPublisher
       end
     end
   end
-  
+
   private
   def ensure_all_sessions_reviewed
     not_reviewed_count = Session.count(:conditions => ['state = ? AND conference_id = ?', 'created', current_conference.id])

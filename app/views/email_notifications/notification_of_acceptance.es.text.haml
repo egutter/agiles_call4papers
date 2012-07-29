@@ -1,0 +1,30 @@
+Estimado #{h(@session.authors.map(&:full_name).join(" & "))},
+
+Estamos muy contentos de anunciarte que tu propuesta '#{h(@session.title)}' fue seleccionada para ser parte del programa de la conferencia – #{@conference_name}!
+
+Puedes acceder a los comentarios y sugerencias de los evaluadores en:
+= session_reviews_url(@session, :locale => 'en')
+
+
+Te solicitamos que por favor confirmes tu asistencia al evento antes del #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%H:%M of %B %dth, %Y')} accediendo al formulario:
+= session_confirm_url(@session, :locale => 'en')
+
+
+Si no podrás participar del evento, te pedimos que lo confirmes desde:
+= session_withdraw_url(@session, :locale => 'en')
+
+- if(@session.authors.size > 1)
+  Tanto el autor (#{@session.author.full_name} como #{@session.second_author.full_name}) pueden confirmar o declinar la asistencia. Una vez que un autor lo confirme o decline, ninguno podrá cambiar esta desición.
+
+Las sesiones de aquellos autores que no confirmen su asistencia antes del #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%B %dth, %Y')} serán automaticamente removidos del programa y reemplazados por otra sesión.
+
+Si tu asistencia es confirmada, la organización de #{@conference_name} se pondrá en contacto al respecto de como realizar la registración sin cargo para el evento.
+
+Ante cualquier duda o comentario, por favor contacta al Comite de programa en la siguiente dirección de correo electrónico #{mail_to 'agiles2012-program@agiles.org'}.
+
+Esperamos verte pronto!
+#{"--"}
+
+Comite de programa de #{@conference_name}
+
+[Por favor no responda este e-mail. El mismo fue enviado desde una dirección no monitoreada]

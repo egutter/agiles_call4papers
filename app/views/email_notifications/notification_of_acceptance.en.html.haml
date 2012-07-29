@@ -1,8 +1,6 @@
 %p Dear #{h(@session.authors.map(&:full_name).join(" & "))},
 
-%p Due to a problem in our server, not all email notifications were sent. Therefore, we decided it would be better to resend all notifications to avoid any further problems. If you have already received this email, please ignore it.
-
-%p We are pleased to inform you that your proposal <strong>'#{h(@session.title)}'</strong> has been selected to be part of the program of the Brazilian Conference about Agile Methods – #{@conference_name}!
+%p We are pleased to inform you that your proposal <strong>'#{h(@session.title)}'</strong> has been selected to be part of the program of – #{@conference_name}!
 
 %p
   Please refer to the comments and suggestions made by the evaluators accessing:
@@ -27,7 +25,7 @@
 
 %p If your attendance is confirmed, the organization of #{@conference_name} will contact you about your complementary registration#{@session.authors.size > 1 ? 's' : ''} for the event.
 
-%p Should you have any queries, requests or comments, please contact the Program Committee at #{mail_to 'programa@agilebrazil.com'}.
+%p Should you have any queries, requests or comments, please contact the Program Committee at #{mail_to 'agiles2012-program@agiles.org'}.
 
 %p
   We hope to see you soon!

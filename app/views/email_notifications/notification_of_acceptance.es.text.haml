@@ -6,7 +6,7 @@ Puedes acceder a los comentarios y sugerencias de los evaluadores en:
 = session_reviews_url(@session, :locale => 'es')
 
 
-Te solicitamos que por favor confirmes tu asistencia al evento antes del #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%H:%M of %B %dth, %Y')} accediendo al formulario:
+Te solicitamos que por favor confirmes tu asistencia al evento antes del #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%d/%m/%Y %H:%M')} accediendo al formulario:
 = session_confirm_url(@session, :locale => 'es')
 
 
@@ -16,7 +16,7 @@ Si no podrás participar del evento, te pedimos que lo confirmes desde:
 - if(@session.authors.size > 1)
   Tanto el autor (#{@session.author.full_name} como #{@session.second_author.full_name}) pueden confirmar o declinar la asistencia. Una vez que un autor lo confirme o decline, ninguno podrá cambiar esta desición.
 
-Las sesiones de aquellos autores que no confirmen su asistencia antes del #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%B %dth, %Y')} serán automaticamente removidos del programa y reemplazados por otra sesión.
+Las sesiones de aquellos autores que no confirmen su asistencia antes del #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%d/%m/%Y %H:%M')} serán automaticamente removidos del programa y reemplazados por otra sesión.
 
 Si tu asistencia es confirmada, la organización de #{@conference_name} se pondrá en contacto al respecto de como realizar la registración sin cargo para el evento.
 

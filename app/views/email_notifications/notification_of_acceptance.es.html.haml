@@ -5,17 +5,17 @@
 %p
   Puedes acceder a los comentarios y sugerencias de los evaluadores en:
   %br
-  = link_to session_reviews_url(@session, :locale => 'en'), session_reviews_url(@session, :locale => 'es')
+  = link_to session_reviews_url(@session, :locale => 'es'), session_reviews_url(@session, :locale => 'es')
 
 %p
   Te solicitamos que por favor confirmes tu asistencia al evento antes del #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%H:%M of %B %dth, %Y')} accediendo al formulario:
   %br
-  = link_to session_confirm_url(@session, :locale => 'en'), session_confirm_url(@session, :locale => 'es')
+  = link_to session_confirm_url(@session, :locale => 'es'), session_confirm_url(@session, :locale => 'es')
 
 %p
   Si no podrás participar del evento, te pedimos que lo confirmes desde:
   %br
-  = link_to session_withdraw_url(@session, :locale => 'en'), session_withdraw_url(@session, :locale => 'es')
+  = link_to session_withdraw_url(@session, :locale => 'es'), session_withdraw_url(@session, :locale => 'es')
 
 - if(@session.authors.size > 1)
   %p

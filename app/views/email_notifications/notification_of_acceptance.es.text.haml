@@ -3,15 +3,15 @@ Estimado #{h(@session.authors.map(&:full_name).join(" & "))},
 Estamos muy contentos de anunciarte que tu propuesta '#{h(@session.title)}' fue seleccionada para ser parte del programa de la conferencia – #{@conference_name}!
 
 Puedes acceder a los comentarios y sugerencias de los evaluadores en:
-= session_reviews_url(@session, :locale => 'en')
+= session_reviews_url(@session, :locale => 'es')
 
 
 Te solicitamos que por favor confirmes tu asistencia al evento antes del #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%H:%M of %B %dth, %Y')} accediendo al formulario:
-= session_confirm_url(@session, :locale => 'en')
+= session_confirm_url(@session, :locale => 'es')
 
 
 Si no podrás participar del evento, te pedimos que lo confirmes desde:
-= session_withdraw_url(@session, :locale => 'en')
+= session_withdraw_url(@session, :locale => 'es')
 
 - if(@session.authors.size > 1)
   Tanto el autor (#{@session.author.full_name} como #{@session.second_author.full_name}) pueden confirmar o declinar la asistencia. Una vez que un autor lo confirme o decline, ninguno podrá cambiar esta desición.

@@ -4,8 +4,8 @@ class Session < ActiveRecord::Base
                   :author_id, :second_author_username, :track_id, :conference_id,
                   :session_type_id, :duration_mins, :experience,
                   :keyword_list, :author_agreement, :image_agreement, :state_event
-  attr_trimmed    :title, :summary, :description, :mechanics, :benefits,
-                  :target_audience, :experience
+  attr_trimmed :title, :summary, :description, :mechanics, :benefits,
+               :target_audience, :experience
 
   acts_as_taggable_on :keywords
   acts_as_commentable
@@ -39,7 +39,7 @@ class Session < ActiveRecord::Base
   validates_existence_of :track, :session_type, :audience_level, :allow_blank => true
 
   validates_each :keyword_list do |record, attr, value|
-    record.errors.add(attr, :too_long, :count => 10) if record.keyword_list.size > 10
+    record.errors.add(attr, :too_long, :count => 12) if record.keyword_list.size > 12
   end
 
   validates_each :second_author_username, :allow_blank => true do |record, attr, value|
@@ -63,7 +63,7 @@ class Session < ActiveRecord::Base
     record.errors.add(attr, :constant) if record.author_id_changed?
   end
 
-  scope :for_conference, lambda { |c| where('conference_id = ?', c.id)}
+  scope :for_conference, lambda { |c| where('conference_id = ?', c.id) }
 
   scope :for_user, lambda { |u| where('author_id = ? OR second_author_id = ?', u.to_i, u.to_i) }
 
@@ -76,7 +76,7 @@ class Session < ActiveRecord::Base
   scope :for_preferences, lambda { |*preferences|
     return where('1 = 2') if preferences.empty?
     clause = preferences.map { |p| "(track_id = ? AND audience_level_id <= ?)" }.join(" OR ")
-    args = preferences.map {|p| [p.track_id, p.audience_level_id]}.flatten
+    args = preferences.map { |p| [p.track_id, p.audience_level_id] }.flatten
     where(clause, *args)
   }
 
@@ -84,10 +84,10 @@ class Session < ActiveRecord::Base
 
   def self.for_reviewer(user, conference)
     for_conference(conference).
-    incomplete_reviews(3).
-    not_author(user.id).
-    without_state(:cancelled).
-    for_preferences(*user.preferences(conference)).all - reviewed_by(user, conference).all
+      incomplete_reviews(3).
+      not_author(user.id).
+      without_state(:cancelled).
+      for_preferences(*user.preferences(conference)).all - reviewed_by(user, conference).all
   end
 
   state_machine :initial => :created do
@@ -151,6 +151,37 @@ class Session < ActiveRecord::Base
   def lightning_talk?
     self.session_type.try(:title) == 'session_types.lightning_talk.title'
   end
+
+  def self.reviews_to_csv
+    recommendation_value = {"recommendation.strong_reject.title" => -2,
+                            "recommendation.weak_reject.title" => -1,
+                            "recommendation.weak_accept.title" => 1,
+                            "recommendation.strong_accept.title" => 2}
+    File.open('reviews.csv', 'w') do |file|
+      file.puts "ID, Author, 2nd Author, Title, Summary, AudienceLevel, Session Type, Track, Duration, Recommendation SUM, Reviewer 1, Reviewer 2, Reviewer 3"
+      for_conference(Conference.current).each { |session|
+        recommendation_sum = 0
+        reviews = []
+        session.reviews.each {|review|
+          recommendation_sum += recommendation_value[review.recommendation.title]
+          reviews << "#{review.reviewer.full_name} -> #{I18n.translate review.recommendation.title}"
+        }
+        file.puts "#{session.id}, #{session.author.full_name}, "+
+                    "#{session.second_author.try(:full_name)}, "+
+                    "#{safe_text(session.title)}, #{safe_text(session.summary.truncate(200))}, "+
+                    "#{I18n.translate session.audience_level.title}, "+
+                    "#{I18n.translate session.session_type.title}, "+
+                    "#{safe_text(I18n.translate(session.track.title))}, "+
+                    "#{session.duration_mins}, "+
+                    "#{recommendation_sum}, #{reviews.join(',')}"
+      }
+    end
+  end
+
+  def self.safe_text(text)
+    text.gsub(',', ';').gsub(/[ \t\r\n\f]/, ' ')
+  end
+
 
   private
   def workshop?

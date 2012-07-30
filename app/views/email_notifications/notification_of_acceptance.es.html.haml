@@ -13,7 +13,7 @@
   = link_to session_confirm_url(@session, :locale => 'es'), session_confirm_url(@session, :locale => 'es')
 
 %p
-  Si no podrás participar del evento, te pedimos que lo avises desde:
+  Si no podrás participar del evento, te pedimos que que nos comuniques tu decisión desde:
   %br
   = link_to session_withdraw_url(@session, :locale => 'es'), session_withdraw_url(@session, :locale => 'es')
 
@@ -23,7 +23,7 @@
 
 %p Las sesiones de aquellos autores que no confirmen su asistencia antes del #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%d/%m/%Y %H:%M')} serán automáticamente removidos del programa y reemplazados por otra sesión.
 
-%p Si confirmas tu asistencia, la organización de #{@conference_name} se pondrá en contacto contigo para comunicarte como realizar la registración sin cargo para el evento.
+%p Si confirmas tu asistencia, la organización de #{@conference_name} se pondrá en contacto contigo para comunicarte como realizar la inscripción sin cargo para el evento.
 
 %p Ante cualquier duda o comentario, por favor contacta al Comité de programa en la siguiente dirección de correo electrónico #{mail_to 'agiles2012-program@agiles.org'}.
 

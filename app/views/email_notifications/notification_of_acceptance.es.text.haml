@@ -10,21 +10,21 @@ Te solicitamos que por favor confirmes tu asistencia al evento antes del #{Abili
 = session_confirm_url(@session, :locale => 'es')
 
 
-Si no podrás participar del evento, te pedimos que lo confirmes desde:
+Si no podrás participar del evento, te pedimos que lo avises desde:
 = session_withdraw_url(@session, :locale => 'es')
 
 - if(@session.authors.size > 1)
   Tanto el autor (#{@session.author.full_name} como #{@session.second_author.full_name}) pueden confirmar o declinar la asistencia. Una vez que un autor lo confirme o decline, ninguno podrá cambiar esta desición.
 
-Las sesiones de aquellos autores que no confirmen su asistencia antes del #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%d/%m/%Y %H:%M')} serán automaticamente removidos del programa y reemplazados por otra sesión.
+Las sesiones de aquellos autores que no confirmen su asistencia antes del #{Ability::AUTHOR_CONFIRMATION_DEADLINE.strftime('%d/%m/%Y %H:%M')} serán automáticamente removidos del programa y reemplazados por otra sesión.
 
-Si tu asistencia es confirmada, la organización de #{@conference_name} se pondrá en contacto al respecto de como realizar la registración sin cargo para el evento.
+Si confirmas tu asistencia, la organización de #{@conference_name} se pondrá en contacto contigo para comunicarte como realizar la registración sin cargo para el evento.
 
-Ante cualquier duda o comentario, por favor contacta al Comite de programa en la siguiente dirección de correo electrónico #{mail_to 'agiles2012-program@agiles.org'}.
+Ante cualquier duda o comentario, por favor contacta al Comité de programa en la siguiente dirección de correo electrónico #{mail_to 'agiles2012-program@agiles.org'}.
 
 Esperamos verte pronto!
 #{"--"}
 
-Comite de programa de #{@conference_name}
+Comité de programa de #{@conference_name}
 
 [Por favor no responda este e-mail. El mismo fue enviado desde una dirección no monitoreada]

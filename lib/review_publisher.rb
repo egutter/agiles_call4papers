@@ -62,8 +62,6 @@ class ReviewPublisher
   rescue => e
     HoptoadNotifier.notify(e)
     Rails.logger.info("  [FAILED #{action}] #{e.message}")
-  ensure
-    Rails.logger.flush
   end
   
   def sessions_with_outcome(outcome)

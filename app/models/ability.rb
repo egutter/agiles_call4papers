@@ -7,7 +7,7 @@ class Ability
   REVIEW_DEADLINE = Time.zone.local(2012, 7, 28, 23, 59, 59)
   AUTHOR_NOTIFICATION_DEADLINE = Time.zone.local(2012, 8, 3, 23, 59, 59)
   AUTHOR_CONFIRMATION_DEADLINE = Time.zone.local(2012, 8, 6, 23, 59, 59)
-  REGISTRATION_DEADLINE = Time.zone.local(2012, 8, 15, 23, 59, 59)
+  REGISTRATION_DEADLINE = Time.zone.local(2012, 8, 14, 23, 59, 59)
 
   def initialize(user, conference, params={})
     @user = user || User.new # guest

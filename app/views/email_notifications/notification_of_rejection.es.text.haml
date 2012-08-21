@@ -1,0 +1,17 @@
+Estimado #{h(@session.authors.map(&:full_name).join(" & "))},
+
+Lamentamos informarte que tu propuesta '#{h(@session.title)}' no ha sido seleccionada para ser parte del programa de la conferencia #{@conference_name}.
+
+Hemos recibido alrededor de 100 propuestas este año. Debido a esto muchas buenas propuestas no han podido ser incluidas en el programa por falta de espacio. Puedes ver el feedback que recibió tu propuesta por parte del comité de programa en:
+
+= session_reviews_url(@session, :locale => 'es')
+
+Si tienes alguna duda, pedido o comentario, no dejes de contactarte con el Comité de Programa en la casilla de correo: agiles2012-program@agiles.org.
+
+Muchas gracias por enviar tu propuesta. Esperamos que puedas asistir este año a la conferencia y te recordamos que tendremos un día completo de OpenSpace donde podrás proponer tu sesión nuevamente.
+
+Cordialmente,
+#{"--"}
+El Comité de Programa de #{@conference_name}
+
+[Por favor no responda este e-mail. El mismo fue enviado de una casilla de correo que no es monitoreada]

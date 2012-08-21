@@ -1,13 +1,10 @@
 Caro#{@session.authors.size > 1 ? "s":""} #{@session.authors.map(&:full_name).join(" & ")},
 
 
-Devido a um problema em nosso servidor, nem todas as notificações por email foram enviadas. Para evitar mais problemas, decidimos reenviar todas as notificações. Se você já recebeu este email, por favor, desconsidere-o.
-
-
 Infelizmente, sua proposta '#{h(@session.title)}' não foi selecionada para integrar o programa da Conferência #{@conference_name}.
 
 
-Recebemos em torno de 100 propostas este ano. Infelizmente, isso significa que muitas boas propostas não puderam ser aceitas devido à falta de espaço. No final, foram aceitas cerca de 85 sessões, considerando a necessidade de criar um programa equilibrado, com um conteúdo de qualidade e efetivo aos participantes da conferência. Você#{@session.authors.size > 1 ? "s":""} pode#{@session.authors.size > 1 ? "m":""} ver o feedback sobre sua proposta fornecido pelos avaliadores e pelos organizadores de trilha acessando o endereço:
+Recebemos em torno de 100 propostas este ano. Infelizmente, isso significa que muitas boas propostas não puderam ser aceitas devido à falta de espaço. Você#{@session.authors.size > 1 ? "s":""} pode#{@session.authors.size > 1 ? "m":""} ver o feedback sobre sua proposta fornecido pelos avaliadores e pelos organizadores de trilha acessando o endereço:
 
 = session_reviews_url(@session, :locale => 'pt')
 

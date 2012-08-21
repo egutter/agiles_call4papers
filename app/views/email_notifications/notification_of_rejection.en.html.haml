@@ -1,11 +1,9 @@
 %p Dear #{h(@session.authors.map(&:full_name).join(" & "))},
 
-%p Due to a problem in our server, not all email notifications were sent. Therefore, we decided it would be better to resend all notifications to avoid any further problems. If you have already received this email, please ignore it.
-
 %p We regret to inform you that your proposal <strong>'#{h(@session.title)}'</strong> has not been selected to be part of the program of the #{@conference_name} conference.
 
 %p
-  We have received around 100 proposals this year. Sadly, this means that many good proposals could not be included in the program due to lack of space. In the end, around 85 sessions were selected, taking into consideration the need to create a balanced schedule, with high quality content and tailored to the conference attendees. You may see the feedback that your proposal has received from the reviewers and track organizers at:
+  We have received around 100 proposals this year. Sadly, this means that many good proposals could not be included in the program due to lack of space. You may see the feedback that your proposal has received from the reviewers and track organizers at:
   %br
   = link_to session_reviews_url(@session, :locale => 'en'), session_reviews_url(@session, :locale => 'en')
 

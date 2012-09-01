@@ -147,6 +147,19 @@ class EmailNotifications < ActionMailer::Base
          :date => sent_at
   end
 
+  def speaker_registration(speaker, sent_at = Time.now)
+    @speaker = speaker
+    I18n.locale = @speaker.default_locale
+    @conference_name = current_conference.name
+    @speaker_code = 'SPK88255'
+    @registration_url = 'https://eventioz.com.ar/events/agiles-2012-cordoba-argentina'
+    mail :subject => "[#{host}] #{I18n.t('email.speaker_registration.subject', :conference_name => current_conference.name)}",
+         :to      => "\"#{speaker.full_name}\" <#{speaker.email}>",
+         :from     => "\"#{current_conference.name}\" <#{from_address}>",
+         :reply_to => "\"#{current_conference.name}\" <#{from_address}>",
+         :date => sent_at
+  end
+
   private
   def from_address
     ActionMailer::Base.smtp_settings[:user_name]

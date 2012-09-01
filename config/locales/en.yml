@@ -516,6 +516,8 @@ en:
       subject: "Notification from the Program Committee of %{conference_name}"
     comment_posted:
       subject: "Comment posted to one of your sessions submitted at %{conference_name}"
+    speaker_registration:
+      subject: "Registration details for %{conference_name}"
   vote:
     description: "You can no longer vote or update your vote. But feel free to look at the proposals. Remember that the logo will be presented on the event's advertisement material: printed, projected on screens, or used on videos (both in colors and in black and white)."
     confirmation: "Are you sure you want to vote for logo $LOGO? Only your most recent vote will count."

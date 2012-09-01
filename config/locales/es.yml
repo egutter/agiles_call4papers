@@ -561,7 +561,8 @@ es:
       subject: "Comunicado del Comite de Programa de %{conference_name}"
     comment_posted:
       subject: "Comentario recibido en una de tus sesiones postuladas en %{conference_name}"      
-  
+    speaker_registration:
+      subject: "Instrucciones para la registración en %{conference_name}"
   vote:
     description: "La votación para el logo del evento terminó."
     confirmation: "¿Está seguro de votar por el logo $LOGO?"

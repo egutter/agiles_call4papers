@@ -7,6 +7,15 @@ class ReviewPublisher
     publish_accepted
   end
 
+  def speaker_registrations
+    accepted_sessions(true).map(&:authors).flatten.each do |speaker|
+      Rails.logger.info("[SPEAKER] #{speaker.full_name}-#{speaker.email}")
+      try_with("SPEAKER_REGISTRATION") do
+        EmailNotifications.speaker_registration(speaker).deliver
+      end
+    end
+  end
+
   def publish_rejected
     rejected_sessions.each do |session|
       Rails.logger.info("[SESSION] #{session.to_param}")
@@ -52,8 +61,8 @@ class ReviewPublisher
     sessions_with_outcome('outcomes.reject.title')
   end
   
-  def accepted_sessions
-    sessions_with_outcome('outcomes.accept.title')
+  def accepted_sessions(published = false)
+    sessions_with_outcome('outcomes.accept.title', published)
   end  
   
   def try_with(action, &blk)
@@ -64,10 +73,10 @@ class ReviewPublisher
     Rails.logger.info("  [FAILED #{action}] #{e.message}")
   end
   
-  def sessions_with_outcome(outcome)
+  def sessions_with_outcome(outcome, published = false)
     Session.all(
       :joins => :review_decision,
-      :conditions => ['outcome_id = ? AND published = ? AND conference_id = ?', Outcome.find_by_title(outcome).id, false, current_conference.id]
+      :conditions => ['outcome_id = ? AND published = ? AND conference_id = ?', Outcome.find_by_title(outcome).id, published, current_conference.id]
     )
   end
   

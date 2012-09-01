@@ -1,0 +1,16 @@
+%p Hola #{h(@attendee.full_name)},
+
+%p Por ser uno de los autores seleccionados para presentar una sesión en #{@conference_name} puedes registrarte gratuitamente a la conferencia accediendo a:
+  = link_to @registration_url
+
+%p Tu código de registración es <strong>'#{@speaker_code}'</strong>
+
+%p
+  Esperamos verte pronto!
+  %br
+  = "--"
+  %br
+  Comité de Programa de #{@conference_name}
+
+
+%small [Por favor no respondas a este e-mail. Fue enviado desde una casilla no monitoreada]

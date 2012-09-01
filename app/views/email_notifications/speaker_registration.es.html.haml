@@ -2,7 +2,7 @@
 
 %p
   Por ser uno de los autores seleccionados para presentar una sesión en #{@conference_name} puedes registrarte gratuitamente a la conferencia accediendo a:
-  = @registration_url
+  = link_to @registration_url, @registration_url
 
 %p Tu código de registración es <strong>'#{@speaker_code}'</strong>
 

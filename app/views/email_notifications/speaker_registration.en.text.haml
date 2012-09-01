@@ -1,12 +1,12 @@
-Dear #{h(@speaker.full_name)},
+Dear #{@speaker.full_name},
 
 As a selected speaker you can register in #{@conference_name} free of charge in the following url:
 = @registration_url
 
-Your registration speaker code is <strong>'#{@speaker_code}'</strong>
+Your registration speaker code is '#{@speaker_code}'
 
 We hope to see you soon!
-= "--"
+#{"--"}
 Program Committee of #{@conference_name} Conference
 
 [Please do not reply to this e-mail. It was sent from an unmonitored email address]

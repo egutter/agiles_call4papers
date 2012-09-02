@@ -82,6 +82,16 @@ class Session < ActiveRecord::Base
 
   scope :incomplete_reviews, lambda { |limit| where('reviews_count < ?', limit) }
 
+  scope :sessions_with_outcome, lambda { |outcome, published|
+    for_conference(Conference.current).
+      joins(:review_decision).
+      where(:review_decisions => {:outcome_id => Outcome.find_by_title(outcome).id, :published => published})
+  }
+
+  scope :accepted_sessions, lambda { |published|
+    sessions_with_outcome('outcomes.accept.title', published)
+  }
+
   def self.for_reviewer(user, conference)
     for_conference(conference).
       incomplete_reviews(3).
@@ -152,6 +162,34 @@ class Session < ActiveRecord::Base
     self.session_type.try(:title) == 'session_types.lightning_talk.title'
   end
 
+  def self.approved_authors_to_csv
+    File.open('authors_selected.csv', 'w') do |file|
+      file.puts "Full name| Email| Company| Country| Bio"
+      Session.accepted_sessions(true).map(&:authors).flatten.each { |author|
+        file.puts "#{author.full_name}| "+
+                    "#{author.email}| "+
+                    "#{author.organization}| "+
+                    "#{author.country}| "+
+                    "#{safe_text(author.bio)}"
+      }
+    end
+  end
+
+  def self.approved_sessions_to_csv
+    File.open('approved_sessions.csv', 'w') do |file|
+      file.puts "ID| Author| 2nd Author| Title| Summary| AudienceLevel| Session Type| Track| Duration"
+      Session.accepted_sessions(true).each { |session|
+        file.puts "#{session.id}| #{session.author.full_name}| "+
+                    "#{session.second_author.try(:full_name)}| "+
+                    "#{safe_text(session.title)}| #{safe_text(session.summary)}| "+
+                    "#{I18n.translate session.audience_level.title}| "+
+                    "#{I18n.translate session.session_type.title}| "+
+                    "#{safe_text(I18n.translate(session.track.title))}| "+
+                    "#{session.duration_mins}"
+      }
+    end
+  end
+
   def self.reviews_to_csv
     recommendation_value = {"recommendation.strong_reject.title" => -2,
                             "recommendation.weak_reject.title" => -1,
@@ -162,7 +200,7 @@ class Session < ActiveRecord::Base
       for_conference(Conference.current).each { |session|
         recommendation_sum = 0
         reviews = []
-        session.reviews.each {|review|
+        session.reviews.each { |review|
           recommendation_sum += recommendation_value[review.recommendation.title]
           reviews << "#{review.reviewer.full_name} -> #{I18n.translate review.recommendation.title}"
         }

@@ -1,4 +1,4 @@
-== Agiles 20XX Submission System
+##Agiles 20XX Submission System
 
 Run rake gems to list the libraries being used to build this app.
 
@@ -6,7 +6,7 @@ For project progress and stories: http://www.pivotaltracker.com/projects/48585
 
 TODO:
 
- --- BUGS
+##BUGS
  * new_session_review(nil) works iff locale is not explicit
  * Sorting by author, second author and track sort weirdly (using ids instead of names) on organizer_sessions
  * Sorting by session sorts weirdly (using ids instead of names) on reviewer_reviews
@@ -34,7 +34,7 @@ IN PROGRESS:
 
  * [task] -- [person]
  
-DONE:
+##DONE:
 
  * Feedback for organizers to know if author agreed to give the rights to use his image -- Danilo
  * Fixing email templates and tests -- Hugo
@@ -147,7 +147,7 @@ DONE:
  * Homepage -- Danilo
  * Github project -- Frank
 
-BUGS:
+##BUGS:
 
 * After I have logged in, I then change my password, when I click on update, I am logged out....
 
@@ -159,7 +159,7 @@ BUGS:
 * Edit profile page: should not be able to insert <H1> / <H2> tags in Bio field. [won't fix]
 * Should allow / not allow numbers and characters in target audience field? [won't fix]
 
-FIXED:
+##FIXED:
 * "My sessions" link disapeared after session submission deadline expired -- Hugo/Mari
 * Session ID on the reviewer session listing is wrong [column removed] -- Hugo
 * Login brings you to the review count js [fixed] -- Hugo/Danilo

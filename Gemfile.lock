@@ -99,7 +99,7 @@ GEM
       i18n
       ruby-progressbar
       ruby_parser
-    rake (10.0.3)
+    rake (0.8.7)
     rcov (0.9.9)
     reek (1.2.8)
       ruby2ruby (~> 1.2)
@@ -163,6 +163,7 @@ DEPENDENCIES
   metric_fu
   mocha (= 0.9.4)
   rails (= 2.3.11)
+  rake (= 0.8.7)
   remarkable (= 3.1.11)
   remarkable_activerecord (= 3.1.11)
   remarkable_rails (= 3.1.11)

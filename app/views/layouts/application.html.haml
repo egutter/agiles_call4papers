@@ -8,7 +8,7 @@
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %link{"rel" => "shortcut icon", "href" => "/favicon.ico"}/
     = stylesheet_link_tag '/css/bootstrap.min.css', '/css/bootstrap-responsive.min.css', '/css/font-awesome.min.css', '/css/app.css', :cache => true
-    = javascript_include_tag '/js/jquery-1.9.1.min.js', '/js/bootstrap.min.js', '/js/application', '/js/jquery.autocomplete.min', '/js/jquery.textarearesizer', '/js/jquery.progressbar.min', '/js/facebox/facebox', :cache => true
+    = javascript_include_tag '/js/jquery-1.9.1.min.js', '/js/bootstrap.min.js', '/js/application.js', '/js/jquery.autocomplete.min.js', '/js/jquery.textarearesizer.js', '/js/jquery.progressbar.min.js', '/facebox/facebox.js' , :cache => true
     
     = yield(:head)
   
@@ -33,7 +33,9 @@
       
       .row  
       - if show_actions?
-        .span9.offset1
+        .span3.offset1
+          = render :partial => 'layouts/actions'
+        .span6
           - flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}"
         
@@ -41,14 +43,6 @@
             %h1= yield(:title)         
         
           = yield
-          #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-            .modal-header
-              %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-              %h3#myModalLabel 
-                %i.icon-user
-                Ingresar
-            .modal-body
-              = render :partial => 'layouts/actions'
                     
       .row
         .span10.offset1

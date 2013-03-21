@@ -8,18 +8,18 @@
         %span.progress
   %h3&= current_user.full_name
 - else
-  - semantic_form_for @user_session do |f|
-    - f.inputs do
-      = f.input :username, :required => true, :input_html => {:tabindex => autotab}
-      = f.input :password, :required => true, :input_html => {:tabindex => autotab}
-    - f.buttons do
-      = f.commit_button "Log in", :button_html => {:tabindex => autotab}
+  - semantic_form_for @user_session do |p|
+    - p.inputs do
+      = p.input :username, :required => true, :input_html => {:tabindex => autotab}
+      = p.input :password, :required => true, :input_html => {:tabindex => autotab}
+    - p.buttons do
+      = p.commit_button "Log in", :button_html => {:tabindex => autotab, :class => '.btn-primary'}
 
 - if logged_in?
   %h4= t('actions.section.session')
   %ul
     - if can? :create, Session
-      %li= link_to t('actions.submit_session'), new_session_path
+      %li= link_to t('actions.submit_session'), new_session_path,fff
     - if can? :read, Session
       %li= link_to t('actions.browse_sessions'), sessions_path
       - if current_user.sessions.count > 0

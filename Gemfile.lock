@@ -83,6 +83,7 @@ GEM
     mime-types (1.17.2)
     mocha (0.9.4)
       rake
+    pg (0.14.1)
     rack (1.1.6)
     rails (2.3.11)
       actionmailer (= 2.3.11)
@@ -162,6 +163,7 @@ DEPENDENCIES
   inherited_resources (= 1.0.0)
   metric_fu
   mocha (= 0.9.4)
+  pg
   rails (= 2.3.11)
   rake (= 0.8.7)
   remarkable (= 3.1.11)

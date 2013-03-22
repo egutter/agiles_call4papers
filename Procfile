@@ -1,1 +1,1 @@
-web: bundle exec ruby /script/server -p $PORT
+web:  ruby /script/server -p $PORT

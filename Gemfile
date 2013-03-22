@@ -14,7 +14,7 @@ gem 'cancan', '1.0.2'
 gem 'formtastic', '0.9.7'
 gem 'metric_fu'
 gem 'rake', '0.8.7'
-gem 'pg'
+
 #, '1.1.6'
 gem 'remarkable_rails', '3.1.11'
 gem 'seed-fu', '1.2.1'
@@ -38,6 +38,7 @@ group :development, :test do
   gem 'rspec', '1.2.9'
   gem 'mocha', '0.9.4'
   gem 'heroku'
+  gem 'pg'
 end
 
 # Use unicorn as the web server

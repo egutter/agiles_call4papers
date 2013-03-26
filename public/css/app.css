@@ -9,3 +9,8 @@ body {
 ol {
 	list-style: none;
 }
+.cont {
+	background-color: white;
+	padding: 10px;
+	border-radius: 8px;
+}

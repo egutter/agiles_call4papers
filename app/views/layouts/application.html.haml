@@ -31,13 +31,15 @@
         .span10.offset1
           = render :partial => 'layouts/menu'
       
-      .row  
+      .row 
       - if show_actions?
-        .span3.offset1
+        .span3.offset1.cont
           = render :partial => 'layouts/actions'
-        .span6
+        .span6.cont
           - flash.each do |name, msg|
-            = content_tag :div, msg, :id => "flash_#{name}"
+            = content_tag :div, msg + content_tag(:button, "&times;", :type => "button", :class => "close", "data-dismiss" => "alert"), :id => "flash_#{name}", :class => "alert alert-success"
+              
+              
         
           - if show_title?
             %h1= yield(:title)         

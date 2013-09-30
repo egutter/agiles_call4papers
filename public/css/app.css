@@ -1,0 +1,16 @@
+body {
+	padding-top: 20px !important;
+	background-image: url('../img/bright_squares.png');
+}
+.right {
+	float: right;
+	text-align: right;
+}
+ol {
+	list-style: none;
+}
+.cont {
+	background-color: white;
+	padding: 10px;
+	border-radius: 8px;
+}

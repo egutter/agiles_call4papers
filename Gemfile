@@ -1,11 +1,10 @@
 source 'http://rubygems.org'
-
-gem 'rails', '2.3.5'
+ruby "1.8.7"
+gem 'rails', '2.3.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
 
 #gem 'mojombo-chronic'
 gem 'chronic', '0.2.3'
@@ -13,6 +12,8 @@ gem 'acts-as-taggable-on', '1.0.18'
 gem 'cancan', '1.0.2'
 gem 'formtastic', '0.9.7'
 gem 'metric_fu'
+gem 'rake', '0.8.7'
+
 #, '1.1.6'
 gem 'remarkable_rails', '3.1.11'
 gem 'seed-fu', '1.2.1'
@@ -36,6 +37,11 @@ group :development, :test do
   gem 'rspec', '1.2.9'
   gem 'mocha', '0.9.4'
   gem 'heroku'
+  gem 'sqlite3-ruby', :require => 'sqlite3'
+end
+
+group :production do
+  gem "pg"
 end
 
 # Use unicorn as the web server

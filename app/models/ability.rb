@@ -1,13 +1,13 @@
 class Ability
   include CanCan::Ability
 
-  SESSION_BROADCASTING = Time.zone.local(2012, 4, 29, 23, 59, 59)
-  SESSION_OPEN_SUBMISSION  = Time.zone.local(2012, 4, 29, 23, 59, 59)
-  SESSION_SUBMISSION_DEADLINE = Time.zone.local(2012, 7, 1, 23, 59, 59)
-  REVIEW_DEADLINE = Time.zone.local(2012, 7, 28, 23, 59, 59)
-  AUTHOR_NOTIFICATION_DEADLINE = Time.zone.local(2012, 8, 3, 23, 59, 59)
-  AUTHOR_CONFIRMATION_DEADLINE = Time.zone.local(2012, 8, 14, 23, 59, 59)
-  REGISTRATION_DEADLINE = Time.zone.local(2012, 8, 15, 23, 59, 59)
+  SESSION_BROADCASTING = Time.zone.local(2014, 1, 1, 23, 59, 59)
+  SESSION_OPEN_SUBMISSION  = Time.zone.local(2014, 1, 10, 23, 59, 59)
+  SESSION_SUBMISSION_DEADLINE = Time.zone.local(2014, 3, 1, 23, 59, 59)
+  REVIEW_DEADLINE = Time.zone.local(2014, 5, 1, 23, 59, 59)
+  AUTHOR_NOTIFICATION_DEADLINE = Time.zone.local(2014, 8, 3, 23, 59, 59)
+  AUTHOR_CONFIRMATION_DEADLINE = Time.zone.local(2014, 8, 14, 23, 59, 59)
+  REGISTRATION_DEADLINE = Time.zone.local(2014, 8, 15, 23, 59, 59)
 
   def initialize(user, conference, params={})
     @user = user || User.new # guest
